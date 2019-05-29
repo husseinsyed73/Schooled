@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  Schooled
-//
+//test comment by omar
 //  Created by Hussein  Syed on 5/29/19.
 //  Copyright © 2019 Hussein  Syed. All rights reserved.
 //

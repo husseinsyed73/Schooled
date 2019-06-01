@@ -1,0 +1,29 @@
+PODS:
+  - AWSCognitoIdentityProvider (2.9.8):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.9.8)
+  - AWSCognitoIdentityProviderASF (1.0.1)
+  - AWSCore (2.9.8)
+  - Stripe (14.0.0)
+
+DEPENDENCIES:
+  - AWSCognitoIdentityProvider (~> 2.9.0)
+  - AWSCore (~> 2.9.0)
+  - Stripe
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - Stripe
+
+SPEC CHECKSUMS:
+  AWSCognitoIdentityProvider: 738b488930eca71cbaa91ac53764b146e90a6650
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
+  AWSCore: 5da86c5afde44a87b06a2df50601bca81a8cee13
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
+
+PODFILE CHECKSUM: 98bf5aceb3fe47b89afc8c4269b42b91b686384f
+
+COCOAPODS: 1.7.1

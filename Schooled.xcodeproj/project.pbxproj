@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
 		D38A0568229F33E400F373F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0567229F33E400F373F2 /* AppDelegate.swift */; };
 		D38A056A229F33E400F373F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0569229F33E400F373F2 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E783274B69E923FB12A48E7 /* Pods_SchooledUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
 				D38A0570229F33E600F373F2 /* LaunchScreen.storyboard */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
+				22F61034229F75FA00B9404F /* Send.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38A056A229F33E400F373F2 /* ViewController.swift in Sources */,
+				22F61035229F75FA00B9404F /* Send.swift in Sources */,
 				D38A0568229F33E400F373F2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
 		D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */; };
 		D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB68E22A2430900751AF6 /* AppDelegate.swift */; };
-		D3DCB69222A2431900751AF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB69022A2431900751AF6 /* Main.storyboard */; };
-		D3DCB69522A2434F00751AF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB69322A2434F00751AF6 /* LaunchScreen.storyboard */; };
 		D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69622A2438400751AF6 /* MFAViewController.swift */; };
 		D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */; };
 		D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69922A243A800751AF6 /* SignUpViewController.swift */; };
@@ -25,6 +23,8 @@
 		D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69D22A243A900751AF6 /* SignInViewController.swift */; };
 		D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69E22A243A900751AF6 /* Constants.swift */; };
 		D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */; };
+		D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7622A4AFEC0090B00B /* Main.storyboard */; };
+		D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,19 +60,19 @@
 		D38A0583229F33E600F373F2 /* SchooledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchooledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A0587229F33E600F373F2 /* SchooledUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchooledUITests.swift; sourceTree = "<group>"; };
 		D38A0589229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MFAViewController.xib; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/MFAViewController.xib"; sourceTree = "<group>"; };
-		D3DCB68E22A2430900751AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/AppDelegate.swift"; sourceTree = "<group>"; };
-		D3DCB69122A2431900751AF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
-		D3DCB69422A2434F00751AF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/Base.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		D3DCB69622A2438400751AF6 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MFAViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/MFAViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69922A243A800751AF6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/SignUpViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailTableViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/UserDetailTableViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmSignUpViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/ConfirmSignUpViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69C22A243A900751AF6 /* DevicesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevicesDetailTableViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/DevicesDetailTableViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69D22A243A900751AF6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/SignInViewController.swift"; sourceTree = "<group>"; };
-		D3DCB69E22A243A900751AF6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/Constants.swift"; sourceTree = "<group>"; };
-		D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmForgotPasswordViewController.swift; path = "../../aws-sdk-ios-samples-master-2/CognitoYourUserPools-Sample/Swift/CognitoYourUserPoolsSample/ConfirmForgotPasswordViewController.swift"; sourceTree = "<group>"; };
+		D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
+		D3DCB68E22A2430900751AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D3DCB69622A2438400751AF6 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
+		D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = /Users/husseinsyed/Downloads/Schooled/Schooled/ForgotPasswordViewController.swift; sourceTree = "<absolute>"; };
+		D3DCB69922A243A800751AF6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/husseinsyed/Downloads/Schooled/Schooled/SignUpViewController.swift; sourceTree = "<absolute>"; };
+		D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
+		D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmSignUpViewController.swift; path = /Users/husseinsyed/Downloads/Schooled/Schooled/ConfirmSignUpViewController.swift; sourceTree = "<absolute>"; };
+		D3DCB69C22A243A900751AF6 /* DevicesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesDetailTableViewController.swift; sourceTree = "<group>"; };
+		D3DCB69D22A243A900751AF6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = /Users/husseinsyed/Downloads/Schooled/Schooled/SignInViewController.swift; sourceTree = "<absolute>"; };
+		D3DCB69E22A243A900751AF6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		D3EE7F7622A4AFEC0090B00B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,11 +128,11 @@
 			children = (
 				D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */,
 				D3DCB68E22A2430900751AF6 /* AppDelegate.swift */,
-				D3DCB69022A2431900751AF6 /* Main.storyboard */,
+				D3EE7F7622A4AFEC0090B00B /* Main.storyboard */,
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
-				D3DCB69322A2434F00751AF6 /* LaunchScreen.storyboard */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
 				22F61034229F75FA00B9404F /* Send.swift */,
+				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
 				D3DCB69622A2438400751AF6 /* MFAViewController.swift */,
 				D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */,
 				D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */,
@@ -289,10 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DCB69222A2431900751AF6 /* Main.storyboard in Resources */,
-				D3DCB69522A2434F00751AF6 /* LaunchScreen.storyboard in Resources */,
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
+				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
 				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
+				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,25 +403,6 @@
 			targetProxy = D38A0584229F33E600F373F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D3DCB69022A2431900751AF6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3DCB69122A2431900751AF6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D3DCB69322A2434F00751AF6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3DCB69422A2434F00751AF6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D38A058A229F33E600F373F2 /* Debug */ = {

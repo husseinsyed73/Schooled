@@ -8,4 +8,5 @@ target 'Schooled' do
     pod 'Stripe'
     pod 'AWSCognitoIdentityProvider',$awsVersion
     pod 'AWSCore',$awsVersion
+    pod 'Alamofire'
 end

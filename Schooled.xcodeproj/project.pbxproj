@@ -3,18 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
-		D38A0568229F33E400F373F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0567229F33E400F373F2 /* AppDelegate.swift */; };
-		D38A056A229F33E400F373F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0569229F33E400F373F2 /* ViewController.swift */; };
-		D38A056D229F33E400F373F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38A056B229F33E400F373F2 /* Main.storyboard */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
-		D38A0572229F33E600F373F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38A0570229F33E600F373F2 /* LaunchScreen.storyboard */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
+		D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */; };
+		D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB68E22A2430900751AF6 /* AppDelegate.swift */; };
+		D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69622A2438400751AF6 /* MFAViewController.swift */; };
+		D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */; };
+		D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69922A243A800751AF6 /* SignUpViewController.swift */; };
+		D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */; };
+		D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */; };
+		D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69C22A243A900751AF6 /* DevicesDetailTableViewController.swift */; };
+		D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69D22A243A900751AF6 /* SignInViewController.swift */; };
+		D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69E22A243A900751AF6 /* Constants.swift */; };
+		D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */; };
+		D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7622A4AFEC0090B00B /* Main.storyboard */; };
+		D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,17 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E783274B69E923FB12A48E7 /* Pods_SchooledUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
 		8C1E61B1FB5A77716ACBE237 /* Pods-Schooled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.release.xcconfig"; sourceTree = "<group>"; };
 		9BDCE3DF938D5864DBDA8BB1 /* Pods_SchooledTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D38A0567229F33E400F373F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D38A0569229F33E400F373F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D38A056C229F33E400F373F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D38A0571229F33E600F373F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D38A0573229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D38A0578229F33E600F373F2 /* SchooledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchooledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A057C229F33E600F373F2 /* SchooledTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchooledTests.swift; sourceTree = "<group>"; };
@@ -53,6 +60,19 @@
 		D38A0583229F33E600F373F2 /* SchooledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchooledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A0587229F33E600F373F2 /* SchooledUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchooledUITests.swift; sourceTree = "<group>"; };
 		D38A0589229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
+		D3DCB68E22A2430900751AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D3DCB69622A2438400751AF6 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
+		D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		D3DCB69922A243A800751AF6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
+		D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSignUpViewController.swift; sourceTree = "<group>"; };
+		D3DCB69C22A243A900751AF6 /* DevicesDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesDetailTableViewController.swift; sourceTree = "<group>"; };
+		D3DCB69D22A243A900751AF6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D3DCB69E22A243A900751AF6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		D3EE7F7622A4AFEC0090B00B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +126,22 @@
 		D38A0566229F33E400F373F2 /* Schooled */ = {
 			isa = PBXGroup;
 			children = (
-				D38A0567229F33E400F373F2 /* AppDelegate.swift */,
-				D38A0569229F33E400F373F2 /* ViewController.swift */,
-				D38A056B229F33E400F373F2 /* Main.storyboard */,
+				D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */,
+				D3DCB68E22A2430900751AF6 /* AppDelegate.swift */,
+				D3EE7F7622A4AFEC0090B00B /* Main.storyboard */,
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
-				D38A0570229F33E600F373F2 /* LaunchScreen.storyboard */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
+				22F61034229F75FA00B9404F /* Send.swift */,
+				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
+				D3DCB69622A2438400751AF6 /* MFAViewController.swift */,
+				D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */,
+				D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */,
+				D3DCB69E22A243A900751AF6 /* Constants.swift */,
+				D3DCB69C22A243A900751AF6 /* DevicesDetailTableViewController.swift */,
+				D3DCB69822A243A800751AF6 /* ForgotPasswordViewController.swift */,
+				D3DCB69D22A243A900751AF6 /* SignInViewController.swift */,
+				D3DCB69922A243A800751AF6 /* SignUpViewController.swift */,
+				D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -259,9 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D38A0572229F33E600F373F2 /* LaunchScreen.storyboard in Resources */,
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
-				D38A056D229F33E400F373F2 /* Main.storyboard in Resources */,
+				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
+				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
+				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,20 +319,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A6B6671DE34D1CC99F7FE746 /* [CP] Check Pods Manifest.lock */ = {
@@ -333,8 +359,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D38A056A229F33E400F373F2 /* ViewController.swift in Sources */,
-				D38A0568229F33E400F373F2 /* AppDelegate.swift in Sources */,
+				D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */,
+				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
+				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,
+				D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */,
+				D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */,
+				D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */,
+				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
+				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
+				22F61035229F75FA00B9404F /* Send.swift in Sources */,
+				D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */,
+				D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,25 +403,6 @@
 			targetProxy = D38A0584229F33E600F373F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D38A056B229F33E400F373F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D38A056C229F33E400F373F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D38A0570229F33E600F373F2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D38A0571229F33E600F373F2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D38A058A229F33E600F373F2 /* Debug */ = {

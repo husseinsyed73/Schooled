@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework
+${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework
+${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework
+${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework

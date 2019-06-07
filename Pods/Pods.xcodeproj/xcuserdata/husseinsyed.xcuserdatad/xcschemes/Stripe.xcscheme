@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B01D7693ABBF2487D425C6155B947945"
+               BlueprintIdentifier = "AF94554BF4D2D7509628207456EC737D"
+               BuildableName = "Stripe.framework"
                BlueprintName = "Stripe"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Stripe.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

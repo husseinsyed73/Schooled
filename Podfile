@@ -9,4 +9,7 @@ target 'Schooled' do
     pod 'AWSCognitoIdentityProvider',$awsVersion
     pod 'AWSCore',$awsVersion
     pod 'Alamofire'
+    pod 'AWSS3'
+    pod 'AWSDynamoDB'
+    pod 'AWSMobileClient'
 end

@@ -17,6 +17,8 @@
 
 import Foundation
 import AWSCognitoIdentityProvider
+import AWSDynamoDB
+import AWSCore
 
 class SignUpViewController: UIViewController {
     
@@ -59,6 +61,7 @@ class SignUpViewController: UIViewController {
                 return
         }
         
+        
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         
         if let phoneValue = self.phone.text, !phoneValue.isEmpty {
@@ -93,6 +96,8 @@ class SignUpViewController: UIViewController {
                     // handle the case where user has to confirm his identity via email / SMS
                     if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {
                         strongSelf.sentTo = result.codeDeliveryDetails?.destination
+                        
+                        
                         strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
                     } else {
                         let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
@@ -102,5 +107,6 @@ class SignUpViewController: UIViewController {
             })
             return nil
         }
+       
     }
 }

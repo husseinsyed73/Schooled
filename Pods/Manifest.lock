@@ -1,33 +1,53 @@
 PODS:
   - Alamofire (4.8.2)
+  - AWSAuthCore (2.9.8):
+    - AWSCore (= 2.9.8)
   - AWSCognitoIdentityProvider (2.9.8):
     - AWSCognitoIdentityProviderASF (= 1.0.1)
     - AWSCore (= 2.9.8)
   - AWSCognitoIdentityProviderASF (1.0.1)
   - AWSCore (2.9.8)
+  - AWSDynamoDB (2.9.8):
+    - AWSCore (= 2.9.8)
+  - AWSMobileClient (2.9.8):
+    - AWSAuthCore (= 2.9.8)
+    - AWSCognitoIdentityProvider (= 2.9.8)
+  - AWSS3 (2.9.8):
+    - AWSCore (= 2.9.8)
   - Stripe (14.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AWSCognitoIdentityProvider (~> 2.9.0)
   - AWSCore (~> 2.9.0)
+  - AWSDynamoDB
+  - AWSMobileClient
+  - AWSS3
   - Stripe
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AWSAuthCore
     - AWSCognitoIdentityProvider
     - AWSCognitoIdentityProviderASF
     - AWSCore
+    - AWSDynamoDB
+    - AWSMobileClient
+    - AWSS3
     - Stripe
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AWSAuthCore: 7ebbe523f28149a1706e7ec1736203cdaaeba380
   AWSCognitoIdentityProvider: 738b488930eca71cbaa91ac53764b146e90a6650
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
   AWSCore: 5da86c5afde44a87b06a2df50601bca81a8cee13
+  AWSDynamoDB: 92861d2f95fb6754e29a6815f605cd90dd0b27d4
+  AWSMobileClient: d3b6cbe30dcdb45866c85b0d088106504f72d4a3
+  AWSS3: a5e12eb2495bbe49cda8b0595fa77280aacd7d3d
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
 
-PODFILE CHECKSUM: bc1c3df0c4795d1fdc8e3cf7ef9e22ba82302e9c
+PODFILE CHECKSUM: 3b6c19fae8916b4d171a08fbe33dcc9d1f2ba4fc
 
 COCOAPODS: 1.7.1

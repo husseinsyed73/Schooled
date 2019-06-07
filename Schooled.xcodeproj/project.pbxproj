@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
+		D307D52722A99022004C90E1 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D307D52622A99022004C90E1 /* awsconfiguration.json */; };
+		D3083F6722A8DB55000FC30E /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3083F6622A8DB55000FC30E /* UserDataModel.swift */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
@@ -51,6 +53,8 @@
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
 		8C1E61B1FB5A77716ACBE237 /* Pods-Schooled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.release.xcconfig"; sourceTree = "<group>"; };
 		9BDCE3DF938D5864DBDA8BB1 /* Pods_SchooledTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D307D52622A99022004C90E1 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		D3083F6622A8DB55000FC30E /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38A0573229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				D38A0573229F33E600F373F2 /* Info.plist */,
 				22F61034229F75FA00B9404F /* Send.swift */,
 				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
+				D3083F6622A8DB55000FC30E /* UserDataModel.swift */,
+				D307D52622A99022004C90E1 /* awsconfiguration.json */,
 				D3DCB69622A2438400751AF6 /* MFAViewController.swift */,
 				D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */,
 				D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */,
@@ -289,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D307D52722A99022004C90E1 /* awsconfiguration.json in Resources */,
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
 				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
 				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
@@ -359,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3083F6722A8DB55000FC30E /* UserDataModel.swift in Sources */,
 				D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */,
 				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
 				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,

@@ -1,24 +1,12 @@
-//
-// Copyright 2014-2018 Amazon.com,
-// Inc. or its affiliates. All Rights Reserved.
-//
-// Licensed under the Amazon Software License (the "License").
-// You may not use this file except in compliance with the
-// License. A copy of the License is located at
-//
-//     http://aws.amazon.com/asl/
-//
-// or in the "license" file accompanying this file. This file is
-// distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, express or implied. See the License
-// for the specific language governing permissions and
-// limitations under the License.
-//
-
+// confirm signup class
+import AWSDynamoDB
 import Foundation
 import AWSCognitoIdentityProvider
 
 class ConfirmSignUpViewController : UIViewController {
+    
+   
+    
     
     var sentTo: String?
     var user: AWSCognitoIdentityUser?
@@ -37,6 +25,7 @@ class ConfirmSignUpViewController : UIViewController {
     
     // handle confirm sign up
     @IBAction func confirm(_ sender: AnyObject) {
+        
         guard let confirmationCodeValue = self.code.text, !confirmationCodeValue.isEmpty else {
             let alertController = UIAlertController(title: "Confirmation code missing.",
                                                     message: "Please enter a valid confirmation code.",
@@ -59,6 +48,31 @@ class ConfirmSignUpViewController : UIViewController {
                     
                     strongSelf.present(alertController, animated: true, completion:  nil)
                 } else {
+                    // after the user gets confirmed we can add them to the database
+                    // its okay to do user name since no dublicates
+                    // add the email and phone number attributes
+                    
+                    let addingUser = UserDataModel()
+                    // adding the user name to the data
+                    addingUser?._userId = self?.user!.username
+                    addingUser?._subject = "any"
+                    addingUser?._questions = 0 as NSNumber
+                    
+                    // defining the client side object mapping
+                    let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+                    
+                    dynamoDBObjectMapper.save(addingUser!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                        // taking it off the main ui thread
+                        
+                        
+                        if let error = task.error as NSError? {
+                            print("The request failed. Error: \(error)")
+                        } else {
+                            // Do something with task.result or perform other operations.
+                        }
+                        
+                        return nil
+                    })
                     let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
                 }
             })

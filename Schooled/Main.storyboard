@@ -63,7 +63,7 @@
                                     <segue destination="BkF-2Z-FaF" kind="show" identifier="forgotPasswordSegue" id="999-73-2kk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cognito User Pools Sample" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHw-29-FDb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                  Schooled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHw-29-FDb">
                                 <rect key="frame" x="59.5" y="382" width="256" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="0Yb-K0-Luy"/>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-507" y="72"/>
+            <point key="canvasLocation" x="-508" y="71.514242878560722"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="4u0-bl-9q3">
@@ -182,7 +182,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="attributesView" id="HrM-CC-Cfx" userLabel="User Details" customClass="UserDetailTableViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems>
-                        <barButtonItem title="Questions" id="jB0-N5-pLO">
+                        <barButtonItem title="Ask Question" id="jB0-N5-pLO">
                             <connections>
                                 <action selector="Questions:" destination="HrM-CC-Cfx" id="J5e-MM-Ygz"/>
                             </connections>

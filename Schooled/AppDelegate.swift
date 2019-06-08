@@ -1,22 +1,7 @@
-//
-// Copyright 2014-2018 Amazon.com,
-// Inc. or its affiliates. All Rights Reserved.
-//
-// Licensed under the Amazon Software License (the "License").
-// You may not use this file except in compliance with the
-// License. A copy of the License is located at
-//
-//     http://aws.amazon.com/asl/
-//
-// or in the "license" file accompanying this file. This file is
-// distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, express or implied. See the License
-// for the specific language governing permissions and
-// limitations under the License.
-//
 
 import UIKit
 import AWSCognitoIdentityProvider
+import AWSMobileClient
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,17 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Warn user if configuration not updated
-        if (CognitoIdentityUserPoolId == "YOUR_USER_POOL_ID") {
-            let alertController = UIAlertController(title: "Invalid Configuration",
-                                                    message: "Please configure user pool constants in Constants.swift file.",
-                                                    preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            
-            self.window?.rootViewController!.present(alertController, animated: true, completion:  nil)
-        }
-        
+        AWSMobileClient.sharedInstance().interceptApplication(
+            application,
+            didFinishLaunchingWithOptions: launchOptions)
+
         // setup logging
         AWSDDLog.sharedInstance.logLevel = .verbose
         
@@ -61,9 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pool = AWSCognitoIdentityUserPool(forKey: AWSCognitoUserPoolsSignInProviderKey)
         self.storyboard = UIStoryboard(name: "Main", bundle: nil)
         pool.delegate = self
-        
+       
         return true
     }
+    
+    
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

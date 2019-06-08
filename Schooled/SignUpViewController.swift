@@ -29,6 +29,10 @@ class SignUpViewController: UIViewController {
         if let signUpConfirmationViewController = segue.destination as? ConfirmSignUpViewController {
             signUpConfirmationViewController.sentTo = self.sentTo
             signUpConfirmationViewController.user = self.pool?.getUser(self.username.text!)
+            // passing on the rest of the user data
+            signUpConfirmationViewController.email = self.email.text!
+            signUpConfirmationViewController.phoneNumber = self.phone.text!
+            
         }
     }
     
@@ -92,6 +96,7 @@ class SignUpViewController: UIViewController {
             })
             return nil
         }
-       
-    }
+        
+}
+    
 }

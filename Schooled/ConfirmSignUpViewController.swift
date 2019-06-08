@@ -7,9 +7,12 @@ class ConfirmSignUpViewController : UIViewController {
     
    
     
-    
+    // variables be set upon segue
     var sentTo: String?
     var user: AWSCognitoIdentityUser?
+    var email = "dddddddd"
+    var phoneNumber = "dddd"
+    
     
     @IBOutlet weak var sentToLabel: UILabel!
     @IBOutlet weak var username: UITextField!
@@ -57,6 +60,10 @@ class ConfirmSignUpViewController : UIViewController {
                     addingUser?._userId = self?.user!.username
                     addingUser?._subject = "any"
                     addingUser?._questions = 0 as NSNumber
+                    addingUser?._email = self?.email
+                    addingUser?._phoneNumber = self?.phoneNumber 
+                    
+                    
                     
                     // defining the client side object mapping
                     let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()

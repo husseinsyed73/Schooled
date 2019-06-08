@@ -573,10 +573,10 @@
             </objects>
             <point key="canvasLocation" x="-2535" y="939"/>
         </scene>
-        <!--View Controller-->
+        <!--Send View Controller-->
         <scene sceneID="QcR-Rx-JhV">
             <objects>
-                <viewController id="6n7-V0-a5g" sceneMemberID="viewController">
+                <viewController id="6n7-V0-a5g" customClass="SendViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UUZ-nH-ecS"/>
                         <viewControllerLayoutGuide type="bottom" id="Pyb-ZN-KN7"/>
@@ -602,6 +602,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAx-uU-Lgw">
+                                <rect key="frame" x="67" y="244" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>

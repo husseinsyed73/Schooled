@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
 		D307D52722A99022004C90E1 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D307D52622A99022004C90E1 /* awsconfiguration.json */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E783274B69E923FB12A48E7 /* Pods_SchooledUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +150,7 @@
 				D3DCB69D22A243A900751AF6 /* SignInViewController.swift */,
 				D3DCB69922A243A800751AF6 /* SignUpViewController.swift */,
 				D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */,
+				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
 				22F61035229F75FA00B9404F /* Send.swift in Sources */,
 				D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */,
+				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
 				D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

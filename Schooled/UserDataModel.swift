@@ -18,6 +18,8 @@ import AWSDynamoDB
 class UserDataModel: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     @objc var _userId: String?
+    @objc  var _email: String?
+    @objc var _phoneNumber: String?
     @objc var _questions: NSNumber?
     @objc var _subject: String?
     
@@ -34,6 +36,8 @@ class UserDataModel: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     override class func jsonKeyPathsByPropertyKey() -> [AnyHashable: Any] {
         return [
                "_userId" : "userId",
+               "_email" : "Email",
+               "_phoneNumber" : "Phone Number",
                "_questions" : "Questions",
                "_subject" : "Subject",
         ]

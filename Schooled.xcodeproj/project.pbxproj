@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F11D2822AC2C29005AAB0F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F11D2722AC2C29005AAB0F /* ImagePicker.swift */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F11D2722AC2C29005AAB0F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				D3DCB69922A243A800751AF6 /* SignUpViewController.swift */,
 				D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */,
 				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
+				22F11D2722AC2C29005AAB0F /* ImagePicker.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				D3083F6722A8DB55000FC30E /* UserDataModel.swift in Sources */,
 				D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */,
 				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
+				22F11D2822AC2C29005AAB0F /* ImagePicker.swift in Sources */,
 				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,
 				D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */,
 				D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */,

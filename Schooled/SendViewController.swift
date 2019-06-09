@@ -14,7 +14,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
-    var imagePicker = ImagePicker!
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,41 +22,29 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
     }
-    
-    @IBAction func addPhoto(_ sender: UIButton) {
-        
+    //This function adds a photo into the UIImageView to be sent
+    @IBAction func addPhoto(_ sender: Any) {
+        //if we can pick a picture then enter this
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            //print the button capture to indicate we will pick a picture
+            print("Button capture")
+            //set the source of the pictures to the saved pictures on the users phone
+            imagePicker.sourceType = .photoLibrary
+            //we do not want to allow the user to edit the picture in this functio
+            imagePicker.allowsEditing = true
+
+            //present the imagePicker in this view controller
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
-    
-        //    //This function adds a photo into the UIImageView to be sent
-//    @IBAction func addPhoto(_ sender: Any) {
-//        //if we can pick a picture then enter this
-//        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-//            //print the button capture to indicate we will pick a picture
-//            print("Button capture")
-//
-//            imagePicker.delegate = self
-//            //set the source of the pictures to the saved pictures on the users phone
-//            imagePicker.sourceType = .savedPhotosAlbum
-//            //we do not want to allow the user to edit the picture in this functio
-//            imagePicker.allowsEditing = false
-//
-//            //present the imagePicker in this view controller
-//            present(imagePicker, animated: true, completion: nil)
-//        }
-//    }
-//
-//    //This function allows the user to pick the image and sets the image they picked to the image we want to use
-//    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-//        self.dismiss(animated: true, completion: { () -> Void in
-//
-//        })
-//        //set the image to the image the user picks
-//        imageView.image = image
-//    }
-    
-    //This photo sends the photo to the users number and their email
-    @IBAction func sendPhoto(_ sender: Any) {
+    //This function puts the image in the imageView to display for the user
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //if the image is an UIImage then display it into the imageView
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            imageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     /*

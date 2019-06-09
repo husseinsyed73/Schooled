@@ -609,7 +609,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Photo"/>
                                 <connections>
-                                    <action selector="addPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="O7i-v8-mth"/>
+                                    <action selector="addPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="Gwe-Q2-wzJ"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -11,10 +11,10 @@
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
 		D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3012FCF22AB7A9A0069709C /* UserDataModel.swift */; };
-		D307D52722A99022004C90E1 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D307D52622A99022004C90E1 /* awsconfiguration.json */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
+		D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */; };
 		D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */; };
 		D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB68E22A2430900751AF6 /* AppDelegate.swift */; };
 		D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69622A2438400751AF6 /* MFAViewController.swift */; };
@@ -56,7 +56,6 @@
 		8C1E61B1FB5A77716ACBE237 /* Pods-Schooled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.release.xcconfig"; sourceTree = "<group>"; };
 		9BDCE3DF938D5864DBDA8BB1 /* Pods_SchooledTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3012FCF22AB7A9A0069709C /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
-		D307D52622A99022004C90E1 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38A0573229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		D38A0583229F33E600F373F2 /* SchooledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchooledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A0587229F33E600F373F2 /* SchooledUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchooledUITests.swift; sourceTree = "<group>"; };
 		D38A0589229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
 		D3DCB68E22A2430900751AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DCB69622A2438400751AF6 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
@@ -137,10 +137,10 @@
 				D3EE7F7622A4AFEC0090B00B /* Main.storyboard */,
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
+				D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */,
 				22F61034229F75FA00B9404F /* Send.swift */,
 				D3012FCF22AB7A9A0069709C /* UserDataModel.swift */,
 				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
-				D307D52622A99022004C90E1 /* awsconfiguration.json */,
 				D3DCB69622A2438400751AF6 /* MFAViewController.swift */,
 				D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */,
 				D3DCB69B22A243A800751AF6 /* ConfirmSignUpViewController.swift */,
@@ -298,11 +298,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D307D52722A99022004C90E1 /* awsconfiguration.json in Resources */,
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
 				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
 				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
 				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
+				D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,12 +9,16 @@
 //This class is connected to the ViewController that controls the sending and adding of photos
 
 import UIKit
-
+import AWSS3
 class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
+    
+   
+    
+    var localPath: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,5 +60,45 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Pass the selected object to the new view controller.
     }
     */
-
+   // function to send the photo and
+    // post it on the main feed
+    // just make the subject now math add in scroll wheel later
+    // then name of the photo will be the user
+    @IBAction func SendPhoto(_ sender: Any) {
+        // this adds the needed data to the plist
+        
+        // converting the data to a png reprisentation
+    // end the function if empty
+        guard let image = imageView.image else {return}
+        let data = image.pngData()
+        let remoteName = "test.png"
+        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
+        do {
+            try data?.write(to: fileURL)
+            localPath = fileURL
+            let uploadRequest = AWSS3TransferManagerUploadRequest()
+            uploadRequest?.body = fileURL
+            uploadRequest?.key = "QuestionImages/"+"Mollyhomework" + ".png"
+            // sending over the bucket name and the type
+            // name scheme being
+            // lets en
+            uploadRequest?.bucket = bucket
+            uploadRequest?.contentType = "image/png"
+            
+            let transferManager = AWSS3TransferManager.default()
+            
+            transferManager.upload(uploadRequest!).continueWith { (task) -> AnyObject? in
+                if let error = task.error {
+                    print("Upload failed (\(error))")
+                }
+                return nil
+            }
+        }
+        catch {
+            print("File not save failed")
+        }
+    
+    
+    }
 }
+

@@ -10,13 +10,16 @@
 
 import UIKit
 import AWSS3
+import AWSDynamoDB
 class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
+    var text = ""
     
-   
+    @IBOutlet weak var Questiondirections: UITextView!
+    
     
     var localPath: URL!
     
@@ -72,13 +75,26 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let image = imageView.image else {return}
         let data = image.pngData()
         let remoteName = "test.png"
+        self.text = self.Questiondirections.text!
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
         do {
             try data?.write(to: fileURL)
             localPath = fileURL
             let uploadRequest = AWSS3TransferManagerUploadRequest()
             uploadRequest?.body = fileURL
-            uploadRequest?.key = "QuestionImages/"+"Mollyhomework" + ".png"
+            // username dash and the time for splitting up the data
+            var keydata = "QuestionImages/"+username123;
+            keydata = keydata + "-";
+            keydata = keydata + String(Int64(Date().timeIntervalSince1970 * 1000));
+            keydata = keydata + ".png"
+            // reason still png because we have to move it into the dynamo db the same
+            var textkey = username123;
+            textkey = textkey + "-";
+            textkey = textkey + String(Int64(Date().timeIntervalSince1970 * 1000));
+            textkey = textkey + ".png"
+            
+            uploadRequest?.key = keydata
+            
             // sending over the bucket name and the type
             // name scheme being
             // lets en
@@ -91,11 +107,39 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 if let error = task.error {
                     print("Upload failed (\(error))")
                 }
+                // once we return lets now upload the text to the s3 server also
+                sendText(key:textkey);
                 return nil
             }
         }
         catch {
             print("File not save failed")
+        }
+       
+        
+        
+        func sendText(key:String){
+            // now sending the text
+            let photoadder = Phototext();
+            // creating the user object
+            photoadder?._userId = key;
+            photoadder?._noteId = text;
+           
+            // crendtials for aws access not the user model
+            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            
+            dynamoDBObjectMapper.save(photoadder!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                // taking it off the main ui thread
+                
+                
+                if let error = task.error as NSError? {
+                    print("The request failed. Error: \(error)")
+                } else {
+                    // Do something with task.result or perform other operations.
+                }
+                
+                return nil
+            })
         }
     
     

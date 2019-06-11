@@ -9,3 +9,5 @@ let CognitoIdentityUserPoolAppClientSecret = "16uq2n9hmakuepmmd7743ruhclfrd140kc
 let AWSCognitoUserPoolsSignInProviderKey = "UserPool"
 let bucket = "schooled-deployments-mobilehub-969166170"
 let identities1 = "us-east-1:383302fa-e779-4596-9db5-c9f98d26860a"
+// storing the username during intial sign in 
+var username123 = ""

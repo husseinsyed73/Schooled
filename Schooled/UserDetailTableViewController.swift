@@ -15,6 +15,7 @@ class UserDetailTableViewController : UITableViewController {
         self.pool = AWSCognitoIdentityUserPool(forKey: AWSCognitoUserPoolsSignInProviderKey)
         if (self.user == nil) {
             self.user = self.pool?.currentUser()
+            
         }
         self.refresh()
     }
@@ -51,11 +52,13 @@ class UserDetailTableViewController : UITableViewController {
             DispatchQueue.main.async(execute: {
                 self.response = task.result
                 self.title = self.user?.username
+                // saving the user name from the main menu 
+                username123 = self.user?.username! ?? "broken"
                 self.tableView.reloadData()
             })
             return nil
         }
-    }
+    
     
 }
-
+}

@@ -15,6 +15,7 @@
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
 		D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */; };
+		D3ACA70D22B061F100301CFA /* Phototext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ACA70C22B061F100301CFA /* Phototext.swift */; };
 		D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */; };
 		D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB68E22A2430900751AF6 /* AppDelegate.swift */; };
 		D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69622A2438400751AF6 /* MFAViewController.swift */; };
@@ -66,6 +67,7 @@
 		D38A0587229F33E600F373F2 /* SchooledUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchooledUITests.swift; sourceTree = "<group>"; };
 		D38A0589229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		D3ACA70C22B061F100301CFA /* Phototext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phototext.swift; sourceTree = "<group>"; };
 		D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
 		D3DCB68E22A2430900751AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DCB69622A2438400751AF6 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				D3DCB69D22A243A900751AF6 /* SignInViewController.swift */,
 				D3DCB69922A243A800751AF6 /* SignUpViewController.swift */,
 				D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */,
+				D3ACA70C22B061F100301CFA /* Phototext.swift */,
 				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
 			);
 			path = Schooled;
@@ -378,6 +381,7 @@
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
 				22F61035229F75FA00B9404F /* Send.swift in Sources */,
+				D3ACA70D22B061F100301CFA /* Phototext.swift in Sources */,
 				D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */,
 				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
 				D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */,

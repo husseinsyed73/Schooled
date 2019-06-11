@@ -616,6 +616,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="Questiondirections" destination="4E9-LJ-NxC" id="Dve-sI-7L1"/>
                         <outlet property="choosePic" destination="xOz-Vd-U2U" id="5zF-Sa-eh8"/>
                         <outlet property="imageView" destination="nAx-uU-Lgw" id="4WG-8j-9li"/>
                     </connections>

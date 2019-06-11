@@ -82,8 +82,9 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             localPath = fileURL
             let uploadRequest = AWSS3TransferManagerUploadRequest()
             uploadRequest?.body = fileURL
+            // no point of folder because storing all of the photos
             // username dash and the time for splitting up the data
-            var keydata = "QuestionImages/"+username123;
+            var keydata = username123;
             keydata = keydata + "-";
             keydata = keydata + String(Int64(Date().timeIntervalSince1970 * 1000));
             keydata = keydata + ".png"

@@ -16,8 +16,9 @@ import UIKit
 import AWSDynamoDB
 
 class Phototext: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
-    // have to include objectc support
+    
     @objc var _userId: String?
+    @objc var _subject: String?
     @objc var _noteId: String?
     
     class func dynamoDBTableName() -> String {
@@ -33,6 +34,7 @@ class Phototext: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     override class func jsonKeyPathsByPropertyKey() -> [AnyHashable: Any] {
         return [
                "_userId" : "userId",
+               "_subject" : "Subject",
                "_noteId" : "noteId",
         ]
     }

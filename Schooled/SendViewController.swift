@@ -125,6 +125,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // creating the user object
             photoadder?._userId = key;
             photoadder?._noteId = text;
+            // adding a subject to be displayed to the user 
+            photoadder?._subject = "data structures"
            
             // crendtials for aws access not the user model
             let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()

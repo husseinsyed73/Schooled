@@ -125,8 +125,10 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "Questionpost", for: indexPath) as! QuestionCell
         
         cell.QuestionText.text = questiondata[indexPath.row]._summary
+        cell.QuestionText.isEditable = false
         // grabbing the summary of each question 
         cell.Subject.text = questiondata[indexPath.row]._subject
+    
         
         return cell
         
@@ -171,8 +173,13 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
        
         
 }
-    }
+    // making the text view unresponsive
     
+   
+    
+}
+    
+
 
 
 

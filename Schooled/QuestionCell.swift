@@ -14,4 +14,8 @@ class QuestionCell: UITableViewCell {
     
     @IBOutlet weak var QuestionText: UITextView!
     
+    
 }
+
+    
+

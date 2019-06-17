@@ -17,6 +17,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
     var text = ""
+    var summary = ""
     
     @IBOutlet weak var Summary: UITextField!
    
@@ -71,13 +72,17 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // then name of the photo will be the user
     @IBAction func SendPhoto(_ sender: Any) {
         // this adds the needed data to the plist
-        
-        // converting the data to a png reprisentation
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+            
+        }        // converting the data to a png reprisentation
     // end the function if empty
         guard let image = imageView.image else {return}
         let data = image.pngData()
         let remoteName = "test.png"
         self.text = self.Questiondirections.text!
+        // grabbing the summary data
+        self.summary = self.Summary.text!
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
         do {
             try data?.write(to: fileURL)
@@ -98,6 +103,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             uploadRequest?.key = keydata
             
+            
             // sending over the bucket name and the type
             // name scheme being
             // lets en
@@ -111,7 +117,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     print("Upload failed (\(error))")
                 }
                 // once we return lets now upload the text to the s3 server also
-                sendText(key:textkey);
+                sendText(key:textkey,summ: self.summary);
                 return nil
             }
         }
@@ -121,7 +127,10 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
        
         
         
-        func sendText(key:String){
+        func sendText(key:String,summ:String){
+            
+            
+            
             // now sending the text
             let photoadder = Phototext();
             // creating the user object
@@ -129,8 +138,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             photoadder?._noteId = text;
             // adding a subject to be displayed to the user 
             photoadder?._subject = "data structures"
-            
-            photoadder?._summary = self.Summary.text
+            // adding the user summary but of the main ui thread
+            photoadder?._summary = summ
            
             // crendtials for aws access not the user model
             let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
@@ -142,12 +151,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 if let error = task.error as NSError? {
                     print("The request failed. Error: \(error)")
                 } else {
-                    // Do something with task.result or perform other operations.
-                    DispatchQueue.main.async {
-                         self.navigationController?.popViewController(animated: true)
-                        
-                    }
                    
+                    
                     
                 }
                 

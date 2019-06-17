@@ -17,9 +17,10 @@ import AWSDynamoDB
 
 class Phototext: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
-    @objc var _userId: String?
-    @objc var _subject: String?
-    @objc var _noteId: String?
+   @objc var _userId: String?
+   @objc var _subject: String?
+   @objc var _summary: String?
+   @objc var _noteId: String?
     
     class func dynamoDBTableName() -> String {
 
@@ -35,6 +36,7 @@ class Phototext: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return [
                "_userId" : "userId",
                "_subject" : "Subject",
+               "_summary" : "Summary",
                "_noteId" : "noteId",
         ]
     }

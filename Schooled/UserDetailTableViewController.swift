@@ -9,6 +9,8 @@ class UserDetailTableViewController : UIViewController {
     // attributes for the custome cell
     
     @IBOutlet weak var testing: UITextField!
+    // refresh control object
+    private let refreshControl = UIRefreshControl();
    
     @IBOutlet var Table: UITableView!
     var response: AWSCognitoIdentityUserGetDetailsResponse?
@@ -22,6 +24,9 @@ class UserDetailTableViewController : UIViewController {
         
         
         super.viewDidLoad()
+        // creating the refresh control object
+        
+        refreshControl.addTarget(self, action: #selector(self.handleTopRefresh(_:)), for: .valueChanged )
         
         self.pool = AWSCognitoIdentityUserPool(forKey: AWSCognitoUserPoolsSignInProviderKey)
         if (self.user == nil) {
@@ -31,12 +36,30 @@ class UserDetailTableViewController : UIViewController {
              // grabbing data from our aws table
         updateData()
         
+        // if ios is availble enable refresh control
+        if #available(iOS 10.0, *) {
+            self.Table.refreshControl = refreshControl
+        } else {
+           
+            self.Table.addSubview(refreshControl)
+            // creating the ui refreshcontrol object 
+           
+            
+            
+            
+        }
+        
         self.refresh()
        
         
     }
+    // Configure Refresh Control
    
-    
+    @objc func handleTopRefresh(_ sender:UIRefreshControl){
+      self.updateData()
+        
+        
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -86,7 +109,12 @@ class UserDetailTableViewController : UIViewController {
     
 
 extension UserDetailTableViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 100 }
+    
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 65 }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // returning the number of rows
@@ -96,7 +124,8 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Questionpost", for: indexPath) as! QuestionCell
         
-        cell.QuestionText.text = questiondata[indexPath.row]._noteId
+        cell.QuestionText.text = questiondata[indexPath.row]._summary
+        // grabbing the summary of each question 
         cell.Subject.text = questiondata[indexPath.row]._subject
         
         return cell
@@ -114,6 +143,8 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
             if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
             } else if let paginatedOutput = task.result {
+                // clearing the data for the new data
+                self.questiondata.removeAll()
                 // passes down an array of object
                 for Photo in paginatedOutput.items as! [Phototext] {
                     // loading in the arraylist of objects
@@ -124,11 +155,12 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
                     
                     
                 }
-                
                 DispatchQueue.main.async {
-                    //code for updating the UI
-                self.Table.reloadData()
+                    self.Table.reloadData();
+                    self.refreshControl.endRefreshing()
                 }
+                
+                
                 
             }
             
@@ -136,11 +168,12 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
             
         })
     
-        
+       
         
 }
+    }
     
-}
+
 
 
 

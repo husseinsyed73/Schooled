@@ -18,6 +18,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var imagePicker = UIImagePickerController()
     var text = ""
     
+    @IBOutlet weak var Summary: UITextField!
+   
     @IBOutlet weak var Questiondirections: UITextView!
     
     
@@ -127,6 +129,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             photoadder?._noteId = text;
             // adding a subject to be displayed to the user 
             photoadder?._subject = "data structures"
+            
+            photoadder?._summary = self.Summary.text
            
             // crendtials for aws access not the user model
             let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
@@ -139,6 +143,12 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     print("The request failed. Error: \(error)")
                 } else {
                     // Do something with task.result or perform other operations.
+                    DispatchQueue.main.async {
+                         self.navigationController?.popViewController(animated: true)
+                        
+                    }
+                   
+                    
                 }
                 
                 return nil

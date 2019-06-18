@@ -25,6 +25,13 @@
       "Region": "us-east-1"
     }
   },
+  "ContentManager": {
+    "Default": {
+      "Bucket": "schooled-hosting-mobilehub-969166170",
+      "Region": "us-east-1",
+      "CloudFrontURL": "https://dqc75dsxkbkkd.cloudfront.net"
+    }
+  },
   "PinpointAnalytics": {
     "Default": {
       "AppId": "8c8b5711480846caba707afd05271a3f",

@@ -9,12 +9,22 @@
 //This class is connected to the ViewController that controls the sending and adding of photos
 
 import UIKit
-
+import AWSS3
+import AWSDynamoDB
 class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
+    var text = ""
+    var summary = ""
+    
+    @IBOutlet weak var Summary: UITextField!
+   
+    @IBOutlet weak var Questiondirections: UITextView!
+    
+    
+    var localPath: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,5 +66,101 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Pass the selected object to the new view controller.
     }
     */
-
+   // function to send the photo and
+    // post it on the main feed
+    // just make the subject now math add in scroll wheel later
+    // then name of the photo will be the user
+    @IBAction func SendPhoto(_ sender: Any) {
+        // this adds the needed data to the plist
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+            
+        }        // converting the data to a png reprisentation
+    // end the function if empty
+        guard let image = imageView.image else {return}
+        let data = image.pngData()
+        let remoteName = "test.png"
+        self.text = self.Questiondirections.text!
+        // grabbing the summary data
+        self.summary = self.Summary.text!
+        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
+        do {
+            try data?.write(to: fileURL)
+            localPath = fileURL
+            let uploadRequest = AWSS3TransferManagerUploadRequest()
+            uploadRequest?.body = fileURL
+            // no point of folder because storing all of the photos
+            // username dash and the time for splitting up the data
+            var keydata = username123;
+            keydata = keydata + "-";
+            keydata = keydata + String(Int64(Date().timeIntervalSince1970 * 1000));
+            keydata = keydata + ".png"
+            // reason still png because we have to move it into the dynamo db the same
+            var textkey = username123;
+            textkey = textkey + "-";
+            textkey = textkey + String(Int64(Date().timeIntervalSince1970 * 1000));
+            textkey = textkey + ".png"
+            
+            uploadRequest?.key = keydata
+            
+            
+            // sending over the bucket name and the type
+            // name scheme being
+            // lets en
+            uploadRequest?.bucket = bucket
+            uploadRequest?.contentType = "image/png"
+            
+            let transferManager = AWSS3TransferManager.default()
+            
+            transferManager.upload(uploadRequest!).continueWith { (task) -> AnyObject? in
+                if let error = task.error {
+                    print("Upload failed (\(error))")
+                }
+                // once we return lets now upload the text to the s3 server also
+                sendText(key:textkey,summ: self.summary);
+                return nil
+            }
+        }
+        catch {
+            print("File not save failed")
+        }
+       
+        
+        
+        func sendText(key:String,summ:String){
+            
+            
+            
+            // now sending the text
+            let photoadder = Phototext();
+            // creating the user object
+            photoadder?._userId = key;
+            photoadder?._noteId = text;
+            // adding a subject to be displayed to the user 
+            photoadder?._subject = "data structures"
+            // adding the user summary but of the main ui thread
+            photoadder?._summary = summ
+           
+            // crendtials for aws access not the user model
+            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            
+            dynamoDBObjectMapper.save(photoadder!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                // taking it off the main ui thread
+                
+                
+                if let error = task.error as NSError? {
+                    print("The request failed. Error: \(error)")
+                } else {
+                   
+                    
+                    
+                }
+                
+                return nil
+            })
+        }
+    
+    
+    }
 }
+

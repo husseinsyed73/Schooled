@@ -32,8 +32,46 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
     }
-    //This function adds a photo into the UIImageView to be sent
+    //This function adds a photo into the UIImageView either through camera or photo library
     @IBAction func addPhoto(_ sender: Any) {
+        showActionSheet()
+    }
+    
+    //shows the action sheet which will allow the user to pick camera or gallery
+    func showActionSheet(){
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            self.camera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { (alert:UIAlertAction!) -> Void in
+            self.photoLibrary()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    //This function is hooked up to the camera which will allow the user to shoot a photo
+    func camera(){
+        //if we can pick a picture then enter this
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            //print the button capture to indicate we will pick a picture
+            print("Button capture")
+            //set the source of the pictures to the saved pictures on the users phone
+            imagePicker.sourceType = .camera
+            //we do not want to allow the user to edit the picture in this functio
+            imagePicker.allowsEditing = true
+            
+            //present the imagePicker in this view controller
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    //This function is hooked up to the photolibrary which will allow the user to pick a photo
+    func photoLibrary() {
         //if we can pick a picture then enter this
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             //print the button capture to indicate we will pick a picture
@@ -42,7 +80,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             imagePicker.sourceType = .photoLibrary
             //we do not want to allow the user to edit the picture in this functio
             imagePicker.allowsEditing = true
-
+            
             //present the imagePicker in this view controller
             present(imagePicker, animated: true, completion: nil)
         }

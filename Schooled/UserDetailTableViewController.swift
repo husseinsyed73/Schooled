@@ -16,19 +16,18 @@ class UserDetailTableViewController : UIViewController {
     var response: AWSCognitoIdentityUserGetDetailsResponse?
     var user: AWSCognitoIdentityUser?
     var pool: AWSCognitoIdentityUserPool?
-    var questiondata : Array<Phototext> = Array()
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    
-    
+    var questiondata : Array<Phototext> = Array()    
+    var menuButton: UIBarButtonItem = UIBarButtonItem()
     
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
         // creating the refresh control object
+        
         if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         

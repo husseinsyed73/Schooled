@@ -235,18 +235,10 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="RFL-ou-7mb">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="GW3-f6-gne">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wIK-Tx-iL2">
-                                <rect key="frame" x="16" y="7" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Table" destination="GLq-75-sNk" id="ovu-KB-2xi"/>
-                        <outlet property="menuButton" destination="GW3-f6-gne" id="1OY-Lh-ed7"/>
                         <segue destination="6n7-V0-a5g" kind="show" identifier="ask" id="7Eh-Qm-JtJ"/>
                     </connections>
                 </tableViewController>

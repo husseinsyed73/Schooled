@@ -626,7 +626,6 @@
         <!--Menu View Controller-->
         <scene sceneID="IIt-1H-deW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d4k-zv-fJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="TZR-ct-qqQ" customClass="MenuViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q9h-cM-0p2"/>
@@ -638,6 +637,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4k-zv-fJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2535" y="1629"/>
         </scene>

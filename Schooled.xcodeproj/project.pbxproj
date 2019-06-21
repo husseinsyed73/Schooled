@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34A22BC7A95006D0329 /* MenuViewController.swift */; };
+		2221F35022BC7B3D006D0329 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34E22BC7B3D006D0329 /* SWRevealViewController.m */; };
+		2221F35222BC7CBE006D0329 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2221F35122BC7CBE006D0329 /* menu.png */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
@@ -50,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2221F34A22BC7A95006D0329 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schooled-Bridging-Header.h"; sourceTree = "<group>"; };
+		2221F34E22BC7B3D006D0329 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Desktop/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		2221F34F22BC7B3D006D0329 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Desktop/SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		2221F35122BC7CBE006D0329 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../../../Desktop/menu.png; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +119,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2221F34C22BC7B15006D0329 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2221F35122BC7CBE006D0329 /* menu.png */,
+				2221F34F22BC7B3D006D0329 /* SWRevealViewController.h */,
+				2221F34E22BC7B3D006D0329 /* SWRevealViewController.m */,
+				2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		D38A055B229F33E400F373F2 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +155,7 @@
 		D38A0566229F33E400F373F2 /* Schooled */ = {
 			isa = PBXGroup;
 			children = (
+				2221F34C22BC7B15006D0329 /* SWRevealViewController */,
 				D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */,
 				D3DCB68E22A2430900751AF6 /* AppDelegate.swift */,
 				D3EE7F7622A4AFEC0090B00B /* Main.storyboard */,
@@ -157,6 +177,7 @@
 				D3DCB69A22A243A800751AF6 /* UserDetailTableViewController.swift */,
 				D30ABD4222B82EB500B68CC0 /* Phototext.swift */,
 				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
+				2221F34A22BC7A95006D0329 /* MenuViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -268,6 +289,7 @@
 				TargetAttributes = {
 					D38A0563229F33E400F373F2 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					D38A0577229F33E600F373F2 = {
 						CreatedOnToolsVersion = 10.1;
@@ -306,6 +328,7 @@
 			files = (
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
 				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
+				2221F35222BC7CBE006D0329 /* menu.png in Resources */,
 				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
 				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 				D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */,
@@ -382,9 +405,11 @@
 				D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */,
 				D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */,
 				D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */,
+				2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */,
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
 				22F61035229F75FA00B9404F /* Send.swift in Sources */,
+				2221F35022BC7B3D006D0329 /* SWRevealViewController.m in Sources */,
 				D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */,
 				D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */,
 				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
@@ -546,6 +571,7 @@
 			baseConfigurationReference = 82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = Schooled/Info.plist;
@@ -555,6 +581,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed123.Schooled123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Schooled/SWRevealViewController/Schooled-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,6 +593,7 @@
 			baseConfigurationReference = 8C1E61B1FB5A77716ACBE237 /* Pods-Schooled.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = Schooled/Info.plist;
@@ -574,6 +603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed123.Schooled123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Schooled/SWRevealViewController/Schooled-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

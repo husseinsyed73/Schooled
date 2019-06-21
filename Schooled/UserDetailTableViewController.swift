@@ -17,6 +17,7 @@ class UserDetailTableViewController : UIViewController {
     var user: AWSCognitoIdentityUser?
     var pool: AWSCognitoIdentityUserPool?
     var questiondata : Array<Phototext> = Array()
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
     
@@ -25,6 +26,11 @@ class UserDetailTableViewController : UIViewController {
         
         super.viewDidLoad()
         // creating the refresh control object
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         refreshControl.addTarget(self, action: #selector(self.handleTopRefresh(_:)), for: .valueChanged )
         

@@ -12,6 +12,7 @@
 		2221F35222BC7CBE006D0329 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2221F35122BC7CBE006D0329 /* menu.png */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
+		22FC0E4422BDA0DC00151576 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
 		D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3012FCF22AB7A9A0069709C /* UserDataModel.swift */; };
 		D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308469D22B1B23900CABFA4 /* QuestionCell.swift */; };
@@ -60,6 +61,7 @@
 		2221F35122BC7CBE006D0329 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = ../../../../Desktop/menu.png; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
+		22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E783274B69E923FB12A48E7 /* Pods_SchooledUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				D30ABD4222B82EB500B68CC0 /* Phototext.swift */,
 				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
 				2221F34A22BC7A95006D0329 /* MenuViewController.swift */,
+				22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
 				D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */,
 				D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */,
+				22FC0E4422BDA0DC00151576 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,8 +25,11 @@ class UserDetailTableViewController : UIViewController {
         super.viewDidLoad()
         // creating the refresh control object
         
+        //create the menuButton and the gesture to pull the menu
         if self.revealViewController() != nil {
+            //initialize the menuButton
             menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            //set the leftBarButtonItem to the MenuButton
             navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }

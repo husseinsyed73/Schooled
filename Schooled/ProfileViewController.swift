@@ -43,7 +43,10 @@ class ProfileViewController: UIViewController {
         
     }
     
-
+    @IBAction func goBackToMain(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

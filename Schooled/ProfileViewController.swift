@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AWSDynamoDB
+import Foundation
+import AWSCognitoIdentityProvider
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    var email: String = ""
+    @IBOutlet weak var questionsLeftField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,22 @@ class ProfileViewController: UIViewController {
         userNameTextField.text! = username123
         userNameTextField.isUserInteractionEnabled = false
         //Do the same with the email
-        //mmcmc
-        emailTextField.text! = email
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else if let result = task.result as? UserDataModel {
+                // Do something with task.result.
+                DispatchQueue.main.async {
+                    self.emailTextField.text! = result._email!
+                    self.emailTextField.isUserInteractionEnabled = false
+                    self.questionsLeftField.text! = result._questions!.stringValue
+                    self.questionsLeftField.isUserInteractionEnabled = false
+                }
+            }
+            return nil
+        })
+        
     }
     
 

@@ -1,30 +1,32 @@
 //
-//  MenuViewController.swift
+//  ProfileViewController.swift
 //  Schooled
 //
-//  Created by Omar Dadabhoy on 6/20/19.
+//  Created by Omar Dadabhoy on 6/24/19.
 //  Copyright © 2019 Hussein  Syed. All rights reserved.
 //
 
 import UIKit
 
-class MenuViewController: UIViewController {
-
+class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    var email: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //set the userName fields to the username and do not allow the user to edit them only see them
+        userNameTextField.text! = username123
+        userNameTextField.isUserInteractionEnabled = false
+        //Do the same with the email
+        //mmcmc
+        emailTextField.text! = email
     }
     
-    //This programs the settings button and brings the user to settings
-    @IBAction func goToSettings(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToSettings", sender: self)
-    }
-    
-    
-    @IBAction func goToProfile(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToProfile", sender: self)
-    }
+
     /*
     // MARK: - Navigation
 

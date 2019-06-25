@@ -628,20 +628,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnQ-Mn-7oo">
-                                <rect key="frame" x="16" y="119" width="93" height="30"/>
+                                <rect key="frame" x="86" y="137" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <action selector="goToSettings:" destination="TZR-ct-qqQ" eventType="touchUpInside" id="8OQ-df-8ii"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH9-tg-heS">
-                                <rect key="frame" x="16" y="58" width="62" height="53"/>
+                                <rect key="frame" x="16" y="58" width="57" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Profile" image="icons8-user-50.png"/>
+                                <state key="normal" title="" image="icons8-user-50.png"/>
                                 <connections>
                                     <action selector="goToProfile:" destination="TZR-ct-qqQ" eventType="touchUpInside" id="j3T-rM-Jx0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCR-fF-6V2">
+                                <rect key="frame" x="16" y="119" width="62" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="icons8-settings-filled-50.png"/>
+                                <connections>
+                                    <action selector="settingsSecondPart:" destination="TZR-ct-qqQ" eventType="touchUpInside" id="bQ8-Yr-K9G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEC-MR-gBG">
+                                <rect key="frame" x="81" y="60" width="84" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Profile"/>
+                                <connections>
+                                    <action selector="profileSecondPart:" destination="TZR-ct-qqQ" eventType="touchUpInside" id="fqT-TI-zYn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -863,6 +880,7 @@
     </scenes>
     <resources>
         <image name="CognitoLogo.png" width="250" height="250"/>
+        <image name="icons8-settings-filled-50.png" width="138.46153259277344" height="138.46153259277344"/>
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -10,6 +10,8 @@
 		221E183422C1577D00EF01C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E183322C1577D00EF01C3 /* ProfileViewController.swift */; };
 		2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34A22BC7A95006D0329 /* MenuViewController.swift */; };
 		22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22233DC222C0603900AED895 /* SWRevealViewController.m */; };
+		22F3632B22C1ABB000BC17AD /* icons8-user-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632A22C1ABB000BC17AD /* icons8-user-50.png */; };
+		22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		22FC0E4422BDA0DC00151576 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */; };
@@ -59,6 +61,8 @@
 		2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schooled-Bridging-Header.h"; sourceTree = "<group>"; };
 		22233DC122C0603800AED895 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		22233DC222C0603900AED895 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		22F3632A22C1ABB000BC17AD /* icons8-user-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-user-50.png"; sourceTree = "<group>"; };
+		22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-filled-50.png"; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
 		22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
+		22F3632922C1ABB000BC17AD /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				22F3632A22C1ABB000BC17AD /* icons8-user-50.png */,
+				22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		D38A055B229F33E400F373F2 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 		D38A0566229F33E400F373F2 /* Schooled */ = {
 			isa = PBXGroup;
 			children = (
+				22F3632922C1ABB000BC17AD /* icons */,
 				2221F34C22BC7B15006D0329 /* SWRevealViewController */,
 				D3DCB68C22A242FB00751AF6 /* MFAViewController.xib */,
 				D3DCB68E22A2430900751AF6 /* AppDelegate.swift */,
@@ -330,8 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */,
+				22F3632B22C1ABB000BC17AD /* icons8-user-50.png in Resources */,
 				D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */,
 				D3DCB68D22A242FB00751AF6 /* MFAViewController.xib in Resources */,
+				22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */,
 				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 				D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */,
 			);

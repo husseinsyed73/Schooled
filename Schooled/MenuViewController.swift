@@ -21,9 +21,18 @@ class MenuViewController: UIViewController {
         self.performSegue(withIdentifier: "goToSettings", sender: self)
     }
     
-    
+    //Go to the profile info
     @IBAction func goToProfile(_ sender: Any) {
         self.performSegue(withIdentifier: "goToProfile", sender: self)
+    }
+    
+    //Also go to the profile info 2 parts because i could not make the button one
+    @IBAction func profileSecondPart(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToProfile", sender: self)
+    }
+    //Also gets them to settings
+    @IBAction func settingsSecondPart(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToSettings", sender: self)
     }
     /*
     // MARK: - Navigation

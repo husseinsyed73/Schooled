@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func goBackToMain(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "backToMenu", sender: self)
     }
     
     /*

@@ -5,7 +5,7 @@ import AWSCognitoIdentityProvider
 import AWSDynamoDB
 import AWSCore
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var pool: AWSCognitoIdentityUserPool?
     var sentTo: String?
@@ -19,6 +19,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pool = AWSCognitoIdentityUserPool.init(forKey: AWSCognitoUserPoolsSignInProviderKey)
+        username.delegate = self
+        password.delegate = self
+        phone.delegate = self
+        email.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,5 +102,11 @@ class SignUpViewController: UIViewController {
         }
         
 }
+    
+    //disables the keyboard after hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
 }

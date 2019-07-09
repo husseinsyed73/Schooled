@@ -34,8 +34,23 @@ class ViewQuestionViewController: UIViewController {
         getPicture()
     }
     
+    //downloads the picture from the database
     func getPicture() {
-        
+        let tranferUtility = AWSS3TransferUtility.default()
+        let expression = AWSS3TransferUtilityDownloadExpression()
+        expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
+            
+        })
+        }
+        tranferUtility.downloadData(fromBucket: bucket, key: self.currentQuestionData!._userId!, expression: expression){ (task, url, data, error) in
+            if error != nil{
+                print(error!)
+            }
+            DispatchQueue.main.async(execute: {
+                self.imageView.image = UIImage(data: data!)
+            })
+            
+        }
     }
     
 //    //This gets the picture of the question to show in the view controller

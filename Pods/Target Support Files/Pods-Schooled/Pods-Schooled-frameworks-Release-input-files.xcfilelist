@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Schooled/Pods-Schooled-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework
+${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework
 ${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework
 ${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework
 ${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework

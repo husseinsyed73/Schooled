@@ -2,6 +2,9 @@
 import UIKit
 import AWSCognitoIdentityProvider
 import AWSMobileClient
+import AWSS3
+import AWSCore
+import AWSCognito
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,11 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pool = AWSCognitoIdentityUserPool(forKey: AWSCognitoUserPoolsSignInProviderKey)
         self.storyboard = UIStoryboard(name: "Main", bundle: nil)
         pool.delegate = self
-       
+        
         return true
     }
     
-    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        AWSS3TransferUtility.interceptApplication(application, handleEventsForBackgroundURLSession: identifier, completionHandler: completionHandler)
+    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {

@@ -10,6 +10,7 @@
 		221E183422C1577D00EF01C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E183322C1577D00EF01C3 /* ProfileViewController.swift */; };
 		2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34A22BC7A95006D0329 /* MenuViewController.swift */; };
 		22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22233DC222C0603900AED895 /* SWRevealViewController.m */; };
+		22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */; };
 		22F3632B22C1ABB000BC17AD /* icons8-user-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632A22C1ABB000BC17AD /* icons8-user-50.png */; };
 		22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
@@ -61,6 +62,7 @@
 		2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schooled-Bridging-Header.h"; sourceTree = "<group>"; };
 		22233DC122C0603800AED895 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		22233DC222C0603900AED895 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuestionViewController.swift; sourceTree = "<group>"; };
 		22F3632A22C1ABB000BC17AD /* icons8-user-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-user-50.png"; sourceTree = "<group>"; };
 		22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-filled-50.png"; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				2221F34A22BC7A95006D0329 /* MenuViewController.swift */,
 				22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */,
 				221E183322C1577D00EF01C3 /* ProfileViewController.swift */,
+				22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */,
 				2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */,
 				221E183422C1577D00EF01C3 /* ProfileViewController.swift in Sources */,
+				22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */,
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
 				22F61035229F75FA00B9404F /* Send.swift in Sources */,

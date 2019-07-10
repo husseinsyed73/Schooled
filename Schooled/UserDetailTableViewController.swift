@@ -18,6 +18,7 @@ class UserDetailTableViewController : UIViewController {
     var pool: AWSCognitoIdentityUserPool?
     var questiondata : Array<Phototext> = Array()    
     var menuButton: UIBarButtonItem = UIBarButtonItem()
+    var clicked: Phototext? = nil
     
     override func viewDidLoad() {
         
@@ -109,6 +110,14 @@ class UserDetailTableViewController : UIViewController {
     
 }
     
+    //Sends the data of the clicked question to the ViewQuestionViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ViewQuestionViewController {
+            let vc = segue.destination as? ViewQuestionViewController
+            vc?.currentQuestionData = clicked
+        }
+    }
+    
         
         
         
@@ -177,11 +186,16 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
             return ()
             
         })
-    
-       
         
 }
     // making the text view unresponsive
+    
+    //Performs the segue to answer and view the question
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.clicked = questiondata[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "viewQuestion", sender: self)
+    }
     
    
     

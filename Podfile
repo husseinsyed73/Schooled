@@ -12,4 +12,6 @@ target 'Schooled' do
     pod 'AWSS3'
     pod 'AWSDynamoDB'
     pod 'AWSMobileClient'
+    pod 'AWSCore'
+    pod 'AWSCognito'
 end

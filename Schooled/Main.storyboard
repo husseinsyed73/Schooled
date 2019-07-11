@@ -56,8 +56,8 @@
                                     <segue destination="BkF-2Z-FaF" kind="show" identifier="forgotPasswordSegue" id="999-73-2kk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60.png" highlightedImage="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
-                                <rect key="frame" x="97" y="316" width="180" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconnest.png" highlightedImage="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
+                                <rect key="frame" x="97.666666666666686" y="316" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="aZf-WV-AUb"/>
                                     <constraint firstAttribute="width" constant="180" id="dJa-v1-03Z"/>
@@ -923,7 +923,7 @@
     </scenes>
     <resources>
         <image name="CognitoLogo.png" width="250" height="250"/>
-        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="iconnest.png" width="60" height="60"/>
         <image name="icons8-settings-filled-50.png" width="138.46153259277344" height="138.46153259277344"/>
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>

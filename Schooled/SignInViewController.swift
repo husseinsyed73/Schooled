@@ -16,6 +16,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         username.delegate = self
         password.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func signInPressed(_ sender: AnyObject) {
@@ -64,5 +67,21 @@ extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    //pops the view up when the keyboard appears
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    //hides the view when the keyboard is gone
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }

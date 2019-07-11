@@ -42,13 +42,6 @@
                                     <action selector="signInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UGV-Ac-v2h"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
-                                <rect key="frame" x="97.666666666666686" y="339" width="180" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="aZf-WV-AUb"/>
-                                    <constraint firstAttribute="width" constant="180" id="dJa-v1-03Z"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXe-qm-Syq">
                                 <rect key="frame" x="16" y="733" width="54" height="30"/>
                                 <state key="normal" title="Sign Up"/>
@@ -63,30 +56,24 @@
                                     <segue destination="BkF-2Z-FaF" kind="show" identifier="forgotPasswordSegue" id="999-73-2kk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                  Schooled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHw-29-FDb">
-                                <rect key="frame" x="59.666666666666657" y="527" width="255.99999999999997" height="33"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60.png" highlightedImage="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
+                                <rect key="frame" x="97" y="316" width="180" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="0Yb-K0-Luy"/>
-                                    <constraint firstAttribute="width" constant="256" id="YLR-ws-3Lo"/>
+                                    <constraint firstAttribute="height" constant="180" id="aZf-WV-AUb"/>
+                                    <constraint firstAttribute="width" constant="180" id="dJa-v1-03Z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nHw-29-FDb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="237" id="35e-wK-eBH"/>
                             <constraint firstItem="O01-Qr-hlK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3b2-zO-6hE"/>
                             <constraint firstItem="jtg-5s-y9B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3rC-eS-tOl"/>
                             <constraint firstItem="jtg-5s-y9B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EZP-ME-bUw"/>
                             <constraint firstItem="aXe-qm-Syq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EiP-8T-oI4"/>
                             <constraint firstItem="jtg-5s-y9B" firstAttribute="top" secondItem="XdH-zS-hci" secondAttribute="bottom" constant="8" symbolic="YES" id="HoP-L9-gs6"/>
                             <constraint firstAttribute="bottom" secondItem="DzC-gK-L3y" secondAttribute="bottom" constant="99" id="NTF-2t-t9d"/>
-                            <constraint firstItem="nHw-29-FDb" firstAttribute="centerX" secondItem="XdH-zS-hci" secondAttribute="centerX" id="QD9-Ci-vfx"/>
-                            <constraint firstItem="nHw-29-FDb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="237" id="QVb-TI-jNs"/>
-                            <constraint firstItem="XdH-zS-hci" firstAttribute="top" secondItem="nHw-29-FDb" secondAttribute="bottom" constant="45" id="SXW-hg-XMl"/>
                             <constraint firstItem="aXe-qm-Syq" firstAttribute="baseline" secondItem="O01-Qr-hlK" secondAttribute="baseline" id="SrM-A1-G50"/>
+                            <constraint firstItem="m7f-tY-FzQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WEA-4T-Bce"/>
                             <constraint firstItem="DzC-gK-L3y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZxD-te-7AC"/>
                             <constraint firstItem="O01-Qr-hlK" firstAttribute="top" secondItem="DzC-gK-L3y" secondAttribute="bottom" constant="20" id="ePD-kn-zVk"/>
                             <constraint firstItem="XdH-zS-hci" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ewA-sA-2Cz"/>
@@ -95,14 +82,7 @@
                             <constraint firstItem="XdH-zS-hci" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mRM-0x-ogk"/>
                             <constraint firstItem="DzC-gK-L3y" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qdI-1O-ZYK"/>
                             <constraint firstItem="m7f-tY-FzQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xHU-Ht-M5A"/>
-                            <constraint firstItem="nHw-29-FDb" firstAttribute="top" secondItem="m7f-tY-FzQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ypJ-5y-X8w"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="35e-wK-eBH"/>
-                                <exclude reference="QVb-TI-jNs"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="V24-UG-Dcj"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -114,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-508" y="71.514242878560722"/>
+            <point key="canvasLocation" x="-508" y="70.935960591133011"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="4u0-bl-9q3">
@@ -943,6 +923,7 @@
     </scenes>
     <resources>
         <image name="CognitoLogo.png" width="250" height="250"/>
+        <image name="Icon-60.png" width="60" height="60"/>
         <image name="icons8-settings-filled-50.png" width="138.46153259277344" height="138.46153259277344"/>
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>

@@ -20,6 +20,7 @@
 		D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3012FCF22AB7A9A0069709C /* UserDataModel.swift */; };
 		D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308469D22B1B23900CABFA4 /* QuestionCell.swift */; };
 		D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30ABD4222B82EB500B68CC0 /* Phototext.swift */; };
+		D30F8CAF22D7A02400ADF83A /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
@@ -76,6 +77,7 @@
 		D3012FCF22AB7A9A0069709C /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		D308469D22B1B23900CABFA4 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		D30ABD4222B82EB500B68CC0 /* Phototext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phototext.swift; sourceTree = "<group>"; };
+		D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "../../AppIcon.appiconset/Icon-60@2x.png"; sourceTree = "<group>"; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38A0573229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
 				D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */,
+				D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */,
 				22F61034229F75FA00B9404F /* Send.swift */,
 				D3012FCF22AB7A9A0069709C /* UserDataModel.swift */,
 				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
@@ -353,6 +356,7 @@
 				22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */,
 				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 				D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */,
+				D30F8CAF22D7A02400ADF83A /* Icon-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60.png" highlightedImage="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
-                                <rect key="frame" x="97" y="316" width="180" height="180"/>
+                                <rect key="frame" x="97.666666666666686" y="316" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="aZf-WV-AUb"/>
                                     <constraint firstAttribute="width" constant="180" id="dJa-v1-03Z"/>

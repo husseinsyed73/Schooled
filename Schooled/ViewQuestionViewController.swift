@@ -30,7 +30,7 @@ class ViewQuestionViewController: UIViewController {
         // Do any additional setup after loading the view.
         topicTextField.text! = currentQuestionData!._subject!
         topicTextField.isUserInteractionEnabled = false
-        descriptionField.text! = currentQuestionData!._summary!
+        descriptionField.text! = currentQuestionData!._noteId!
         descriptionField.isUserInteractionEnabled = false
         getPicture()
         imageView.isUserInteractionEnabled = true

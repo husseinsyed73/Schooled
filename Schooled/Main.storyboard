@@ -768,31 +768,33 @@
                                     <constraint firstAttribute="height" constant="219" id="9de-Vj-RAL"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTK-4Q-wno">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KTK-4Q-wno">
                                 <rect key="frame" x="16" y="157" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiK-Pj-mN7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiK-Pj-mN7">
                                 <rect key="frame" x="16" y="446" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPN-2i-w13">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPN-2i-w13">
                                 <rect key="frame" x="129" y="691" width="117" height="30"/>
                                 <state key="normal" title="Answer Question"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gru-fy-01L">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gru-fy-01L">
                                 <rect key="frame" x="16" y="475" width="343" height="142"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="dsi-7f-1Zv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlI-NP-wAa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlI-NP-wAa">
                                 <rect key="frame" x="16" y="114" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -802,12 +804,19 @@
                         <constraints>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="centerX" secondItem="gru-fy-01L" secondAttribute="centerX" id="EMC-6z-f2b"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="centerX" secondItem="KTK-4Q-wno" secondAttribute="centerX" id="G32-2H-eKO"/>
+                            <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="hlI-NP-wAa" secondAttribute="leading" id="L7d-Uw-vjM"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="leading" secondItem="lFK-GD-Zfp" secondAttribute="leading" id="MPe-lr-PC2"/>
                             <constraint firstItem="QiK-Pj-mN7" firstAttribute="top" secondItem="LQZ-zI-QUQ" secondAttribute="bottom" constant="8" symbolic="YES" id="RGc-41-kWt"/>
+                            <constraint firstItem="KTK-4Q-wno" firstAttribute="top" secondItem="hlI-NP-wAa" secondAttribute="bottom" constant="22" id="YHW-6m-ceI"/>
+                            <constraint firstItem="gru-fy-01L" firstAttribute="top" secondItem="QiK-Pj-mN7" secondAttribute="bottom" constant="8" symbolic="YES" id="b9u-61-zCq"/>
+                            <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="lFK-GD-Zfp" secondAttribute="leadingMargin" id="cNb-Jf-cQL"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="top" secondItem="KTK-4Q-wno" secondAttribute="bottom" constant="32" id="cXf-jG-TCi"/>
                             <constraint firstAttribute="trailing" secondItem="LQZ-zI-QUQ" secondAttribute="trailing" id="dd3-DV-5Vr"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="top" secondItem="lFK-GD-Zfp" secondAttribute="top" constant="219" id="gOh-S5-Wce"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="centerX" secondItem="cPN-2i-w13" secondAttribute="centerX" id="jca-XP-Mg2"/>
+                            <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="KTK-4Q-wno" secondAttribute="leading" id="jdo-vz-FzZ"/>
+                            <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="QiK-Pj-mN7" secondAttribute="leading" id="nxs-HT-cD5"/>
+                            <constraint firstItem="cPN-2i-w13" firstAttribute="top" secondItem="gru-fy-01L" secondAttribute="bottom" constant="74" id="uBx-pZ-QTj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -989,6 +998,7 @@
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7Eh-Qm-JtJ"/>
         <segue reference="oB9-Kr-Taw"/>
         <segue reference="GL0-RR-I1b"/>
     </inferredMetricsTieBreakers>

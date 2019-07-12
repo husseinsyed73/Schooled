@@ -11,14 +11,16 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
     var text = ""
     var summary = ""
-    
+    var subjectPicker: UIPickerView = UIPickerView()
+    var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
+    let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
    
     @IBOutlet weak var Questiondirections: UITextView!
@@ -31,7 +33,47 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         // Do any additional setup after loading the view.
         imagePicker.delegate = self
+        subjectPicker.delegate = self
+        //make the questionDirections what ever the user picks
+        Summary.inputView = subjectPicker
+        
+        //set up the toolbar for the picker
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.Summary.inputAccessoryView = toolBar
     }
+    
+    //when the user clicks done in the toolbar the picker will exit
+    @objc func donePicker(){
+        self.Summary.resignFirstResponder()
+    }
+    
+    //number of columns in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //The current item
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //contains what is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Summary.text = pickerData[row]
+    }
+    
     //This function adds a photo into the UIImageView either through camera or photo library
     @IBAction func addPhoto(_ sender: Any) {
         showActionSheet()

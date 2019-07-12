@@ -13,11 +13,13 @@ import AWSS3
 import AWSDynamoDB
 class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
     var imagePicker = UIImagePickerController()
     var text = ""
     var summary = ""
+    var sub = ""
     var subjectPicker: UIPickerView = UIPickerView()
     var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
     let toolBar = UIToolbar()
@@ -163,6 +165,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.text = self.Questiondirections.text!
         // grabbing the summary data
         self.summary = self.Summary.text!
+        self.sub = self.subtopic.text!
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
         do {
             try data?.write(to: fileURL)
@@ -197,7 +200,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     print("Upload failed (\(error))")
                 }
                 // once we return lets now upload the text to the s3 server also
-                sendText(key:textkey,summ: self.summary);
+                sendText(key:textkey,summ: self.summary,sub:self.sub);
                 return nil
             }
         }
@@ -207,7 +210,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
        
         
         
-        func sendText(key:String,summ:String){
+        func sendText(key:String,summ:String,sub:String){
             
             
             
@@ -216,10 +219,11 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // creating the user object
             photoadder?._userId = key;
             photoadder?._noteId = text;
-            // adding a subject to be displayed to the user 
-            photoadder?._subject = "data structures"
+            // adding a subject to be displayed to the user
+            // the changed subject
+            photoadder?._subject = summ
             // adding the user summary but of the main ui thread
-            photoadder?._summary = summ
+            photoadder?._summary = sub
            
             // crendtials for aws access not the user model
             let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()

@@ -989,6 +989,7 @@
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7Eh-Qm-JtJ"/>
         <segue reference="oB9-Kr-Taw"/>
         <segue reference="GL0-RR-I1b"/>
     </inferredMetricsTieBreakers>

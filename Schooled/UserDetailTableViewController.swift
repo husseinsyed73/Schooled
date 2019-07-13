@@ -78,14 +78,6 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         self.subjectPickerField.inputAccessoryView = toolbar
         self.subjectPickerField.text = "Select Subjects"
         
-        //fills the allData with all the PhotoText
-//        fillAllData()
-    }
-    
-    func fillAllData(){
-        for data in questiondata {
-            allData.append(data)
-        }
     }
     
     //close the picker view when this is pressed
@@ -166,14 +158,18 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     
     //what the user has selected
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //set the field to whatever they pick
         subjectPickerField.text = pickerData[row]
+        //get the picked
         let picked: String = pickerData[row]
+        //display all if they pick all subjects
         if(picked == "All Subjects"){
             questiondata.removeAll()
             for data in allData{
                 questiondata.append(data)
             }
             self.Table.reloadData()
+            //else only display the ones they picked
         } else {
             questiondata.removeAll()
             for data in allData {

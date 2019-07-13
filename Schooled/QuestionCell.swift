@@ -12,6 +12,7 @@ class QuestionCell: UITableViewCell {
 
     @IBOutlet weak var Subject: UILabel!
     
+    
     @IBOutlet weak var QuestionText: UITextView!
     
     

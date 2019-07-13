@@ -16,6 +16,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
+    
     var imagePicker = UIImagePickerController()
     var text = ""
     var summary = ""
@@ -79,6 +80,10 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     //This function adds a photo into the UIImageView either through camera or photo library
     @IBAction func addPhoto(_ sender: Any) {
         showActionSheet()
+        
+        
+            
+        
     }
     
     //shows the action sheet which will allow the user to pick camera or gallery
@@ -135,6 +140,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //if the image is an UIImage then display it into the imageView
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = image
+             self.choosePic.setTitle("", for: .normal)
+            
         }
         dismiss(animated: true, completion: nil)
     }

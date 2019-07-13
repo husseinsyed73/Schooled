@@ -21,9 +21,11 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     var menuButton: UIBarButtonItem = UIBarButtonItem()
     var clicked: Phototext? = nil
     @IBOutlet weak var subjectPickerField: UITextField!
-    var pickerData: [String] = ["All", "Data Structures"]
+    var pickerData: [String] = ["All Subjects", "Data Structures", "Biology", "Chemistry", "Physics"]
     var picker = UIPickerView()
     var toolbar = UIToolbar()
+    var allData : Array<Phototext> = Array()
+
     
     override func viewDidLoad() {
         
@@ -68,9 +70,22 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         //set up the picker for the filter
         picker.delegate = self
         subjectPickerField.inputView = picker
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.sizeToFit()
         toolbar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        toolbar.isUserInteractionEnabled = true
         self.subjectPickerField.inputAccessoryView = toolbar
         self.subjectPickerField.text = "Select Subjects"
+        
+        //fills the allData with all the PhotoText
+//        fillAllData()
+    }
+    
+    func fillAllData(){
+        for data in questiondata {
+            allData.append(data)
+        }
     }
     
     //close the picker view when this is pressed
@@ -152,6 +167,23 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     //what the user has selected
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         subjectPickerField.text = pickerData[row]
+        let picked: String = pickerData[row]
+        if(picked == "All Subjects"){
+            questiondata.removeAll()
+            for data in allData{
+                questiondata.append(data)
+            }
+            self.Table.reloadData()
+        } else {
+            questiondata.removeAll()
+            for data in allData {
+                print(data._subject!)
+                if(data._subject == picked){
+                    questiondata.append(data)
+                }
+            }
+            self.Table.reloadData()
+        }
         
     }
         
@@ -206,7 +238,7 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
                     // adding the objects to an arraylist
                     self.questiondata.append(Photo)
                     
-                    
+                    self.allData.append(Photo)
                     
                     
                 }

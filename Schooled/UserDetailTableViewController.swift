@@ -5,7 +5,8 @@ import AWSDynamoDB
 import AWSCognitoIdentityProvider
 import UIKit
 // this will be the main feed class showing the user data 
-class UserDetailTableViewController : UIViewController {
+class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     // attributes for the custome cell
     
     @IBOutlet weak var testing: UITextField!
@@ -19,6 +20,10 @@ class UserDetailTableViewController : UIViewController {
     var questiondata : Array<Phototext> = Array()    
     var menuButton: UIBarButtonItem = UIBarButtonItem()
     var clicked: Phototext? = nil
+    @IBOutlet weak var subjectPickerField: UITextField!
+    var pickerData: [String] = ["All", "Data Structures"]
+    var picker = UIPickerView()
+    var toolbar = UIToolbar()
     
     override func viewDidLoad() {
         
@@ -60,10 +65,21 @@ class UserDetailTableViewController : UIViewController {
         
         self.refresh()
        
-        
+        //set up the picker for the filter
+        picker.delegate = self
+        subjectPickerField.inputView = picker
+        toolbar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        self.subjectPickerField.inputAccessoryView = toolbar
+        self.subjectPickerField.text = "Select Subjects"
     }
+    
+    //close the picker view when this is pressed
+    @objc func onDoneButtonTapped() {
+        toolbar.removeFromSuperview()
+        picker.removeFromSuperview()
+    }
+    
     // Configure Refresh Control
-   
     @objc func handleTopRefresh(_ sender:UIRefreshControl){
       self.updateData()
         
@@ -118,6 +134,26 @@ class UserDetailTableViewController : UIViewController {
         }
     }
     
+    //number of columns
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //returns what the user is currently on
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //what the user has selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        subjectPickerField.text = pickerData[row]
+        
+    }
         
         
         

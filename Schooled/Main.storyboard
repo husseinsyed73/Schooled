@@ -215,17 +215,27 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="RFL-ou-7mb">
                         <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="o0o-KV-1Xb">
+                            <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="yfd-FH-4dA">
+                                <rect key="frame" x="146" y="7" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Table" destination="GLq-75-sNk" id="ovu-KB-2xi"/>
+                        <outlet property="subjectPickerField" destination="yfd-FH-4dA" id="Ji2-2A-DAf"/>
                         <segue destination="6n7-V0-a5g" kind="show" identifier="ask" id="7Eh-Qm-JtJ"/>
                         <segue destination="Bsd-io-GFc" kind="show" identifier="viewQuestion" id="tAp-o3-1X9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R26-eG-URi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1661.5999999999999" y="938.68065967016503"/>
+            <point key="canvasLocation" x="-1661.5999999999999" y="938.42364532019712"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="be2-Yb-YLI">
@@ -843,10 +853,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="20" translatesAutoresizingMaskIntoConstraints="NO" id="O1H-W4-TKy">
-                                <rect key="frame" x="16" y="44" width="343" height="685"/>
+                                <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3cZ-qv-ZIh">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="685"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="641"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -1006,8 +1016,7 @@
         <image name="icons8-user-50.png" width="138.46153259277344" height="138.46153259277344"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Eh-Qm-JtJ"/>
         <segue reference="oB9-Kr-Taw"/>
-        <segue reference="GL0-RR-I1b"/>
+        <segue reference="I5U-Qa-O3o"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,33 +7,40 @@
 //
 
 import UIKit
+import AWSDynamoDB
+import Foundation
+import AWSCognitoIdentityProvider
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var questionsLeftField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        userNameField.text! = username123
+        userNameField.isUserInteractionEnabled = false
+        //Do the same with the email
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else if let result = task.result as? UserDataModel {
+                // Do something with task.result.
+                DispatchQueue.main.async {
+                    self.emailField.text! = result._email!
+                    self.emailField.isUserInteractionEnabled = false
+                    self.questionsLeftField.text! = result._questions!.stringValue
+                    self.questionsLeftField.isUserInteractionEnabled = false
+                }
+            }
+            return nil
+        })
     }
     
-    //This programs the settings button and brings the user to settings
-    @IBAction func goToSettings(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToSettings", sender: self)
-    }
-    
-    //Go to the profile info
-    @IBAction func goToProfile(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToProfile", sender: self)
-    }
-    
-    //Also go to the profile info 2 parts because i could not make the button one
-    @IBAction func profileSecondPart(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToProfile", sender: self)
-    }
-    //Also gets them to settings
-    @IBAction func settingsSecondPart(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToSettings", sender: self)
-    }
     /*
     // MARK: - Navigation
 

@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //check if image can be converted to image
         if let image =  info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            answerView.image = image
+            answerVIew.image = image
         }
         
         //Dismiss view when pictures are chosen

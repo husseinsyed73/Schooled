@@ -165,6 +165,11 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func clickSubTopic(_ sender: Any) {
+        subtopic.text = ""
+    }
+    
+    
     /*
     // MARK: - Navigation
 

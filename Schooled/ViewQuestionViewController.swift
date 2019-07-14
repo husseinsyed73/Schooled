@@ -16,18 +16,22 @@ import AWSCognitoIdentityProviderASF
 import AWSAuthCore
 
 class ViewQuestionViewController: UIViewController {
-
-    @IBOutlet weak var topicTextField: UITextField!
+    @IBOutlet weak var topicTextField: UILabel!
+    
+   
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
     var currentQuestionData: Phototext? = nil
     var image: UIImage? = nil
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        topicTextField.textAlignment = NSTextAlignment.center
+        topicTextField.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         topicTextField.text! = currentQuestionData!._subject!
         topicTextField.isUserInteractionEnabled = false
         descriptionField.text! = currentQuestionData!._noteId!

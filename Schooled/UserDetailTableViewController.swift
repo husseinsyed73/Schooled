@@ -209,7 +209,8 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
         cell.QuestionText.isEditable = false
         // grabbing the summary of each question 
         cell.Subject.text = questiondata[indexPath.row]._subject
-    
+        
+        cell.Subject.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         
         return cell
         

@@ -11,7 +11,7 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -25,8 +25,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
-   
-    @IBOutlet weak var Questiondirections: UITextView!
+    @IBOutlet weak var questionDirections: UITextField!
     
     
     var localPath: URL!
@@ -35,6 +34,9 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
+        questionDirections.textAlignment = .left
+        questionDirections.contentVerticalAlignment = .top
         imagePicker.delegate = self
         subjectPicker.delegate = self
         //make the questionDirections what ever the user picks
@@ -53,6 +55,14 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        questionDirections.delegate = self
+        subtopic.delegate = self
+    }
+    
+    //disables the keyboard after hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     //pops the view up when the keyboard appears
@@ -165,10 +175,19 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         dismiss(animated: true, completion: nil)
     }
     
+    //removes the text when the sub topic is picked
     @IBAction func clickSubTopic(_ sender: Any) {
-        subtopic.text = ""
+        if(subtopic.text == "Please enter the subtopic"){
+            subtopic.text = ""
+        }
     }
     
+    //removes text when description is pressed
+    @IBAction func clickDescription(_ sender: Any) {
+        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!"){
+            self.questionDirections.text = ""
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -193,7 +212,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let image = imageView.image else {return}
         let data = image.pngData()
         let remoteName = "test.png"
-        self.text = self.Questiondirections.text!
+        self.text = self.questionDirections.text!
         // grabbing the summary data
         self.summary = self.Summary.text!
         self.sub = self.subtopic.text!

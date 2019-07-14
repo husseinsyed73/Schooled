@@ -877,13 +877,6 @@
                                     <action selector="addPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="Gwe-Q2-wzJ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Pleae elaborate on your question, the more accurate the descriotion the better!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4E9-LJ-NxC">
-                                <rect key="frame" x="16" y="467" width="343" height="147"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please enter the subtopic" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-gm-jpq">
                                 <rect key="frame" x="18" y="429" width="338" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -902,14 +895,24 @@
                                     <action selector="SendPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="A92-AD-1OH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNM-BS-2CC">
+                                <rect key="frame" x="18" y="467" width="338" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="clickDescription:" destination="6n7-V0-a5g" eventType="editingDidBegin" id="roH-LL-t9I"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="Questiondirections" destination="4E9-LJ-NxC" id="Dve-sI-7L1"/>
                         <outlet property="Summary" destination="Jsm-Pf-A8f" id="k2X-ub-Tmx"/>
                         <outlet property="choosePic" destination="xOz-Vd-U2U" id="5zF-Sa-eh8"/>
                         <outlet property="imageView" destination="nAx-uU-Lgw" id="4WG-8j-9li"/>
+                        <outlet property="questionDirections" destination="mNM-BS-2CC" id="mwx-ht-cRh"/>
                         <outlet property="subtopic" destination="8yP-gm-jpq" id="Vrd-co-mSP"/>
                         <segue destination="HrM-CC-Cfx" kind="push" identifier="back2main" id="GL0-RR-I1b"/>
                     </connections>

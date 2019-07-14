@@ -12,6 +12,11 @@ import CoreImage
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let photoPicker = UIImagePickerController()
 
+    
+    
+    @IBAction func sendButton(_ sender: Any) {
+        
+    }
     @IBOutlet weak var answerVIew: UIImageView!
     @IBAction func AddPhoto(_ sender: Any) {
         option();

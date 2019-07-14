@@ -37,6 +37,7 @@
 		D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */; };
 		D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7622A4AFEC0090B00B /* Main.storyboard */; };
 		D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */; };
+		F9217D0A22DAF1FC00C01CF3 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		D3EE7F7622A4AFEC0090B00B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				2221F34A22BC7A95006D0329 /* MenuViewController.swift */,
 				22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */,
 				22EC9C2522D81492005C5D95 /* ImageViewController.swift */,
+				F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
 				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,
 				D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */,
+				F9217D0A22DAF1FC00C01CF3 /* AnswersViewController.swift in Sources */,
 				D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */,
 				22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */,
 				D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */,

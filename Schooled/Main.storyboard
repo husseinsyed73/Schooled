@@ -789,6 +789,41 @@
             </objects>
             <point key="canvasLocation" x="2" y="1689"/>
         </scene>
+        <!--Answers View Controller-->
+        <scene sceneID="TkA-vm-dht">
+            <objects>
+                <viewController id="SGL-Gg-gPS" customClass="AnswersViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yN7-S6-j6W"/>
+                        <viewControllerLayoutGuide type="bottom" id="cIl-cD-7f6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iK3-3T-R7g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYL-yl-ztU">
+                                <rect key="frame" x="151" y="332" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Photo"/>
+                                <connections>
+                                    <action selector="AddPhoto:" destination="SGL-Gg-gPS" eventType="touchUpInside" id="shh-Ts-h4G"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JVW-ff-HzI">
+                                <rect key="frame" x="67" y="389" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerVIew" destination="JVW-ff-HzI" id="M1T-Wu-ezT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACw-sx-I8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="1683"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="TTY-La-54F">
             <objects>

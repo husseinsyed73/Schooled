@@ -25,8 +25,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     var picker = UIPickerView()
     var toolbar = UIToolbar()
     var allData : Array<Phototext> = Array()
-    var picked = ""
-
+    var picked = "All Subjects"
     
     override func viewDidLoad() {
         

@@ -84,6 +84,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     @objc func onDoneButtonTapped() {
         toolbar.removeFromSuperview()
         picker.removeFromSuperview()
+        subjectPickerField.endEditing(true)
     }
     
     // Configure Refresh Control

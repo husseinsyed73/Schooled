@@ -222,7 +222,7 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
     // the array list
     func updateData(){
         let scanExpression = AWSDynamoDBScanExpression()
-        scanExpression.limit = 20
+        //scanExpression.limit = 20
         // testing to grabt the table data upon startup
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.scan(Phototext.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
@@ -242,6 +242,7 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
                     
                     
                 }
+                print(self.allData.capacity)
                 if(self.picked == "All Subjects"){
                     self.questiondata.removeAll()
                     for data in self.allData{

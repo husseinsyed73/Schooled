@@ -224,14 +224,15 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             uploadRequest?.body = fileURL
             // no point of folder because storing all of the photos
             // username dash and the time for splitting up the data
+            var time = String(Int64(Date().timeIntervalSince1970 * 1000));
             var keydata = username123;
             keydata = keydata + "-";
-            keydata = keydata + String(Int64(Date().timeIntervalSince1970 * 1000));
+            keydata = keydata + time
             keydata = keydata + ".png"
             // reason still png because we have to move it into the dynamo db the same
             var textkey = username123;
             textkey = textkey + "-";
-            textkey = textkey + String(Int64(Date().timeIntervalSince1970 * 1000));
+            textkey = textkey + time
             textkey = textkey + ".png"
             
             uploadRequest?.key = keydata

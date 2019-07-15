@@ -25,6 +25,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     var picker = UIPickerView()
     var toolbar = UIToolbar()
     var allData : Array<Phototext> = Array()
+    var picked = ""
 
     
     override func viewDidLoad() {
@@ -161,7 +162,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         //set the field to whatever they pick
         subjectPickerField.text = pickerData[row]
         //get the picked
-        let picked: String = pickerData[row]
+        picked = pickerData[row]
         //display all if they pick all subjects
         if(picked == "All Subjects"){
             questiondata.removeAll()
@@ -173,11 +174,12 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         } else {
             questiondata.removeAll()
             for data in allData {
-                print(data._subject!)
+               
                 if(data._subject == picked){
                     questiondata.append(data)
                 }
             }
+            
             self.Table.reloadData()
         }
         
@@ -229,16 +231,37 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
             } else if let paginatedOutput = task.result {
                 // clearing the data for the new data
                 self.questiondata.removeAll()
+                self.allData.removeAll();
                 // passes down an array of object
                 for Photo in paginatedOutput.items as! [Phototext] {
                     // loading in the arraylist of objects
                     // adding the objects to an arraylist
-                    self.questiondata.append(Photo)
+                   // self.questiondata.append(Photo)
                     
                     self.allData.append(Photo)
                     
                     
                 }
+                if(self.picked == "All Subjects"){
+                    self.questiondata.removeAll()
+                    for data in self.allData{
+                       self.questiondata.append(data)
+                    }
+                   
+                    //else only display the ones they picked
+                } else {
+                    self.questiondata.removeAll()
+                    for data in self.allData {
+                       
+                        if(data._subject == self.picked){
+                            self.questiondata.append(data)
+                        }
+                    }
+                    
+                   
+                }
+                // reload based on what the picker is set on
+                
                 DispatchQueue.main.async {
                     self.Table.reloadData();
                     self.refreshControl.endRefreshing()

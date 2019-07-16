@@ -701,7 +701,7 @@
                                 <rect key="frame" x="129" y="691" width="117" height="30"/>
                                 <state key="normal" title="Answer Question"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gru-fy-01L">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gru-fy-01L">
                                 <rect key="frame" x="16" y="475" width="343" height="142"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

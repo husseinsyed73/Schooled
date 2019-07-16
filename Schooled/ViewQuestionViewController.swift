@@ -16,22 +16,29 @@ import AWSCognitoIdentityProviderASF
 import AWSAuthCore
 
 class ViewQuestionViewController: UIViewController {
-
-    @IBOutlet weak var topicTextField: UITextField!
+    @IBOutlet weak var topicTextField: UILabel!
+    
+   
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
     var currentQuestionData: Phototext? = nil
+    var image: UIImage? = nil
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        topicTextField.textAlignment = NSTextAlignment.center
+        topicTextField.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         topicTextField.text! = currentQuestionData!._subject!
         topicTextField.isUserInteractionEnabled = false
-        descriptionField.text! = currentQuestionData!._summary!
+        descriptionField.text! = currentQuestionData!._noteId!
         descriptionField.isUserInteractionEnabled = false
         getPicture()
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
     }
     
     //downloads the picture from the database
@@ -48,38 +55,24 @@ class ViewQuestionViewController: UIViewController {
             }
             DispatchQueue.main.async(execute: {
                 self.imageView.image = UIImage(data: data!)
+                self.image = self.imageView.image
             })
             
         }
     }
     
-//    //This gets the picture of the question to show in the view controller
-//    func getPicture(){
-//        let downloadedFile = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("test.png")
-//        let transferManager = AWSS3TransferManager.default()
-//        if let downloadRequest = AWSS3TransferManagerDownloadRequest(){
-//            downloadRequest.bucket = bucket
-//            downloadRequest.key = currentQuestionData?._userId!
-//            downloadRequest.downloadingFileURL = downloadedFile
-//                transferManager.download(downloadRequest).continueWith(block: { (task: AWSTask<AnyObject>) -> Any? in
-//                    if( task.error != nil){
-//                        print(task.error!.localizedDescription)
-//                        print(self.currentQuestionData!._userId)
-//                        return nil
-//                    }
-//
-//                    print(task.result!)
-//
-//                    if let data = NSData(contentsOf: downloadedFile){
-//                        print("getting image")
-//                        DispatchQueue.main.async(execute: { () -> Void in
-//                            self.imageView.image = UIImage(data: data as Data)
-//                        })
-//                    }
-//                    return nil
-//                })
-//        }
-//    }
+    //performs the segue to see the image larger when the user clicks the image
+    @objc func imageTap() {
+        self.performSegue(withIdentifier: "viewImageLarger", sender: self)
+    }
+    
+    //sends the image to the ImageViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ImageViewController {
+            let vc = segue.destination as? ImageViewController
+            vc?.image = self.image
+        }
+    }
     
 
     /*

@@ -11,17 +11,21 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
+    
     var imagePicker = UIImagePickerController()
     var text = ""
     var summary = ""
-    
+    var sub = ""
+    var subjectPicker: UIPickerView = UIPickerView()
+    var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
+    let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
-   
-    @IBOutlet weak var Questiondirections: UITextView!
+    @IBOutlet weak var questionDirections: UITextField!
     
     
     var localPath: URL!
@@ -30,11 +34,85 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
+        questionDirections.textAlignment = .left
+        questionDirections.contentVerticalAlignment = .top
         imagePicker.delegate = self
+        subjectPicker.delegate = self
+        //make the questionDirections what ever the user picks
+        Summary.inputView = subjectPicker
+        
+        //set up the toolbar for the picker
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        self.Summary.inputAccessoryView = toolBar
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        questionDirections.delegate = self
+        subtopic.delegate = self
     }
+    
+    //disables the keyboard after hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    //pops the view up when the keyboard appears
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    //hides the view when the keyboard is gone
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    //when the user clicks done in the toolbar the picker will exit
+    @objc func donePicker(){
+        self.Summary.resignFirstResponder()
+    }
+    
+    //number of columns in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows in the picker
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //The current item
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //contains what is selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Summary.text = pickerData[row]
+    }
+    
     //This function adds a photo into the UIImageView either through camera or photo library
     @IBAction func addPhoto(_ sender: Any) {
         showActionSheet()
+        
+        
+            
+        
     }
     
     //shows the action sheet which will allow the user to pick camera or gallery
@@ -91,8 +169,24 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //if the image is an UIImage then display it into the imageView
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = image
+             self.choosePic.setTitle("", for: .normal)
+            
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    //removes the text when the sub topic is picked
+    @IBAction func clickSubTopic(_ sender: Any) {
+        if(subtopic.text == "Please enter the subtopic"){
+            subtopic.text = ""
+        }
+    }
+    
+    //removes text when description is pressed
+    @IBAction func clickDescription(_ sender: Any) {
+        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!"){
+            self.questionDirections.text = ""
+        }
     }
     
     /*
@@ -118,9 +212,10 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let image = imageView.image else {return}
         let data = image.pngData()
         let remoteName = "test.png"
-        self.text = self.Questiondirections.text!
+        self.text = self.questionDirections.text!
         // grabbing the summary data
         self.summary = self.Summary.text!
+        self.sub = self.subtopic.text!
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
         do {
             try data?.write(to: fileURL)
@@ -129,14 +224,15 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             uploadRequest?.body = fileURL
             // no point of folder because storing all of the photos
             // username dash and the time for splitting up the data
+            var time = String(Int64(Date().timeIntervalSince1970 * 1000));
             var keydata = username123;
             keydata = keydata + "-";
-            keydata = keydata + String(Int64(Date().timeIntervalSince1970 * 1000));
+            keydata = keydata + time
             keydata = keydata + ".png"
             // reason still png because we have to move it into the dynamo db the same
             var textkey = username123;
             textkey = textkey + "-";
-            textkey = textkey + String(Int64(Date().timeIntervalSince1970 * 1000));
+            textkey = textkey + time
             textkey = textkey + ".png"
             
             uploadRequest?.key = keydata
@@ -155,7 +251,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     print("Upload failed (\(error))")
                 }
                 // once we return lets now upload the text to the s3 server also
-                sendText(key:textkey,summ: self.summary);
+                sendText(key:textkey,summ: self.summary,sub:self.sub);
                 return nil
             }
         }
@@ -165,7 +261,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
        
         
         
-        func sendText(key:String,summ:String){
+        func sendText(key:String,summ:String,sub:String){
             
             
             
@@ -174,10 +270,11 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // creating the user object
             photoadder?._userId = key;
             photoadder?._noteId = text;
-            // adding a subject to be displayed to the user 
-            photoadder?._subject = "data structures"
+            // adding a subject to be displayed to the user
+            // the changed subject
+            photoadder?._subject = summ
             // adding the user summary but of the main ui thread
-            photoadder?._summary = summ
+            photoadder?._summary = sub
            
             // crendtials for aws access not the user model
             let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()

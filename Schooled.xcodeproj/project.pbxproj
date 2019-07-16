@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		221E183422C1577D00EF01C3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E183322C1577D00EF01C3 /* ProfileViewController.swift */; };
 		2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34A22BC7A95006D0329 /* MenuViewController.swift */; };
 		22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22233DC222C0603900AED895 /* SWRevealViewController.m */; };
+		22EC9C2622D81492005C5D95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC9C2522D81492005C5D95 /* ImageViewController.swift */; };
 		22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */; };
 		22F3632B22C1ABB000BC17AD /* icons8-user-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632A22C1ABB000BC17AD /* icons8-user-50.png */; };
 		22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */; };
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
-		22FC0E4422BDA0DC00151576 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
 		D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3012FCF22AB7A9A0069709C /* UserDataModel.swift */; };
 		D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308469D22B1B23900CABFA4 /* QuestionCell.swift */; };
 		D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30ABD4222B82EB500B68CC0 /* Phototext.swift */; };
-		D30F8CAF22D7A02400ADF83A /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */; };
 		D30F8CB122D7E3A500ADF83A /* iconnest.png in Resources */ = {isa = PBXBuildFile; fileRef = D30F8CB022D7E3A500ADF83A /* iconnest.png */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
@@ -39,6 +37,7 @@
 		D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */; };
 		D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7622A4AFEC0090B00B /* Main.storyboard */; };
 		D3EE7F7922A4B01E0090B00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */; };
+		F9217D0A22DAF1FC00C01CF3 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,17 +58,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		221E183322C1577D00EF01C3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2221F34A22BC7A95006D0329 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schooled-Bridging-Header.h"; sourceTree = "<group>"; };
 		22233DC122C0603800AED895 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		22233DC222C0603900AED895 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		22EC9C2522D81492005C5D95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuestionViewController.swift; sourceTree = "<group>"; };
 		22F3632A22C1ABB000BC17AD /* icons8-user-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-user-50.png"; sourceTree = "<group>"; };
 		22F3632C22C1AEC800BC17AD /* icons8-settings-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-filled-50.png"; sourceTree = "<group>"; };
 		22F3BE8422AB5CC600547467 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		22F61034229F75FA00B9404F /* Send.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Send.swift; sourceTree = "<group>"; };
-		22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Schooled.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E783274B69E923FB12A48E7 /* Pods_SchooledUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 		D3012FCF22AB7A9A0069709C /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		D308469D22B1B23900CABFA4 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		D30ABD4222B82EB500B68CC0 /* Phototext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phototext.swift; sourceTree = "<group>"; };
-		D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "/Users/husseinsyed/Downloads/Schooled/Schooled/Icon-60@2x.png"; sourceTree = "<absolute>"; };
 		D30F8CB022D7E3A500ADF83A /* iconnest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconnest.png; sourceTree = "<group>"; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +100,7 @@
 		D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		D3EE7F7622A4AFEC0090B00B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +181,6 @@
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
 				D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */,
-				D30F8CAE22D7A02400ADF83A /* Icon-60@2x.png */,
 				D30F8CB022D7E3A500ADF83A /* iconnest.png */,
 				22F61034229F75FA00B9404F /* Send.swift */,
 				D3012FCF22AB7A9A0069709C /* UserDataModel.swift */,
@@ -201,9 +198,9 @@
 				D30ABD4222B82EB500B68CC0 /* Phototext.swift */,
 				22F3BE8422AB5CC600547467 /* SendViewController.swift */,
 				2221F34A22BC7A95006D0329 /* MenuViewController.swift */,
-				22FC0E4322BDA0DC00151576 /* SettingsViewController.swift */,
-				221E183322C1577D00EF01C3 /* ProfileViewController.swift */,
 				22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */,
+				22EC9C2522D81492005C5D95 /* ImageViewController.swift */,
+				F9217D0922DAF1FC00C01CF3 /* AnswersViewController.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -360,7 +357,6 @@
 				22F3632D22C1AEC800BC17AD /* icons8-settings-filled-50.png in Resources */,
 				D3EE7F7722A4AFEC0090B00B /* Main.storyboard in Resources */,
 				D3ACA70B22B02D4A00301CFA /* awsconfiguration.json in Resources */,
-				D30F8CAF22D7A02400ADF83A /* Icon-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +427,13 @@
 				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
 				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,
 				D3DCB6A722A243A900751AF6 /* ConfirmForgotPasswordViewController.swift in Sources */,
+				F9217D0A22DAF1FC00C01CF3 /* AnswersViewController.swift in Sources */,
 				D3DCB69722A2438400751AF6 /* MFAViewController.swift in Sources */,
 				22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */,
 				D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */,
 				D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */,
 				2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */,
-				221E183422C1577D00EF01C3 /* ProfileViewController.swift in Sources */,
+				22EC9C2622D81492005C5D95 /* ImageViewController.swift in Sources */,
 				22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */,
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
@@ -446,7 +443,6 @@
 				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
 				D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */,
 				D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */,
-				22FC0E4422BDA0DC00151576 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2M9GQU494;
+				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = Schooled/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2M9GQU494;
+				DEVELOPMENT_TEAM = QRLWKBGJT7;
 				INFOPLIST_FILE = Schooled/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -5,7 +5,8 @@ import AWSDynamoDB
 import AWSCognitoIdentityProvider
 import UIKit
 // this will be the main feed class showing the user data 
-class UserDetailTableViewController : UIViewController {
+class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     // attributes for the custome cell
     
     @IBOutlet weak var testing: UITextField!
@@ -19,6 +20,12 @@ class UserDetailTableViewController : UIViewController {
     var questiondata : Array<Phototext> = Array()    
     var menuButton: UIBarButtonItem = UIBarButtonItem()
     var clicked: Phototext? = nil
+    @IBOutlet weak var subjectPickerField: UITextField!
+    var pickerData: [String] = ["All Subjects", "Data Structures", "Biology", "Chemistry", "Physics"]
+    var picker = UIPickerView()
+    var toolbar = UIToolbar()
+    var allData : Array<Phototext> = Array()
+    var picked = "All Subjects"
     
     override func viewDidLoad() {
         
@@ -60,10 +67,27 @@ class UserDetailTableViewController : UIViewController {
         
         self.refresh()
        
+        //set up the picker for the filter
+        picker.delegate = self
+        subjectPickerField.inputView = picker
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.sizeToFit()
+        toolbar.items = [UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        toolbar.isUserInteractionEnabled = true
+        self.subjectPickerField.inputAccessoryView = toolbar
+        self.subjectPickerField.text = "Select Subjects"
         
     }
+    
+    //close the picker view when this is pressed
+    @objc func onDoneButtonTapped() {
+        toolbar.removeFromSuperview()
+        picker.removeFromSuperview()
+        subjectPickerField.endEditing(true)
+    }
+    
     // Configure Refresh Control
-   
     @objc func handleTopRefresh(_ sender:UIRefreshControl){
       self.updateData()
         
@@ -118,6 +142,48 @@ class UserDetailTableViewController : UIViewController {
         }
     }
     
+    //number of columns
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //number of rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    //returns what the user is currently on
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    //what the user has selected
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //set the field to whatever they pick
+        subjectPickerField.text = pickerData[row]
+        //get the picked
+        picked = pickerData[row]
+        //display all if they pick all subjects
+        if(picked == "All Subjects"){
+            questiondata.removeAll()
+            for data in allData{
+                questiondata.append(data)
+            }
+            self.Table.reloadData()
+            //else only display the ones they picked
+        } else {
+            questiondata.removeAll()
+            for data in allData {
+               
+                if(data._subject == picked){
+                    questiondata.append(data)
+                }
+            }
+            
+            self.Table.reloadData()
+        }
+        
+    }
         
         
         
@@ -145,7 +211,8 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
         cell.QuestionText.isEditable = false
         // grabbing the summary of each question 
         cell.Subject.text = questiondata[indexPath.row]._subject
-    
+        
+        cell.Subject.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
         
         return cell
         
@@ -155,7 +222,7 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
     // the array list
     func updateData(){
         let scanExpression = AWSDynamoDBScanExpression()
-        scanExpression.limit = 20
+        //scanExpression.limit = 20
         // testing to grabt the table data upon startup
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.scan(Phototext.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
@@ -164,16 +231,38 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
             } else if let paginatedOutput = task.result {
                 // clearing the data for the new data
                 self.questiondata.removeAll()
+                self.allData.removeAll();
                 // passes down an array of object
                 for Photo in paginatedOutput.items as! [Phototext] {
                     // loading in the arraylist of objects
                     // adding the objects to an arraylist
-                    self.questiondata.append(Photo)
+                   // self.questiondata.append(Photo)
                     
-                    
+                    self.allData.append(Photo)
                     
                     
                 }
+                print(self.allData.capacity)
+                if(self.picked == "All Subjects"){
+                    self.questiondata.removeAll()
+                    for data in self.allData{
+                       self.questiondata.append(data)
+                    }
+                   
+                    //else only display the ones they picked
+                } else {
+                    self.questiondata.removeAll()
+                    for data in self.allData {
+                       
+                        if(data._subject == self.picked){
+                            self.questiondata.append(data)
+                        }
+                    }
+                    
+                   
+                }
+                // reload based on what the picker is set on
+                
                 DispatchQueue.main.async {
                     self.Table.reloadData();
                     self.refreshControl.endRefreshing()

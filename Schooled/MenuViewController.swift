@@ -35,6 +35,7 @@ class MenuViewController: UIViewController {
                     self.emailField.isUserInteractionEnabled = false
                     self.questionsLeftField.text! = result._questions!.stringValue
                     self.questionsLeftField.isUserInteractionEnabled = false
+                    questionsLeft = Int(result._questions!)
                 }
             }
             return nil

@@ -190,6 +190,12 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView){
+        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!") {
+            questionDirections.text = ""
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

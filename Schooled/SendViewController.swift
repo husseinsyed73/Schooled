@@ -11,7 +11,7 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -25,18 +25,17 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
-    @IBOutlet weak var questionDirections: UITextField!
-    
-    
+    @IBOutlet weak var questionDirections: UITextView!
     var localPath: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        questionDirections.delegate = self
+        self.questionDirections.layer.borderWidth = 2.0
+        self.questionDirections.layer.borderColor = UIColor.gray.cgColor
         questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
-        questionDirections.textAlignment = .left
-        questionDirections.contentVerticalAlignment = .top
         imagePicker.delegate = self
         subjectPicker.delegate = self
         //make the questionDirections what ever the user picks
@@ -55,9 +54,18 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        questionDirections.delegate = self
         subtopic.delegate = self
     }
+    
+    //dismisses the text view when return it hit
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     
     //disables the keyboard after hitting return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -179,13 +187,6 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func clickSubTopic(_ sender: Any) {
         if(subtopic.text == "Please enter the subtopic"){
             subtopic.text = ""
-        }
-    }
-    
-    //removes text when description is pressed
-    @IBAction func clickDescription(_ sender: Any) {
-        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!"){
-            self.questionDirections.text = ""
         }
     }
     

@@ -895,16 +895,13 @@
                                     <action selector="SendPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="A92-AD-1OH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNM-BS-2CC">
-                                <rect key="frame" x="18" y="467" width="338" height="133"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rRl-hT-uKe">
+                                <rect key="frame" x="16" y="467" width="340" height="154"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="clickDescription:" destination="6n7-V0-a5g" eventType="editingDidBegin" id="roH-LL-t9I"/>
-                                </connections>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -912,7 +909,7 @@
                         <outlet property="Summary" destination="Jsm-Pf-A8f" id="k2X-ub-Tmx"/>
                         <outlet property="choosePic" destination="xOz-Vd-U2U" id="5zF-Sa-eh8"/>
                         <outlet property="imageView" destination="nAx-uU-Lgw" id="4WG-8j-9li"/>
-                        <outlet property="questionDirections" destination="mNM-BS-2CC" id="mwx-ht-cRh"/>
+                        <outlet property="questionDirections" destination="rRl-hT-uKe" id="K2C-aD-1SF"/>
                         <outlet property="subtopic" destination="8yP-gm-jpq" id="Vrd-co-mSP"/>
                         <segue destination="HrM-CC-Cfx" kind="push" identifier="back2main" id="GL0-RR-I1b"/>
                     </connections>

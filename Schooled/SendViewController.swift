@@ -27,6 +27,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
     @IBOutlet weak var questionDirections: UITextField!
+    var textSaved = false
+    var picSaved  = false
     
   
     var localPath: URL!
@@ -215,6 +217,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // this adds the needed data to the plist
              // converting the data to a png reprisentation
     // end the function if empty
+        self.textSaved = false;
+        self.picSaved = false
         
          self.activity.startAnimating();
         UIApplication.shared.beginIgnoringInteractionEvents();
@@ -290,12 +294,22 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                     
                     self.present(alertController, animated: true, completion: nil)
+                    
                                        // error because not posted
                     self.activity.stopAnimating();
                     UIApplication.shared.endIgnoringInteractionEvents()
             }else{
-                    
-                
+                    self.picSaved = true
+                    if(self.textSaved){
+                    // now we can send
+                    DispatchQueue.main.async {
+                        self.activity.stopAnimating()
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.navigationController?.popViewController(animated: true)
+                        
+                        
+                    }
+                    }
             }
             return nil
             }
@@ -338,7 +352,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     self.activity.stopAnimating();
                     UIApplication.shared.endIgnoringInteractionEvents()
                 } else {
-                   
+                   self.textSaved = true
+                    if(self.picSaved){
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
@@ -346,6 +361,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         self.navigationController?.popViewController(animated: true)
                         
                         
+                    }
                     }
                     
                 }

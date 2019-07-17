@@ -16,6 +16,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var choosePic: UIButton!
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var imagePicker = UIImagePickerController()
     var text = ""
@@ -27,13 +28,21 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var Summary: UITextField!
     @IBOutlet weak var questionDirections: UITextField!
     
-    
+  
     var localPath: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // adding the loading icon
+        self.activity.center = self.view.center
+        self.activity.hidesWhenStopped = true
+        self.activity.style = UIActivityIndicatorView.Style.gray;
+        self.activity.color = UIColor.black
+        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        self.activity.transform = transform
+        
+        view.addSubview(activity);        // Do any additional setup after loading the view.
+       
         questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
         questionDirections.textAlignment = .left
         questionDirections.contentVerticalAlignment = .top
@@ -204,18 +213,40 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // then name of the photo will be the user
     @IBAction func SendPhoto(_ sender: Any) {
         // this adds the needed data to the plist
-        DispatchQueue.main.async {
-            self.navigationController?.popViewController(animated: true)
-            
-        }        // converting the data to a png reprisentation
+             // converting the data to a png reprisentation
     // end the function if empty
-        guard let image = imageView.image else {return}
+        
+         self.activity.startAnimating();
+        UIApplication.shared.beginIgnoringInteractionEvents();
+        
+        guard let image = imageView.image else {
+            let alertController = UIAlertController(title: "ALERT", message:
+                "Please add a Photo", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            
+            self.present(alertController, animated: true, completion: nil)
+            self.activity.stopAnimating();
+            return
+            
+        }
         let data = image.pngData()
         let remoteName = "test.png"
         self.text = self.questionDirections.text!
         // grabbing the summary data
         self.summary = self.Summary.text!
         self.sub = self.subtopic.text!
+        if(self.sub == "What Subject are you taking ?" || self.summary == "Please enter the subtopic" || self.text == "Please elaborate on your question, the more accurate the description the better!"){
+            let alertController = UIAlertController(title: "ALERT", message:
+                "Please fill out the entire post ", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            
+            self.present(alertController, animated: true, completion: nil)
+          
+            
+            self.activity.stopAnimating();
+            UIApplication.shared.endIgnoringInteractionEvents()
+            return;
+        }
         let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
         do {
             try data?.write(to: fileURL)
@@ -246,25 +277,36 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             let transferManager = AWSS3TransferManager.default()
             
-            transferManager.upload(uploadRequest!).continueWith { (task) -> AnyObject? in
+            
+            
+        transferManager.upload(uploadRequest!).continueWith { (task) -> AnyObject? in
                 if let error = task.error {
+                    // check if internet was bad
                     print("Upload failed (\(error))")
-                }
-                // once we return lets now upload the text to the s3 server also
-                sendText(key:textkey,summ: self.summary,sub:self.sub);
-                return nil
+                    let alertController = UIAlertController(title: "ALERT", message:
+                        "Your Question was not able to be posted at this time", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                                       // error because not posted
+                    self.activity.stopAnimating();
+                    UIApplication.shared.endIgnoringInteractionEvents()
+            }else{
+                    
+                 self.sendText(key:textkey,summ: self.summary,sub:self.sub);
             }
-        }
-        catch {
+            return nil
+            }
+        } catch {
             print("File not save failed")
         }
+    }
        
         
         
         func sendText(key:String,summ:String,sub:String){
             
-            
-            
+          
             // now sending the text
             let photoadder = Phototext();
             // creating the user object
@@ -284,10 +326,24 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 
                 if let error = task.error as NSError? {
-                    print("The request failed. Error: \(error)")
+                   // only once you gotta check for internet connection just tick back the numbers
+                    let alertController = UIAlertController(title: "ALERT", message:
+                        "Your Question was not able to be posted at this time", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    self.activity.stopAnimating();
+                    UIApplication.shared.endIgnoringInteractionEvents()
                 } else {
                    
-                    
+                    // now we can send
+                    DispatchQueue.main.async {
+                        self.activity.stopAnimating()
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.navigationController?.popViewController(animated: true)
+                        
+                        
+                    }
                     
                 }
                 
@@ -296,6 +352,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     
     
+    
     }
-}
+
 

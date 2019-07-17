@@ -229,6 +229,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             
             self.present(alertController, animated: true, completion: nil)
+             UIApplication.shared.endIgnoringInteractionEvents()
             self.activity.stopAnimating();
             return
             

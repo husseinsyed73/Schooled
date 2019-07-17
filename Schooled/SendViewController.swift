@@ -362,8 +362,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         
                         
                     }
-                    }
                     
+                }
                 }
                 
                 return nil

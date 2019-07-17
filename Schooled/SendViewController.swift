@@ -255,7 +255,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             uploadRequest?.body = fileURL
             // no point of folder because storing all of the photos
             // username dash and the time for splitting up the data
-            var time = String(Int64(Date().timeIntervalSince1970 * 1000));
+            let time = String(Int64(Date().timeIntervalSince1970 * 1000));
             var keydata = username123;
             keydata = keydata + "-";
             keydata = keydata + time
@@ -274,6 +274,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // lets en
             uploadRequest?.bucket = bucket
             uploadRequest?.contentType = "image/png"
+            // one sends high likleyhood other sends 
+             self.sendText(key:textkey,summ: self.summary,sub:self.sub);
             
             let transferManager = AWSS3TransferManager.default()
             
@@ -293,13 +295,14 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     UIApplication.shared.endIgnoringInteractionEvents()
             }else{
                     
-                 self.sendText(key:textkey,summ: self.summary,sub:self.sub);
+                
             }
             return nil
             }
         } catch {
             print("File not save failed")
         }
+        
     }
        
         

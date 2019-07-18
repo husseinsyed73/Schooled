@@ -35,7 +35,6 @@ class ViewQuestionViewController: UIViewController {
         topicTextField.text! = currentQuestionData!._subject!
         topicTextField.isUserInteractionEnabled = false
         descriptionField.text! = currentQuestionData!._noteId!
-        descriptionField.isUserInteractionEnabled = false
         getPicture()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))

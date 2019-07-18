@@ -11,7 +11,7 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UITextViewDelegate {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -72,9 +72,18 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        questionDirections.delegate = self
         subtopic.delegate = self
     }
+    
+    //dismisses the text view when return it hit
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     
     //disables the keyboard after hitting return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -199,10 +208,9 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    //removes text when description is pressed
-    @IBAction func clickDescription(_ sender: Any) {
-        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!"){
-            self.questionDirections.text = ""
+    func textViewDidBeginEditing(_ textView: UITextView){
+        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!") {
+            questionDirections.text = ""
         }
     }
     

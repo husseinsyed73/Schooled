@@ -124,7 +124,15 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
             dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
                 if let error = task.error as? NSError {
                     print("The request failed. Error: \(error)")
-                } else if let result = task.result as? UserDataModel {
+                    // alert lack of connection to server
+                    
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activity.stopAnimating()
+                    let alertController = UIAlertController(title: "ALERT", message:
+                        "Questions cannot be poster at this time please check your internet connection ", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    
+                    self.present(alertController, animated: true, completion: nil)                } else if let result = task.result as? UserDataModel {
                     // Do something with task.result.
                     questionsLeft = result._questions as! Int
                     userphoneNumber = result._phoneNumber!

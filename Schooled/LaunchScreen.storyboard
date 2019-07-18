@@ -20,12 +20,26 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconnest.png" translatesAutoresizingMaskIntoConstraints="NO" id="VWS-Xz-0yd">
+                                <rect key="frame" x="89" y="355" width="237" height="186"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VWS-Xz-0yd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JeU-DY-Gle"/>
+                            <constraint firstItem="VWS-Xz-0yd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="327" id="V0c-aq-Qmy"/>
+                            <constraint firstItem="VWS-Xz-0yd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="82" id="ctd-Hc-Il1"/>
+                            <constraint firstItem="VWS-Xz-0yd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="p79-LD-kvW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconnest.png" width="60" height="60"/>
+    </resources>
 </document>

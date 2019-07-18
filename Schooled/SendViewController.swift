@@ -319,12 +319,15 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
+                        questionsLeft -= 1
+                        self.updateQuestionCount()
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.navigationController?.popViewController(animated: true)
                         
                         
+                        
                     }
-                    }
+                }
             }
             return nil
             }
@@ -372,6 +375,9 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
+                        questionsLeft -= 1
+                        
+                        self.updateQuestionCount()
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.navigationController?.popViewController(animated: true)
                         
@@ -384,6 +390,27 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 return nil
             })
         }
+    func updateQuestionCount(){
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        let user = UserDataModel()
+        user?._phoneNumber = userphoneNumber
+        user?._email = useremail
+        user?._userId = username123
+       
+        user?._questions = questionsLeft as NSNumber
+        
+        dynamoDBObjectMapper.save(user!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as? NSError {
+                print("The request failed. Error: \(error)")
+            
+            
+            } else {
+               
+            }
+            return nil
+        })
+        
+    }
     
     
     

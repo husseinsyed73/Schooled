@@ -12,6 +12,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var testing: UITextField!
     // refresh control object
     private let refreshControl = UIRefreshControl();
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
    
     @IBOutlet var Table: UITableView!
     var response: AWSCognitoIdentityUserGetDetailsResponse?
@@ -32,11 +33,20 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         
         super.viewDidLoad()
         // creating the refresh control object
+        // adding the loading icon
+        self.activity.center = self.view.center
+        self.activity.hidesWhenStopped = true
+        self.activity.style = UIActivityIndicatorView.Style.gray;
+        self.activity.color = UIColor.black
+        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        self.activity.transform = transform
         
+        view.addSubview(activity);
         //create the menuButton and the gesture to pull the menu
         if self.revealViewController() != nil {
             //initialize the menuButton
             menuButton = UIBarButtonItem.init(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+            
             //set the leftBarButtonItem to the MenuButton
             navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -106,7 +116,63 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     
    
     @IBAction func Questions(_ sender: Any) {
-        performSegue(withIdentifier: "ask", sender: self)
+        if(userLoaded == false){
+         // grab all the data from the user information
+            UIApplication.shared.beginIgnoringInteractionEvents();
+            self.activity.startAnimating()
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                if let error = task.error as? NSError {
+                    print("The request failed. Error: \(error)")
+                } else if let result = task.result as? UserDataModel {
+                    // Do something with task.result.
+                    questionsLeft = result._questions as! Int
+                    userphoneNumber = result._phoneNumber!
+                    useremail = result._email!
+                
+                    userLoaded = true
+                    if(questionsLeft == 0){
+                        DispatchQueue.main.async {
+                        
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.activity.stopAnimating()
+                        let alertController = UIAlertController(title: "ALERT", message:
+                            "You have no question tokens left, please answer a question to get more", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            self.activity.stopAnimating()
+                            self.performSegue(withIdentifier: "ask", sender: self)
+                        }
+                        
+                    }
+                }
+                return nil
+            })
+        
+        
+        }else{
+            if(questionsLeft != 0){
+                DispatchQueue.main.async{
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activity.stopAnimating()
+                    self.performSegue(withIdentifier: "ask", sender: self)
+                }
+                
+            }
+            else {
+                let alertController = UIAlertController(title: "ALERT", message:
+                    "You have no question tokens left, please answer a question to get more", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            }
+        }
     }
     
     
@@ -116,6 +182,8 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         self.user?.signOut()
         self.title = nil
         self.response = nil
+        // user data needs to be loaded again
+        userLoaded = false
         self.refresh()
     }
     

@@ -17,11 +17,10 @@ import AWSDynamoDB
 
 class UserDataModel: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
-    @objc var _userId: String?
-    @objc  var _email: String?
-    @objc var _phoneNumber: String?
-    @objc var _questions: NSNumber?
-    @objc var _subject: String?
+   @objc  var _userId: String?
+   @objc var _email: String?
+   @objc var _phoneNumber: String?
+   @objc var _questions: NSNumber?
     
     class func dynamoDBTableName() -> String {
 
@@ -39,7 +38,6 @@ class UserDataModel: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
                "_email" : "Email",
                "_phoneNumber" : "Phone Number",
                "_questions" : "Questions",
-               "_subject" : "Subject",
         ]
     }
 }

@@ -16,10 +16,10 @@
 		22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3BE8422AB5CC600547467 /* SendViewController.swift */; };
 		22F61035229F75FA00B9404F /* Send.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F61034229F75FA00B9404F /* Send.swift */; };
 		AF5CBE71FA88F70019293985 /* Pods_Schooled.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F53B5F83405692DC5854A7 /* Pods_Schooled.framework */; };
-		D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3012FCF22AB7A9A0069709C /* UserDataModel.swift */; };
 		D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308469D22B1B23900CABFA4 /* QuestionCell.swift */; };
 		D30ABD4322B82EB500B68CC0 /* Phototext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30ABD4222B82EB500B68CC0 /* Phototext.swift */; };
 		D30F8CB122D7E3A500ADF83A /* iconnest.png in Resources */ = {isa = PBXBuildFile; fileRef = D30F8CB022D7E3A500ADF83A /* iconnest.png */; };
+		D31375E422E0DDDC007DAEB8 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31375E322E0DDDC007DAEB8 /* UserDataModel.swift */; };
 		D38A056F229F33E600F373F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38A056E229F33E600F373F2 /* Assets.xcassets */; };
 		D38A057D229F33E600F373F2 /* SchooledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A057C229F33E600F373F2 /* SchooledTests.swift */; };
 		D38A0588229F33E600F373F2 /* SchooledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38A0587229F33E600F373F2 /* SchooledUITests.swift */; };
@@ -73,10 +73,10 @@
 		82DF732F8D9FFB6660901996 /* Pods-Schooled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.debug.xcconfig"; sourceTree = "<group>"; };
 		8C1E61B1FB5A77716ACBE237 /* Pods-Schooled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Schooled.release.xcconfig"; path = "Pods/Target Support Files/Pods-Schooled/Pods-Schooled.release.xcconfig"; sourceTree = "<group>"; };
 		9BDCE3DF938D5864DBDA8BB1 /* Pods_SchooledTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchooledTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3012FCF22AB7A9A0069709C /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		D308469D22B1B23900CABFA4 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		D30ABD4222B82EB500B68CC0 /* Phototext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phototext.swift; sourceTree = "<group>"; };
 		D30F8CB022D7E3A500ADF83A /* iconnest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconnest.png; sourceTree = "<group>"; };
+		D31375E322E0DDDC007DAEB8 /* UserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		D38A0564229F33E400F373F2 /* Schooled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Schooled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38A056E229F33E600F373F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38A0573229F33E600F373F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,10 +180,10 @@
 				D3EE7F7622A4AFEC0090B00B /* Main.storyboard */,
 				D38A056E229F33E600F373F2 /* Assets.xcassets */,
 				D38A0573229F33E600F373F2 /* Info.plist */,
+				D31375E322E0DDDC007DAEB8 /* UserDataModel.swift */,
 				D3ACA70A22B02D4A00301CFA /* awsconfiguration.json */,
 				D30F8CB022D7E3A500ADF83A /* iconnest.png */,
 				22F61034229F75FA00B9404F /* Send.swift */,
-				D3012FCF22AB7A9A0069709C /* UserDataModel.swift */,
 				D3EE7F7822A4B01E0090B00B /* LaunchScreen.storyboard */,
 				D3DCB69622A2438400751AF6 /* MFAViewController.swift */,
 				D3DCB69F22A243A900751AF6 /* ConfirmForgotPasswordViewController.swift */,
@@ -435,13 +435,13 @@
 				2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */,
 				22EC9C2622D81492005C5D95 /* ImageViewController.swift in Sources */,
 				22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */,
+				D31375E422E0DDDC007DAEB8 /* UserDataModel.swift in Sources */,
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,
 				D3DCB6A522A243A900751AF6 /* SignInViewController.swift in Sources */,
 				22F61035229F75FA00B9404F /* Send.swift in Sources */,
 				D308469E22B1B23900CABFA4 /* QuestionCell.swift in Sources */,
 				D3DCB6A422A243A900751AF6 /* DevicesDetailTableViewController.swift in Sources */,
 				22F3BE8522AB5CC600547467 /* SendViewController.swift in Sources */,
-				D3012FD022AB7A9A0069709C /* UserDataModel.swift in Sources */,
 				D3DCB6A122A243A900751AF6 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

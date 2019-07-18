@@ -126,6 +126,9 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
                 } else if let result = task.result as? UserDataModel {
                     // Do something with task.result.
                     questionsLeft = result._questions as! Int
+                    userphoneNumber = result._phoneNumber!
+                    useremail = result._email!
+                
                     userLoaded = true
                     if(questionsLeft == 0){
                         DispatchQueue.main.async {

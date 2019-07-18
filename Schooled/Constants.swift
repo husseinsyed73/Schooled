@@ -15,3 +15,5 @@ var username123 = ""
 var questionsLeft = 0
 // if user data has been loaded
 var userLoaded = false
+var userphoneNumber = ""
+var useremail = ""

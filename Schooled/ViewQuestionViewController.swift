@@ -38,7 +38,9 @@ class ViewQuestionViewController: UIViewController {
         getPicture()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
-        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressOnImage)))
+        let longPressImage = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressOnImage))
+        longPressImage.minimumPressDuration = 2.0
+        imageView.addGestureRecognizer(longPressImage)
     }
     
     //downloads the picture from the database
@@ -61,8 +63,16 @@ class ViewQuestionViewController: UIViewController {
         }
     }
     
+    //Saves the image to the users phone when long pressed
     @objc func longPressOnImage(){
+        let imageData = imageView.image!.pngData()
+        let compresedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
         
+        let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     //performs the segue to see the image larger when the user clicks the image

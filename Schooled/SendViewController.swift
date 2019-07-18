@@ -11,7 +11,7 @@
 import UIKit
 import AWSS3
 import AWSDynamoDB
-class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class SendViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,UITextViewDelegate {
 
     @IBOutlet weak var subtopic: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -26,7 +26,8 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
-    @IBOutlet weak var questionDirections: UITextField!
+    
+    @IBOutlet weak var questionDirections: UITextView!
     
     var textSaved = false
     var picSaved  = false
@@ -36,6 +37,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // adding the loading icon
         self.activity.center = self.view.center
         self.activity.hidesWhenStopped = true
@@ -45,14 +47,13 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.activity.transform = transform
         
         view.addSubview(activity);        // Do any additional setup after loading the view.
-        
         questionDirections.delegate = self
         self.questionDirections.layer.borderWidth = 2.0
         self.questionDirections.layer.borderColor = UIColor.gray.cgColor
         
         questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
         questionDirections.textAlignment = .left
-        questionDirections.contentVerticalAlignment = .top
+        
         imagePicker.delegate = self
         subjectPicker.delegate = self
         //make the questionDirections what ever the user picks

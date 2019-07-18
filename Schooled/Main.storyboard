@@ -883,16 +883,7 @@
                                     <action selector="clickSubTopic:" destination="6n7-V0-a5g" eventType="editingDidBegin" id="23t-rh-cwU"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-qo-b30">
-                                <rect key="frame" x="-3" y="479" width="381" height="176"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="176" id="ngE-pi-IEU"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jA1-LU-nnX">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jA1-LU-nnX">
                                 <rect key="frame" x="165.66666666666666" y="677" width="41" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="Flc-hP-0Na"/>
@@ -902,6 +893,14 @@
                                     <action selector="SendPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="A92-AD-1OH"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z5Y-AV-DQ4">
+                                <rect key="frame" x="-2" y="488" width="375" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -913,24 +912,20 @@
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="centerY" secondItem="xOz-Vd-U2U" secondAttribute="centerY" id="Iq9-Md-Xau"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="centerX" secondItem="xOz-Vd-U2U" secondAttribute="centerX" id="Jty-nh-j3V"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="trailing" secondItem="8yP-gm-jpq" secondAttribute="trailing" id="Oud-CF-enO"/>
-                            <constraint firstItem="jA1-LU-nnX" firstAttribute="top" secondItem="rJJ-qo-b30" secondAttribute="bottom" constant="22" id="QeM-eH-4JI"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="centerY" secondItem="7e6-aw-8F1" secondAttribute="centerY" id="QzM-0N-cTU"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leadingMargin" id="Uxn-lC-aLs"/>
                             <constraint firstAttribute="trailing" secondItem="Jsm-Pf-A8f" secondAttribute="trailing" id="VBJ-ay-d4N"/>
-                            <constraint firstItem="rJJ-qo-b30" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leadingMargin" constant="-19" id="WtO-Kb-RIM"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="top" secondItem="nAx-uU-Lgw" secondAttribute="bottom" constant="28" id="cxp-rF-yY8"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="leading" secondItem="8yP-gm-jpq" secondAttribute="leading" id="gE3-bD-slq"/>
-                            <constraint firstItem="rJJ-qo-b30" firstAttribute="centerX" secondItem="8yP-gm-jpq" secondAttribute="centerX" id="knv-GJ-Oup"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="top" secondItem="UUZ-nH-ecS" secondAttribute="bottom" constant="93" id="n2H-XV-zLM"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leading" id="riy-xf-hId"/>
-                            <constraint firstItem="rJJ-qo-b30" firstAttribute="top" secondItem="8yP-gm-jpq" secondAttribute="bottom" constant="20" id="zBM-In-OQJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="Summary" destination="Jsm-Pf-A8f" id="k2X-ub-Tmx"/>
                         <outlet property="choosePic" destination="xOz-Vd-U2U" id="5zF-Sa-eh8"/>
                         <outlet property="imageView" destination="nAx-uU-Lgw" id="4WG-8j-9li"/>
-                        <outlet property="questionDirections" destination="rJJ-qo-b30" id="p8Z-az-JGY"/>
+                        <outlet property="questionDirections" destination="Z5Y-AV-DQ4" id="vsd-Yv-Nli"/>
                         <outlet property="subtopic" destination="8yP-gm-jpq" id="Vrd-co-mSP"/>
                         <segue destination="HrM-CC-Cfx" kind="push" identifier="back2main" id="GL0-RR-I1b"/>
                     </connections>

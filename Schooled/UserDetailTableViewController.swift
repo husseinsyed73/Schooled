@@ -106,7 +106,27 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     
    
     @IBAction func Questions(_ sender: Any) {
+        if(userLoaded == false){
+         // grab all the data from the user information
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                if let error = task.error as? NSError {
+                    print("The request failed. Error: \(error)")
+                } else if let result = task.result as? UserDataModel {
+                    // Do something with task.result.
+                    questionsLeft = result._questions as! Int
+                    userLoaded = true
+                    DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "ask", sender: self)
+                    }
+                }
+                return nil
+            })
+        
+        
+        }else{
         performSegue(withIdentifier: "ask", sender: self)
+        }
     }
     
     
@@ -116,6 +136,8 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         self.user?.signOut()
         self.title = nil
         self.response = nil
+        // user data needs to be loaded again
+        userLoaded = false
         self.refresh()
     }
     

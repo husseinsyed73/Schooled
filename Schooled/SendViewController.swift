@@ -27,6 +27,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
     @IBOutlet weak var questionDirections: UITextField!
+    
     var textSaved = false
     var picSaved  = false
     

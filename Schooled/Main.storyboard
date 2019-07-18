@@ -874,18 +874,6 @@
                                     <action selector="addPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="Gwe-Q2-wzJ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNM-BS-2CC">
-                                <rect key="frame" x="0.0" y="482" width="375" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="Hh7-y8-nOq"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="clickDescription:" destination="6n7-V0-a5g" eventType="editingDidBegin" id="roH-LL-t9I"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please enter the subtopic" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yP-gm-jpq">
                                 <rect key="frame" x="-2" y="429" width="375" height="30"/>
                                 <nil key="textColor"/>
@@ -902,13 +890,19 @@
                                     <action selector="SendPhoto:" destination="6n7-V0-a5g" eventType="touchUpInside" id="A92-AD-1OH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-qo-b30">
+                                <rect key="frame" x="0.0" y="490" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="top" secondItem="xOz-Vd-U2U" secondAttribute="bottom" id="18M-rh-oHH"/>
-                            <constraint firstItem="jA1-LU-nnX" firstAttribute="top" secondItem="mNM-BS-2CC" secondAttribute="bottom" constant="29" id="40i-LN-bE8"/>
                             <constraint firstItem="jA1-LU-nnX" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leading" constant="167" id="5d1-5t-gtL"/>
-                            <constraint firstItem="mNM-BS-2CC" firstAttribute="top" secondItem="8yP-gm-jpq" secondAttribute="bottom" constant="23" id="8qc-pq-tOk"/>
+                            <constraint firstItem="Pyb-ZN-KN7" firstAttribute="top" secondItem="jA1-LU-nnX" secondAttribute="bottom" constant="8" symbolic="YES" id="9Py-XA-Wh3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nAx-uU-Lgw" secondAttribute="trailing" constant="2" id="ADW-MO-oHa"/>
                             <constraint firstItem="8yP-gm-jpq" firstAttribute="top" secondItem="Jsm-Pf-A8f" secondAttribute="bottom" constant="8" symbolic="YES" id="Ha1-EH-Hsr"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="centerX" secondItem="xOz-Vd-U2U" secondAttribute="centerX" id="IG2-6w-iRG"/>
@@ -918,11 +912,9 @@
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="centerY" secondItem="7e6-aw-8F1" secondAttribute="centerY" id="QzM-0N-cTU"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leadingMargin" id="Uxn-lC-aLs"/>
                             <constraint firstAttribute="trailing" secondItem="Jsm-Pf-A8f" secondAttribute="trailing" id="VBJ-ay-d4N"/>
-                            <constraint firstItem="Jsm-Pf-A8f" firstAttribute="leading" secondItem="mNM-BS-2CC" secondAttribute="leading" id="XKO-Fv-vsI"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="top" secondItem="nAx-uU-Lgw" secondAttribute="bottom" constant="28" id="cxp-rF-yY8"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="leading" secondItem="8yP-gm-jpq" secondAttribute="leading" id="gE3-bD-slq"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="top" secondItem="UUZ-nH-ecS" secondAttribute="bottom" constant="93" id="n2H-XV-zLM"/>
-                            <constraint firstItem="Jsm-Pf-A8f" firstAttribute="trailing" secondItem="mNM-BS-2CC" secondAttribute="trailing" id="nWu-En-uSv"/>
                             <constraint firstItem="Jsm-Pf-A8f" firstAttribute="leading" secondItem="7e6-aw-8F1" secondAttribute="leading" id="riy-xf-hId"/>
                         </constraints>
                     </view>
@@ -930,7 +922,7 @@
                         <outlet property="Summary" destination="Jsm-Pf-A8f" id="k2X-ub-Tmx"/>
                         <outlet property="choosePic" destination="xOz-Vd-U2U" id="5zF-Sa-eh8"/>
                         <outlet property="imageView" destination="nAx-uU-Lgw" id="4WG-8j-9li"/>
-                        <outlet property="questionDirections" destination="mNM-BS-2CC" id="mwx-ht-cRh"/>
+                        <outlet property="questionDirections" destination="rJJ-qo-b30" id="p8Z-az-JGY"/>
                         <outlet property="subtopic" destination="8yP-gm-jpq" id="Vrd-co-mSP"/>
                         <segue destination="HrM-CC-Cfx" kind="push" identifier="back2main" id="GL0-RR-I1b"/>
                     </connections>

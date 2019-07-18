@@ -45,7 +45,11 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.activity.transform = transform
         
         view.addSubview(activity);        // Do any additional setup after loading the view.
-       
+        
+        questionDirections.delegate = self
+        self.questionDirections.layer.borderWidth = 2.0
+        self.questionDirections.layer.borderColor = UIColor.gray.cgColor
+        
         questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
         questionDirections.textAlignment = .left
         questionDirections.contentVerticalAlignment = .top

@@ -318,8 +318,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
-                        questionsLeft -= 1
-                        self.updateQuestionCount()
+                        
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.navigationController?.popViewController(animated: true)
                         

@@ -19,7 +19,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+self.questionsLeftField.text = String(questionsLeft)
         // Do any additional setup after loading the view.
         userNameField.text! = username123
         userNameField.isUserInteractionEnabled = false

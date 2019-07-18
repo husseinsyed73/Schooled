@@ -38,6 +38,7 @@ class ViewQuestionViewController: UIViewController {
         getPicture()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
+        imageView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressOnImage)))
     }
     
     //downloads the picture from the database
@@ -58,6 +59,10 @@ class ViewQuestionViewController: UIViewController {
             })
             
         }
+    }
+    
+    @objc func longPressOnImage(){
+        
     }
     
     //performs the segue to see the image larger when the user clicks the image

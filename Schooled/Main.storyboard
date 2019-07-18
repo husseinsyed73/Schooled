@@ -33,7 +33,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzC-gK-L3y">
                                 <rect key="frame" x="16" y="679" width="343" height="34"/>
-                                <color key="backgroundColor" red="0.1960784314" green="0.60392156860000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.074902258791711973" green="0.542387084720232" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,10 +57,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconnest.png" highlightedImage="CognitoLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-tY-FzQ">
-                                <rect key="frame" x="97.666666666666686" y="316" width="180" height="180"/>
+                                <rect key="frame" x="111" y="329.66666666666669" width="153" height="153"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="aZf-WV-AUb"/>
-                                    <constraint firstAttribute="width" constant="180" id="dJa-v1-03Z"/>
+                                    <constraint firstAttribute="height" constant="153" id="aZf-WV-AUb"/>
+                                    <constraint firstAttribute="width" constant="153" id="dJa-v1-03Z"/>
                                 </constraints>
                             </imageView>
                         </subviews>

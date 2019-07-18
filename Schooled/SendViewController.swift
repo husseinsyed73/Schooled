@@ -314,20 +314,18 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     self.activity.stopAnimating();
                     UIApplication.shared.endIgnoringInteractionEvents()
             }else{
-                    self.picSaved = true
-                    if(self.textSaved){
+                    
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
-                        questionsLeft -= 1
-                        self.updateQuestionCount()
+                        
                         UIApplication.shared.endIgnoringInteractionEvents()
                         self.navigationController?.popViewController(animated: true)
                         
                         
                         
                     }
-                }
+                
             }
             return nil
             }
@@ -370,8 +368,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     self.activity.stopAnimating();
                     UIApplication.shared.endIgnoringInteractionEvents()
                 } else {
-                   self.textSaved = true
-                    if(self.picSaved){
+                   
                     // now we can send
                     DispatchQueue.main.async {
                         self.activity.stopAnimating()
@@ -384,7 +381,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         
                     }
                     
-                }
+                
                 }
                 
                 return nil

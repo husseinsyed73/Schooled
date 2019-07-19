@@ -74,7 +74,13 @@ class ViewQuestionViewController: UIViewController {
         }
         tranferUtility.downloadData(fromBucket: bucket, key: self.currentQuestionData!._userId!, expression: expression){ (task, url, data, error) in
             if error != nil{
-                print(error!)
+                self.activity.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                let alertController = UIAlertController(title: "ALERT", message:
+                    "Please check you cell service", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                
+                self.present(alertController, animated: true, completion: nil)
             }
             DispatchQueue.main.async(execute: {
                 

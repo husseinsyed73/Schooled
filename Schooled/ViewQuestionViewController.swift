@@ -52,6 +52,9 @@ class ViewQuestionViewController: UIViewController {
         
     }
     
+    @IBAction func answer(_ sender: Any) {
+       self.performSegue(withIdentifier: "answer", sender: self)
+    }
     @IBAction func savePhoto(_ sender: Any) {
         let imageData = imageView.image!.pngData()
         let compresedImage = UIImage(data: imageData!)

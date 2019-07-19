@@ -70,7 +70,7 @@ class ViewQuestionViewController: UIViewController {
     //downloads the picture from the database
     func getPicture() {
         self.activity.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         
         let tranferUtility = AWSS3TransferUtility.default()
         let expression = AWSS3TransferUtilityDownloadExpression()
@@ -97,7 +97,7 @@ class ViewQuestionViewController: UIViewController {
                 self.imageView.image = UIImage(data: data!)
                 self.image = self.imageView.image
                 self.activity.stopAnimating()
-                UIApplication.shared.endIgnoringInteractionEvents()
+                
             })
             
             }}

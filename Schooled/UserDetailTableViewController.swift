@@ -50,6 +50,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
             //set the leftBarButtonItem to the MenuButton
             navigationItem.leftBarButtonItem = menuButton
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            revealViewController()?.rearViewRevealWidth = 325
         }
         
         refreshControl.addTarget(self, action: #selector(self.handleTopRefresh(_:)), for: .valueChanged )

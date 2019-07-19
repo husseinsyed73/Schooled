@@ -698,10 +698,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gru-fy-01L">
-                                <rect key="frame" x="16" y="475" width="343" height="142"/>
+                                <rect key="frame" x="16" y="475" width="343" height="187"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="142" id="dsi-7f-1Zv"/>
+                                    <constraint firstAttribute="height" constant="187" id="dsi-7f-1Zv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -722,7 +722,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPN-2i-w13">
-                                <rect key="frame" x="129" y="649" width="117" height="30"/>
+                                <rect key="frame" x="129" y="670" width="117" height="30"/>
                                 <state key="normal" title="Answer Question"/>
                             </button>
                         </subviews>
@@ -737,7 +737,7 @@
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="top" secondItem="lFK-GD-Zfp" secondAttribute="top" constant="219" id="gOh-S5-Wce"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="centerX" secondItem="cPN-2i-w13" secondAttribute="centerX" id="jca-XP-Mg2"/>
                             <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="QiK-Pj-mN7" secondAttribute="leading" id="nxs-HT-cD5"/>
-                            <constraint firstItem="cPN-2i-w13" firstAttribute="top" secondItem="gru-fy-01L" secondAttribute="bottom" constant="32" id="uBx-pZ-QTj"/>
+                            <constraint firstItem="cPN-2i-w13" firstAttribute="top" secondItem="gru-fy-01L" secondAttribute="bottom" constant="8" id="uBx-pZ-QTj"/>
                         </constraints>
                     </view>
                     <connections>

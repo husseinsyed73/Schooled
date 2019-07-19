@@ -46,6 +46,9 @@ class ViewQuestionViewController: UIViewController {
         getPicture()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
+        // making it not editable
+        self.descriptionField.isEditable = false
+        self.descriptionField.isSelectable = false
         
     }
     

@@ -74,14 +74,18 @@ class ViewQuestionViewController: UIViewController {
         }
         tranferUtility.downloadData(fromBucket: bucket, key: self.currentQuestionData!._userId!, expression: expression){ (task, url, data, error) in
             if error != nil{
+                DispatchQueue.main.async {
                 self.activity.stopAnimating()
                 UIApplication.shared.endIgnoringInteractionEvents()
                 let alertController = UIAlertController(title: "ALERT", message:
-                    "Please check you cell service", preferredStyle: .alert)
+                    "please check your  cell service ", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                 
                 self.present(alertController, animated: true, completion: nil)
-            }
+            
+                }
+
+            }else{
             DispatchQueue.main.async(execute: {
                 
                 self.imageView.image = UIImage(data: data!)
@@ -90,7 +94,7 @@ class ViewQuestionViewController: UIViewController {
                 UIApplication.shared.endIgnoringInteractionEvents()
             })
             
-        }
+            }}
     }
     
     //Saves the image to the users phone when long pressed

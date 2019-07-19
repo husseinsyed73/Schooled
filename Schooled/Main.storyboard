@@ -768,7 +768,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="20" translatesAutoresizingMaskIntoConstraints="NO" id="O1H-W4-TKy">
-                                <rect key="frame" x="16" y="52" width="343" height="158"/>
+                                <rect key="frame" x="16" y="52" width="343" height="669"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -780,7 +780,7 @@
                             <constraint firstItem="3cZ-qv-ZIh" firstAttribute="top" secondItem="ivI-Ny-TIM" secondAttribute="top" constant="232" id="TXK-Y6-Y7f"/>
                             <constraint firstAttribute="trailing" secondItem="3cZ-qv-ZIh" secondAttribute="trailing" id="dlI-sr-WX6"/>
                             <constraint firstItem="3cZ-qv-ZIh" firstAttribute="width" secondItem="ivI-Ny-TIM" secondAttribute="width" id="ipw-ll-rDu"/>
-                            <constraint firstItem="3cZ-qv-ZIh" firstAttribute="top" secondItem="O1H-W4-TKy" secondAttribute="bottom" constant="22" id="lTY-Wy-LvR"/>
+                            <constraint firstItem="3cZ-qv-ZIh" firstAttribute="top" secondItem="O1H-W4-TKy" secondAttribute="bottom" constant="-489" id="lTY-Wy-LvR"/>
                             <constraint firstItem="O1H-W4-TKy" firstAttribute="top" secondItem="FKv-h6-lp6" secondAttribute="bottom" constant="8" symbolic="YES" id="qUE-Wy-85K"/>
                             <constraint firstItem="O1H-W4-TKy" firstAttribute="leading" secondItem="ivI-Ny-TIM" secondAttribute="leadingMargin" id="t7f-dq-Nel"/>
                         </constraints>

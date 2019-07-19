@@ -280,16 +280,19 @@ extension UserDetailTableViewController: UITableViewDataSource, UITableViewDeleg
         // returning the number of rows
         return questiondata.count
     }
-    
+    // cell click stuff
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Questionpost", for: indexPath) as! QuestionCell
         
         cell.QuestionText.text = questiondata[indexPath.row]._summary
         cell.QuestionText.isEditable = false
+        cell.QuestionText.isSelectable = true
+        cell.QuestionText.isUserInteractionEnabled = false
         // grabbing the summary of each question 
         cell.Subject.text = questiondata[indexPath.row]._subject
         
         cell.Subject.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+        cell.Subject.isUserInteractionEnabled = false
         
         return cell
         

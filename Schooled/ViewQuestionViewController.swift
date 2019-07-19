@@ -17,7 +17,7 @@ import AWSAuthCore
 
 class ViewQuestionViewController: UIViewController {
     @IBOutlet weak var topicTextField: UILabel!
-    
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -28,7 +28,15 @@ class ViewQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // adding the loading icon
+        self.activity.center = self.view.center
+        self.activity.hidesWhenStopped = true
+        self.activity.style = UIActivityIndicatorView.Style.gray;
+        self.activity.color = UIColor.black
+        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        self.activity.transform = transform
+        
+        view.addSubview(activity);
         // Do any additional setup after loading the view.
         topicTextField.textAlignment = NSTextAlignment.center
         topicTextField.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
@@ -38,13 +46,26 @@ class ViewQuestionViewController: UIViewController {
         getPicture()
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageTap)))
-        let longPressImage = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressOnImage))
-        longPressImage.minimumPressDuration = 2.0
-        imageView.addGestureRecognizer(longPressImage)
+        
+    }
+    
+    @IBAction func savePhoto(_ sender: Any) {
+        let imageData = imageView.image!.pngData()
+        let compresedImage = UIImage(data: imageData!)
+        UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
+        
+        let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
     }
     
     //downloads the picture from the database
     func getPicture() {
+        self.activity.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         let tranferUtility = AWSS3TransferUtility.default()
         let expression = AWSS3TransferUtilityDownloadExpression()
         expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
@@ -56,24 +77,19 @@ class ViewQuestionViewController: UIViewController {
                 print(error!)
             }
             DispatchQueue.main.async(execute: {
+                
                 self.imageView.image = UIImage(data: data!)
                 self.image = self.imageView.image
+                self.activity.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
             })
             
         }
     }
     
     //Saves the image to the users phone when long pressed
-    @objc func longPressOnImage(){
-        let imageData = imageView.image!.pngData()
-        let compresedImage = UIImage(data: imageData!)
-        UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
-        
-        let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
+   
+    
     
     //performs the segue to see the image larger when the user clicks the image
     @objc func imageTap() {

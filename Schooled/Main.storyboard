@@ -713,8 +713,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5v-I8-TRv">
+                                <rect key="frame" x="281" y="152" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Photo"/>
+                                <connections>
+                                    <action selector="savePhoto:" destination="Bsd-io-GFc" eventType="touchUpInside" id="ZK7-rB-0PW"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPN-2i-w13">
-                                <rect key="frame" x="129" y="625" width="117" height="30"/>
+                                <rect key="frame" x="129" y="649" width="117" height="30"/>
                                 <state key="normal" title="Answer Question"/>
                             </button>
                         </subviews>
@@ -729,7 +737,7 @@
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="top" secondItem="lFK-GD-Zfp" secondAttribute="top" constant="219" id="gOh-S5-Wce"/>
                             <constraint firstItem="LQZ-zI-QUQ" firstAttribute="centerX" secondItem="cPN-2i-w13" secondAttribute="centerX" id="jca-XP-Mg2"/>
                             <constraint firstItem="gru-fy-01L" firstAttribute="leading" secondItem="QiK-Pj-mN7" secondAttribute="leading" id="nxs-HT-cD5"/>
-                            <constraint firstItem="cPN-2i-w13" firstAttribute="top" secondItem="gru-fy-01L" secondAttribute="bottom" constant="8" id="uBx-pZ-QTj"/>
+                            <constraint firstItem="cPN-2i-w13" firstAttribute="top" secondItem="gru-fy-01L" secondAttribute="bottom" constant="32" id="uBx-pZ-QTj"/>
                         </constraints>
                     </view>
                     <connections>

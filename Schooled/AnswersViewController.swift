@@ -55,7 +55,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.questionDirections.layer.borderWidth = 2.0
         self.questionDirections.layer.borderColor = UIColor.gray.cgColor
         
-        questionDirections.text = "Please elaborate on your question, the more accurate the description the better!"
+        questionDirections.text = "Please elaborate on your answer, the more accurate the description the better!"
         questionDirections.textAlignment = .left
         
         imagePicker.delegate = self
@@ -395,6 +395,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             return nil
         })
     }
+    
     func updateQuestionCount(){
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         let user = UserDataModel()

@@ -339,7 +339,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     func textViewDidBeginEditing(_ textView: UITextView){
-        if(questionDirections.text == "Please elaborate on your question, the more accurate the description the better!") {
+        if(questionDirections.text == "Please elaborate on your answer, the more accurate the description the better!") {
             questionDirections.text = ""
         }
     }

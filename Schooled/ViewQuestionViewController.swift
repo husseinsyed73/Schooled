@@ -17,7 +17,7 @@ import AWSAuthCore
 
 class ViewQuestionViewController: UIViewController {
     @IBOutlet weak var topicTextField: UILabel!
-    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 180, y:320, width: 20, height: 20))
    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -29,10 +29,10 @@ class ViewQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // adding the loading icon
-        self.activity.center = self.view.center
+        
         self.activity.hidesWhenStopped = true
         self.activity.style = UIActivityIndicatorView.Style.gray;
-        self.activity.color = UIColor.black
+        self.activity.color = UIColor.white
         let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         self.activity.transform = transform
         

@@ -762,12 +762,63 @@
                         <outlet property="imageView" destination="LQZ-zI-QUQ" id="bCe-1o-61E"/>
                         <outlet property="topicTextField" destination="wdX-9i-QSN" id="Fna-XC-Wwb"/>
                         <segue destination="sqg-HH-XoH" kind="show" identifier="viewImageLarger" id="rWa-76-hqS"/>
-                        <segue destination="T3H-S7-hHx" kind="push" identifier="answer" id="MPu-l9-brd"/>
+                        <segue destination="7PE-CN-cGv" kind="show" identifier="answer" id="fyq-9o-SoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quw-gZ-adS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-916" y="1693.5960591133005"/>
+        </scene>
+        <!--Answers View Controller-->
+        <scene sceneID="kaJ-MG-mqb">
+            <objects>
+                <viewController id="7PE-CN-cGv" customClass="AnswersViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eHu-y7-Eft"/>
+                        <viewControllerLayoutGuide type="bottom" id="rQk-Uy-kUS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u1o-IH-wOm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-hV-xX5">
+                                <rect key="frame" x="169" y="691" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="send:" destination="7PE-CN-cGv" eventType="touchUpInside" id="eoH-ge-cq7"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9j-ZD-L0x">
+                                <rect key="frame" x="0.0" y="99" width="375" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNZ-Rv-Vzf">
+                                <rect key="frame" x="151" y="208" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Photo"/>
+                                <connections>
+                                    <action selector="addPhoto:" destination="7PE-CN-cGv" eventType="touchUpInside" id="FwU-mb-sjS"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9t9-Ab-WFZ">
+                                <rect key="frame" x="0.0" y="340" width="375" height="234"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerDescription" destination="9t9-Ab-WFZ" id="sOZ-tU-jx6"/>
+                        <outlet property="imageView" destination="z9j-ZD-L0x" id="29g-yI-aNH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GFy-05-RJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-909.60000000000002" y="2455.4187192118229"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="6Zx-JK-xrm">
@@ -976,91 +1027,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkA-Hs-OVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-916" y="917.73399014778329"/>
-        </scene>
-        <!--Answers View Controller-->
-        <scene sceneID="0M7-sg-VH7">
-            <objects>
-                <viewController id="T3H-S7-hHx" customClass="AnswersViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n8C-Bf-r1C"/>
-                        <viewControllerLayoutGuide type="bottom" id="pka-py-bEF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wzI-bu-Tzg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="What Subject are you taking ?" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Go-Cx-VBf">
-                                <rect key="frame" x="-2" y="391" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAu-ao-q8i">
-                                <rect key="frame" x="16" y="137" width="341" height="226"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1B-8j-oa8">
-                                <rect key="frame" x="151" y="235" width="72" height="30"/>
-                                <state key="normal" title="Add Photo"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please enter the subtopic" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0K2-yy-51H">
-                                <rect key="frame" x="-2" y="429" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFe-12-TdJ">
-                                <rect key="frame" x="165.66666666666666" y="677" width="41" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="41" id="6Ay-zW-rEy"/>
-                                </constraints>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="SendPhoto:" destination="T3H-S7-hHx" eventType="touchUpInside" id="5G6-fW-Paj"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-g2-MM9" customClass="viewCon">
-                                <rect key="frame" x="0.0" y="467" width="375" height="163"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="top" secondItem="h1B-8j-oa8" secondAttribute="bottom" id="1x2-lO-17D"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="centerY" secondItem="wzI-bu-Tzg" secondAttribute="centerY" id="2qe-1N-7Vi"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="top" secondItem="MAu-ao-q8i" secondAttribute="bottom" constant="28" id="6PO-Ou-WeE"/>
-                            <constraint firstItem="MAu-ao-q8i" firstAttribute="centerY" secondItem="h1B-8j-oa8" secondAttribute="centerY" id="BkO-Kb-83Q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MAu-ao-q8i" secondAttribute="trailing" constant="2" id="CRH-Yl-M5p"/>
-                            <constraint firstItem="EFe-12-TdJ" firstAttribute="centerX" secondItem="h1B-8j-oa8" secondAttribute="centerX" constant="-1.5" id="EJs-oA-6Pd"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="leading" secondItem="0K2-yy-51H" secondAttribute="leading" id="K0O-gy-dgU"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="centerX" secondItem="h1B-8j-oa8" secondAttribute="centerX" id="QcM-gX-jAg"/>
-                            <constraint firstItem="MAu-ao-q8i" firstAttribute="leading" secondItem="wzI-bu-Tzg" secondAttribute="leadingMargin" id="VSq-K0-8CD"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="trailing" secondItem="0K2-yy-51H" secondAttribute="trailing" id="Wn7-5Q-7uv"/>
-                            <constraint firstAttribute="trailing" secondItem="5Go-Cx-VBf" secondAttribute="trailing" id="Xap-8x-pu9"/>
-                            <constraint firstItem="MAu-ao-q8i" firstAttribute="top" secondItem="n8C-Bf-r1C" secondAttribute="bottom" constant="93" id="brT-pf-mbR"/>
-                            <constraint firstItem="MAu-ao-q8i" firstAttribute="centerX" secondItem="h1B-8j-oa8" secondAttribute="centerX" id="cNi-n4-hhV"/>
-                            <constraint firstItem="5Go-Cx-VBf" firstAttribute="leading" secondItem="wzI-bu-Tzg" secondAttribute="leading" id="fsD-TC-5sN"/>
-                            <constraint firstItem="EFe-12-TdJ" firstAttribute="top" secondItem="a5V-g2-MM9" secondAttribute="bottom" constant="47" id="ldZ-Qp-SZ3"/>
-                            <constraint firstItem="a5V-g2-MM9" firstAttribute="leading" secondItem="wzI-bu-Tzg" secondAttribute="leading" id="nvF-3z-9m0"/>
-                            <constraint firstItem="a5V-g2-MM9" firstAttribute="top" secondItem="0K2-yy-51H" secondAttribute="bottom" constant="8" symbolic="YES" id="qRu-H2-0dA"/>
-                            <constraint firstItem="a5V-g2-MM9" firstAttribute="centerX" secondItem="h1B-8j-oa8" secondAttribute="centerX" id="qav-pl-XXF"/>
-                            <constraint firstItem="pka-py-bEF" firstAttribute="top" secondItem="EFe-12-TdJ" secondAttribute="bottom" constant="22" id="yDJ-wR-8il"/>
-                            <constraint firstItem="0K2-yy-51H" firstAttribute="top" secondItem="5Go-Cx-VBf" secondAttribute="bottom" constant="8" symbolic="YES" id="z09-F3-e9t"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="wmK-44-QSw"/>
-                    <connections>
-                        <outlet property="Summary" destination="5Go-Cx-VBf" id="Edb-e2-mAs"/>
-                        <outlet property="choosePic" destination="h1B-8j-oa8" id="ZbA-nW-GC2"/>
-                        <outlet property="imageView" destination="MAu-ao-q8i" id="oOH-fI-Wuz"/>
-                        <outlet property="questionDirections" destination="a5V-g2-MM9" id="uKZ-88-gQX"/>
-                        <outlet property="subtopic" destination="0K2-yy-51H" id="2S9-bN-xba"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vAq-fY-VB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1004" y="2406"/>
         </scene>
     </scenes>
     <resources>

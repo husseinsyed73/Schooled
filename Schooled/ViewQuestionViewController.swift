@@ -16,6 +16,7 @@ import AWSCognitoIdentityProviderASF
 import AWSAuthCore
 
 class ViewQuestionViewController: UIViewController {
+    
     @IBOutlet weak var topicTextField: UILabel!
     var activity: UIActivityIndicatorView = UIActivityIndicatorView()
    
@@ -55,6 +56,7 @@ class ViewQuestionViewController: UIViewController {
     @IBAction func answer(_ sender: Any) {
        self.performSegue(withIdentifier: "answer", sender: self)
     }
+    
     @IBAction func savePhoto(_ sender: Any) {
         let imageData = imageView.image!.pngData()
         let compresedImage = UIImage(data: imageData!)
@@ -117,6 +119,10 @@ class ViewQuestionViewController: UIViewController {
         if segue.destination is ImageViewController {
             let vc = segue.destination as? ImageViewController
             vc?.image = self.image
+        }
+        if segue.destination is AnswersViewController {
+            let vc = segue.destination as? AnswersViewController
+            vc?.currentQuestionData = self.currentQuestionData
         }
     }
     

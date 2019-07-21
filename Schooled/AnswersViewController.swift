@@ -2,154 +2,69 @@
 //  AnswersViewController.swift
 //  Schooled
 //
-//  Created by Luong Luong on 7/14/19.
+//  Created by Omar Dadabhoy on 7/20/19.
 //  Copyright © 2019 Hussein  Syed. All rights reserved.
 //
 
 import UIKit
-import CoreImage
-import AWSS3
 import AWSDynamoDB
-class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
-   
+
+class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate {
     
-    @IBOutlet weak var Summary: UITextField!
-    
-    
-    
-    @IBOutlet weak var choosePic: UIButton!
+    @IBOutlet weak var answerDescription: UITextView!
     @IBOutlet weak var imageView: UIImageView!
-   
-    
-    @IBOutlet weak var subtopic: UITextField!
-    
-    @IBOutlet weak var questionDirections: UITextView!
-    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
     var imagePicker = UIImagePickerController()
-    var text = ""
-    var summary = ""
-    var sub = ""
-    var subjectPicker: UIPickerView = UIPickerView()
-    var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
-    let toolBar = UIToolbar()
-    var textSaved = false
-    var picSaved  = false
-    
-    
-    var localPath: URL!
-    
+    var currentQuestionData: Phototext? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
-        // Do any additional setup after loading the // adding the loading icon
-        self.activity.center = self.view.center
-        self.activity.hidesWhenStopped = true
-        self.activity.style = UIActivityIndicatorView.Style.gray;
-        self.activity.color = UIColor.black
-        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        self.activity.transform = transform
-        
-        view.addSubview(activity);        // Do any additional setup after loading the view.
-        questionDirections.delegate = self
-        self.questionDirections.layer.borderWidth = 2.0
-        self.questionDirections.layer.borderColor = UIColor.gray.cgColor
-        
-        questionDirections.text = "Please elaborate on your answer, the more accurate the description the better!"
-        questionDirections.textAlignment = .left
-        
-        imagePicker.delegate = self
-        subjectPicker.delegate = self
-        //make the questionDirections what ever the user picks
-        Summary.inputView = subjectPicker
-        
-        //set up the toolbar for the picker
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.plain, target: self, action: #selector(donePicker))
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        self.Summary.inputAccessoryView = toolBar
+        // Do any additional setup after loading the view.
+        answerDescription.delegate = self
+        self.answerDescription.layer.borderWidth = 2.0
+        self.answerDescription.layer.borderColor = UIColor.gray.cgColor
+        answerDescription.text = "Describe or provide any explanation to your answer here!"
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        subtopic.delegate = self
-        
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == self.subtopic {
-            if(subtopic.text == "Please enter the subtopic"){
-                subtopic.text = ""
-            }
-            
-        }
-    }    //dismisses the text view when return it hit
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-    
-    
-    //disables the keyboard after hitting return
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
-    //pops the view up when the keyboard appears
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    //hides the view when the keyboard is gone
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-     //when the user clicks done in the toolbar the
-    @objc func donePicker(){
-        self.Summary.resignFirstResponder()
-    }
-    
-    //number of columns in the picker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    //number of rows in the picker
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    //The current item
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    //contains what is selected
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        Summary.text = pickerData[row]
-    }
-    
-    //This function adds a photo into the UIImageView either through camera or photo library
+    //adds the photo
     @IBAction func addPhoto(_ sender: Any) {
         showActionSheet()
+    }
+    
+    //Sends the answer to the user
+    @IBAction func send(_ sender: Any) {
+        //get the username
+        let userName: String = buildUserName(userId: self.currentQuestionData!._userId!)
+        //get the userdatamodel for the name
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        dynamoDBObjectMapper.load(UserDataModel.self, hashKey: userName, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else if let result = task.result as? UserDataModel {
+                // Do something with task.result.
+                let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!)
+                send.sendToPhone()
+                send.sendEmail()
+            }
+            return nil
+        })
         
-        
-        
-        
+    }
+    
+    //returns the username
+    func buildUserName(userId: String) -> String {
+        var i: Int = 0
+        var found: Bool = false
+        while(!found){
+            if(userId[i] == "-"){
+                found = true
+            }
+            i += 1
+        }
+        return userId[0..<i-1]
     }
     
     //shows the action sheet which will allow the user to pick camera or gallery
@@ -201,224 +116,112 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    //This function puts the image in the imageView to display for the user
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //if the image is an UIImage then display it into the imageView
-        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            imageView.image = image
-            self.choosePic.setTitle("", for: .normal)
-            
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-   
-    
-   
-   
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    // function to send the photo and
-    // post it on the main feed
-    // just make the subject now math add in scroll wheel later
-    // then name of the photo will be the user
-    @IBAction func SendPhoto(_ sender: Any) {
-        // this adds the needed data to the plist
-        // converting the data to a png reprisentation
-        // end the function if empty
-        self.textSaved = false;
-        self.picSaved = false
-        
-        self.activity.startAnimating();
-        UIApplication.shared.beginIgnoringInteractionEvents();
-        
-        guard let image = imageView.image else {
-            let alertController = UIAlertController(title: "ALERT", message:
-                "Please add a Photo", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
-            UIApplication.shared.endIgnoringInteractionEvents()
-            self.activity.stopAnimating();
-            return
-            
-        }
-        let data = image.pngData()
-        let remoteName = "test.png"
-        self.text = self.questionDirections.text!
-        // grabbing the summary data
-        self.summary = self.Summary.text!
-        self.sub = self.subtopic.text!
-        if(self.sub == "What Subject are you taking ?" || self.summary == "Please enter the subtopic" || self.text == "Please elaborate on your question, the more accurate the description the better!"){
-            let alertController = UIAlertController(title: "ALERT", message:
-                "Please fill out the entire post ", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
-            
-            
-            self.activity.stopAnimating();
-            UIApplication.shared.endIgnoringInteractionEvents()
-            return;
-        }
-        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(remoteName)
-        do {
-            try data?.write(to: fileURL)
-            localPath = fileURL
-            let uploadRequest = AWSS3TransferManagerUploadRequest()
-            uploadRequest?.body = fileURL
-            // no point of folder because storing all of the photos
-            // username dash and the time for splitting up the data
-            let time = String(Int64(Date().timeIntervalSince1970 * 1000));
-            var keydata = username123;
-            keydata = keydata + "-";
-            keydata = keydata + time
-            keydata = keydata + ".png"
-            // reason still png because we have to move it into the dynamo db the same
-            var textkey = username123;
-            textkey = textkey + "-";
-            textkey = textkey + time
-            textkey = textkey + ".png"
-            
-            uploadRequest?.key = keydata
-            
-            
-            // sending over the bucket name and the type
-            // name scheme being
-            // lets en
-            uploadRequest?.bucket = bucket
-            uploadRequest?.contentType = "image/png"
-            // one sends high likleyhood other sends
-            self.sendText(key:textkey,summ: self.summary,sub:self.sub);
-            
-            let transferManager = AWSS3TransferManager.default()
-            
-            
-            
-            transferManager.upload(uploadRequest!).continueWith { (task) -> AnyObject? in
-                if let error = task.error {
-                    // check if internet was bad
-                    print("Upload failed (\(error))")
-                    let alertController = UIAlertController(title: "ALERT", message:
-                        "Your Question was not able to be posted at this time", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                    // error because not posted
-                    self.activity.stopAnimating();
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                }else{
-                    
-                    // now we can send
-                    DispatchQueue.main.async {
-                        self.activity.stopAnimating()
-                        
-                        UIApplication.shared.endIgnoringInteractionEvents()
-                        self.navigationController?.popViewController(animated: true)
-                        
-                        
-                        
-                    }
-                    
-                }
-                return nil
+    //pops the view up when the keyboard appears
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
             }
-        } catch {
-            print("File not save failed")
         }
-        
     }
+    
+    //hides the view when the keyboard is gone
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    //dismisses the text view when return it hit
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView){
-        if(questionDirections.text == "Please elaborate on your answer, the more accurate the description the better!") {
-            questionDirections.text = ""
+        if(answerDescription.text == "Describe or provide any explanation to your answer here!") {
+            answerDescription.text = ""
         }
     }
-    
-    
-    func sendText(key:String,summ:String,sub:String){
-        
-        
-        // now sending the text
-        let photoadder = Phototext();
-        // creating the user object
-        photoadder?._userId = key;
-        photoadder?._noteId = text;
-        // adding a subject to be displayed to the user
-        // the changed subject
-        photoadder?._subject = summ
-        // adding the user summary but of the main ui thread
-        photoadder?._summary = sub
-        
-        // crendtials for aws access not the user model
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        
-        dynamoDBObjectMapper.save(photoadder!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            // taking it off the main ui thread
-            
-            
-            if let error = task.error as NSError? {
-                // only once you gotta check for internet connection just tick back the numbers
-                let alertController = UIAlertController(title: "ALERT", message:
-                    "Your Question was not able to be posted at this time", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                
-                self.present(alertController, animated: true, completion: nil)
-                self.activity.stopAnimating();
-                UIApplication.shared.endIgnoringInteractionEvents()
-            } else {
-                
-                // now we can send
-                DispatchQueue.main.async {
-                    self.activity.stopAnimating()
-                    questionsLeft -= 1
-                    
-                    self.updateQuestionCount()
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                    self.navigationController?.popViewController(animated: true)
-                    
-                    
-                }
-                
-                
-            }
-            
-            return nil
-        })
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
-    func updateQuestionCount(){
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        let user = UserDataModel()
-        user?._phoneNumber = userphoneNumber
-        user?._email = useremail
-        user?._userId = username123
-        
-        user?._questions = questionsLeft as NSNumber
-        
-        dynamoDBObjectMapper.save(user!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as? NSError {
-                print("The request failed. Error: \(error)")
-                
-                
-            } else {
-                
-            }
-            return nil
-        })
-        
-    }
-    
-    
-    
+    */
+
 }
 
+extension String {
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
+    subscript (bounds: CountableRange<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[start ..< end]
+    }
+    subscript (bounds: CountableClosedRange<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[start ... end]
+    }
+    subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(endIndex, offsetBy: -1)
+        return self[start ... end]
+    }
+    subscript (bounds: PartialRangeThrough<Int>) -> Substring {
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[startIndex ... end]
+    }
+    subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[startIndex ..< end]
+    }
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+    
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+}
+extension Substring {
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
+    subscript (bounds: CountableRange<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[start ..< end]
+    }
+    subscript (bounds: CountableClosedRange<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[start ... end]
+    }
+    subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(endIndex, offsetBy: -1)
+        return self[start ... end]
+    }
+    subscript (bounds: PartialRangeThrough<Int>) -> Substring {
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[startIndex ... end]
+    }
+    subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return self[startIndex ..< end]
+    }
+}

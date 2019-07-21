@@ -135,10 +135,6 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     //This function adds a photo into the UIImageView either through camera or photo library
     @IBAction func addPhoto(_ sender: Any) {
         showActionSheet()
-        
-        
-            
-        
     }
     
     //shows the action sheet which will allow the user to pick camera or gallery

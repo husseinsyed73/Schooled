@@ -17,14 +17,14 @@ import MessageUI
 class Send: UIViewController, MFMailComposeViewControllerDelegate {
     
     private var image: UIImage
-    private var phoneNumber: Int
+    private var phoneNumber: String
     private var email: String
     private let accountSid: String
     //    private let authToken: String
     
     //initializer forces you to pass in an image a phone number and an email which will
     //be used to send the image to the phonenumber and the email
-    init(image: UIImage, phoneNumber: Int, email: String) {
+    init(image: UIImage, phoneNumber: String, email: String) {
         self.image = image
         self.email = email
         self.phoneNumber = phoneNumber
@@ -43,9 +43,8 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
             let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
             let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            let stringNumber = String(phoneNumber)
             //Array contains the from to and the image we need to send
-            let parameters = ["From": "3462585503", "To": stringNumber, "Body": image] as [String : Any]
+            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
             //Use Alamofire in order to use the API and send the message
             Alamofire.request(URL, method: .post, parameters: parameters)
                 .authenticate(user: accountSID, password: authToken)

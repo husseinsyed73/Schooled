@@ -8,18 +8,22 @@
 
 import UIKit
 import AWSDynamoDB
+import AWSS3
+import AWSCognito
 
-class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate {
+class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var answerDescription: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker = UIImagePickerController()
     var currentQuestionData: Phototext? = nil
-
+    @IBOutlet weak var choosePic: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.imagePicker.delegate = self
         answerDescription.delegate = self
         self.answerDescription.layer.borderWidth = 2.0
         self.answerDescription.layer.borderColor = UIColor.gray.cgColor
@@ -40,18 +44,58 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
         let userName: String = buildUserName(userId: self.currentQuestionData!._userId!)
         //get the userdatamodel for the name
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        //Sends the answer to the users phone and email
         dynamoDBObjectMapper.load(UserDataModel.self, hashKey: userName, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
             if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
             } else if let result = task.result as? UserDataModel {
                 // Do something with task.result.
-                let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!)
-                send.sendToPhone()
-                send.sendEmail()
+                DispatchQueue.main.async {
+                    let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!, answerDescription: self.answerDescription.text!)
+                    send.sendToPhone()
+                    send.sendEmail()
+                }
             }
             return nil
         })
         
+        //deletes the current question off the database
+        let photoTextToDelete = Phototext()
+        photoTextToDelete?._userId = self.currentQuestionData?._userId
+        dynamoDBObjectMapper.remove(photoTextToDelete!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            } else {
+                // Item deleted.
+            }
+            return nil
+        })
+        
+        
+        //delete the photo from the s3 bucket
+        let s3 = AWSS3.default()
+        let deleteObject = AWSS3DeleteObjectRequest()
+        deleteObject?.bucket = bucket
+        deleteObject?.key = currentQuestionData?._userId
+        s3.deleteObject(deleteObject!).continueWith { (task:AWSTask) -> AnyObject? in
+            if let error = task.error {
+                print("Error occurred: \(error)")
+                return nil
+            }
+            print("Bucket object deleted successfully.")
+            return nil
+        }
+        
+        //gobackHome
+        let alertController = UIAlertController(title: "Your answer has been sent", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { alert -> Void in
+            if let navController = self.navigationController{
+                navController.popViewController(animated: true)
+                navController.popViewController(animated: true)
+            }
+        })
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true)
     }
     
     //returns the username
@@ -114,6 +158,17 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             //present the imagePicker in this view controller
             present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    //This function puts the image in the imageView to display for the user
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //if the image is an UIImage then display it into the imageView
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            imageView.image = image
+            self.choosePic.setTitle("", for: .normal)
+            
+        }
+        dismiss(animated: true, completion: nil)
     }
     
     //pops the view up when the keyboard appears

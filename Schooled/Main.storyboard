@@ -813,6 +813,7 @@
                     </view>
                     <connections>
                         <outlet property="answerDescription" destination="9t9-Ab-WFZ" id="sOZ-tU-jx6"/>
+                        <outlet property="choosePic" destination="gNZ-Rv-Vzf" id="C10-kD-ddj"/>
                         <outlet property="imageView" destination="z9j-ZD-L0x" id="29g-yI-aNH"/>
                     </connections>
                 </viewController>

@@ -19,16 +19,18 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     private var image: UIImage
     private var phoneNumber: String
     private var email: String
+    private var answerDescription: String
     private let accountSid: String
     //    private let authToken: String
     
     //initializer forces you to pass in an image a phone number and an email which will
     //be used to send the image to the phonenumber and the email
-    init(image: UIImage, phoneNumber: String, email: String) {
+    init(image: UIImage, phoneNumber: String, email: String, answerDescription: String) {
         self.image = image
         self.email = email
         self.phoneNumber = phoneNumber
         self.accountSid = "AC45c1dfece8ac6d4ee3c5d74760de388d"
+        self.answerDescription = answerDescription
         //        self.authToken = ""
         super.init(nibName: nil, bundle: nil)
     }
@@ -39,12 +41,42 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     
     //This method sends the photo as an sms text to the person
     func sendToPhone() {
-        //Use the accountSID, authToken, and URL in order to use the API to send the message
+        //send them an intro
+        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
+            let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+            //Array contains the from to and the image we need to send
+            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": "Your Schooled questin answer is: "] as [String : String]
+            //Use Alamofire in order to use the API and send the message
+            Alamofire.request(URL, method: .post, parameters: parameters)
+                .authenticate(user: accountSID, password: authToken)
+                .responseJSON { response in
+                    debugPrint(response)
+            }
+            RunLoop.main.run()
+        }
+        
+        //Use the accountSID, authToken, and URL in order to use the API to send the message in a photo
         if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
             let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
             let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
             //Array contains the from to and the image we need to send
             let parameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
+            //Use Alamofire in order to use the API and send the message
+            Alamofire.request(URL, method: .post, parameters: parameters)
+                .authenticate(user: accountSID, password: authToken)
+                .responseJSON { response in
+                    debugPrint(response)
+            }
+            RunLoop.main.run()
+        }
+        
+        //send the description next
+        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
+            let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+            //Array contains the from to and the image we need to send
+            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": answerDescription] as [String : String]
             //Use Alamofire in order to use the API and send the message
             Alamofire.request(URL, method: .post, parameters: parameters)
                 .authenticate(user: accountSID, password: authToken)
@@ -67,9 +99,11 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
             //set the receipients to the person's email
             mail.setToRecipients(receipient)
             //set the subject
-            mail.setSubject("Attached is the photo from the problem you requested")
+            mail.setSubject("Attached is the photo and description for the problem you requested")
             //Create a data version of the image
             guard let imageData = image.pngData() else {return}
+            //add the description in 
+            mail.setMessageBody(answerDescription, isHTML: false)
             //attach the image as a png to the file
             mail.addAttachmentData(imageData, mimeType: "png", fileName: "image")
             //let the user know that the email has been sent

@@ -86,7 +86,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             return nil
         }
         
-        //gobackHome
+        //go back home and notify the user they are done
         let alertController = UIAlertController(title: "Your answer has been sent", message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { alert -> Void in
             if let navController = self.navigationController{

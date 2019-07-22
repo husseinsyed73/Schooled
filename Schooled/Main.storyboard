@@ -782,35 +782,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-hV-xX5">
-                                <rect key="frame" x="169" y="691" width="36" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="send:" destination="7PE-CN-cGv" eventType="touchUpInside" id="eoH-ge-cq7"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9j-ZD-L0x">
-                                <rect key="frame" x="0.0" y="99" width="375" height="217"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z9j-ZD-L0x">
+                                <rect key="frame" x="0.0" y="44" width="375" height="367"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNZ-Rv-Vzf">
-                                <rect key="frame" x="151" y="208" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9t9-Ab-WFZ">
+                                <rect key="frame" x="0.0" y="411" width="375" height="243"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="I6U-ls-kvj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNZ-Rv-Vzf">
+                                <rect key="frame" x="0.0" y="44" width="375" height="366"/>
                                 <state key="normal" title="Add Photo"/>
                                 <connections>
                                     <action selector="addPhoto:" destination="7PE-CN-cGv" eventType="touchUpInside" id="FwU-mb-sjS"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9t9-Ab-WFZ">
-                                <rect key="frame" x="0.0" y="340" width="375" height="234"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSG-hV-xX5">
+                                <rect key="frame" x="0.0" y="652" width="375" height="77"/>
+                                <color key="backgroundColor" red="0.2542122155" green="0.72489077270000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="YyR-xW-oM9"/>
+                                </constraints>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="send:" destination="7PE-CN-cGv" eventType="touchUpInside" id="eoH-ge-cq7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="leading" secondItem="gNZ-Rv-Vzf" secondAttribute="leading" id="0uQ-6K-9z3"/>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="top" secondItem="9t9-Ab-WFZ" secondAttribute="bottom" constant="-2" id="5jQ-1h-Hjy"/>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="leading" secondItem="9t9-Ab-WFZ" secondAttribute="leading" id="6Sd-QE-Huq"/>
+                            <constraint firstAttribute="trailing" secondItem="z9j-ZD-L0x" secondAttribute="trailing" id="Adi-d1-thT"/>
+                            <constraint firstItem="gNZ-Rv-Vzf" firstAttribute="top" secondItem="z9j-ZD-L0x" secondAttribute="top" id="FUt-Ho-9BA"/>
+                            <constraint firstItem="z9j-ZD-L0x" firstAttribute="leading" secondItem="u1o-IH-wOm" secondAttribute="leading" id="Jwq-lN-orf"/>
+                            <constraint firstItem="9t9-Ab-WFZ" firstAttribute="top" secondItem="z9j-ZD-L0x" secondAttribute="bottom" id="L5E-G1-346"/>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="trailing" secondItem="9t9-Ab-WFZ" secondAttribute="trailing" id="MO3-3Q-E8n"/>
+                            <constraint firstAttribute="trailing" secondItem="gNZ-Rv-Vzf" secondAttribute="trailing" id="UL3-ss-9ri"/>
+                            <constraint firstItem="z9j-ZD-L0x" firstAttribute="top" secondItem="eHu-y7-Eft" secondAttribute="bottom" id="d6G-3g-Vt6"/>
+                            <constraint firstItem="gNZ-Rv-Vzf" firstAttribute="leading" secondItem="u1o-IH-wOm" secondAttribute="leading" id="drj-lP-ewY"/>
+                            <constraint firstItem="9t9-Ab-WFZ" firstAttribute="top" secondItem="gNZ-Rv-Vzf" secondAttribute="bottom" constant="1" id="sgB-4B-Z1T"/>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="bottom" secondItem="rQk-Uy-kUS" secondAttribute="top" id="y8A-DX-lGe"/>
+                            <constraint firstItem="BSG-hV-xX5" firstAttribute="trailing" secondItem="gNZ-Rv-Vzf" secondAttribute="trailing" id="yNY-qv-AT7"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="answerDescription" destination="9t9-Ab-WFZ" id="sOZ-tU-jx6"/>

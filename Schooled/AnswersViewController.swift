@@ -35,7 +35,11 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //adds the photo
     @IBAction func addPhoto(_ sender: Any) {
+        
         showActionSheet()
+        if(imageView.image != nil){
+            self.choosePic.setTitle("", for: .normal)
+        }
     }
     
     //Sends the answer to the user
@@ -52,6 +56,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
                 // Do something with task.result.
                 DispatchQueue.main.async {
                     let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!, answerDescription: self.answerDescription.text!)
+                    // omar twilio api
                     send.sendToPhone()
                     send.sendEmail()
                 }

@@ -8,4 +8,5 @@ ${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework
 ${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework
 ${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/SendGrid/SendGrid.framework
 ${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework

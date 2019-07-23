@@ -14,4 +14,5 @@ target 'Schooled' do
     pod 'AWSMobileClient'
     pod 'AWSCore'
     pod 'AWSCognito'
+    pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git'
 end

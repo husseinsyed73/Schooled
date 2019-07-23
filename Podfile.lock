@@ -16,6 +16,7 @@ PODS:
     - AWSCognitoIdentityProvider (= 2.9.8)
   - AWSS3 (2.9.8):
     - AWSCore (= 2.9.8)
+  - SendGrid (2.1.0)
   - Stripe (14.0.0)
 
 DEPENDENCIES:
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - AWSDynamoDB
   - AWSMobileClient
   - AWSS3
+  - SendGrid (from `https://github.com/scottkawai/sendgrid-swift.git`)
   - Stripe
 
 SPEC REPOS:
@@ -42,6 +44,15 @@ SPEC REPOS:
     - AWSS3
     - Stripe
 
+EXTERNAL SOURCES:
+  SendGrid:
+    :git: https://github.com/scottkawai/sendgrid-swift.git
+
+CHECKOUT OPTIONS:
+  SendGrid:
+    :commit: 9334fe6c6b0a996291b3379a783a173db02f7945
+    :git: https://github.com/scottkawai/sendgrid-swift.git
+
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AWSAuthCore: 7ebbe523f28149a1706e7ec1736203cdaaeba380
@@ -52,8 +63,9 @@ SPEC CHECKSUMS:
   AWSDynamoDB: 92861d2f95fb6754e29a6815f605cd90dd0b27d4
   AWSMobileClient: d3b6cbe30dcdb45866c85b0d088106504f72d4a3
   AWSS3: a5e12eb2495bbe49cda8b0595fa77280aacd7d3d
+  SendGrid: 07926b96696f2b2e3b05398be14ac951796a6364
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
 
-PODFILE CHECKSUM: 4303e54f86e2e4372007976e0b576fd040c4c89c
+PODFILE CHECKSUM: 026fd07c9721e3211615f6d28de64fe16c4d1f15
 
 COCOAPODS: 1.7.1

@@ -142,7 +142,7 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         let personalization = Personalization(recipients: self.email)
         let contents = Content.emailBody(
             plain: self.answerDescription,
-            html: "<h1>" + self.answerDescription + "</h1>"
+            html: "<body>" + self.answerDescription + "</body>"
         )
         let email = Email(
             personalizations: [personalization],

@@ -86,7 +86,7 @@ class ViewQuestionViewController: UIViewController {
                 self.activity.stopAnimating()
                 UIApplication.shared.endIgnoringInteractionEvents()
                 let alertController = UIAlertController(title: "ALERT", message:
-                    "please check your  cell service ", preferredStyle: .alert)
+                    "This question has been answered please refresh your feed", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                 
                 self.present(alertController, animated: true, completion: nil)

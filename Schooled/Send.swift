@@ -43,49 +43,38 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     //This method sends the photo as an sms text to the person
     func sendToPhone() {
         //send them an intro
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
-            let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            //Array contains the from to and the image we need to send
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": "Your Schooled questin answer is: "] as [String : String]
-            //Use Alamofire in order to use the API and send the message
-            Alamofire.request(URL, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
+        let URL = "https://api.twilio.com/2010-04-01/Accounts/\(twilioAuthSID)/Messages"
+        //Array contains the from to and the image we need to send
+        var parameters = ["From": "3462585503", "To": phoneNumber, "Body": "Your Schooled questin answer is: "] as [String : String]
+        //Use Alamofire in order to use the API and send the message
+        Alamofire.request(URL, method: .post, parameters: parameters)
+            .authenticate(user: twilioAuthSID, password: twilioAuthToken)
+            .responseJSON { response in
                     debugPrint(response)
-            }
-            RunLoop.main.run()
         }
+        RunLoop.main.run()
         
         //Use the accountSID, authToken, and URL in order to use the API to send the message in a photo
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
-            let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            //Array contains the from to and the image we need to send
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
-            //Use Alamofire in order to use the API and send the message
-            Alamofire.request(URL, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
-                    debugPrint(response)
-            }
-            RunLoop.main.run()
+        //Array contains the from to and the image we need to send
+        let picparameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
+        //Use Alamofire in order to use the API and send the message
+        Alamofire.request(URL, method: .post, parameters: picparameters)
+            .authenticate(user: twilioAuthSID, password: twilioAuthToken)
+            .responseJSON { response in
+                debugPrint(response)
         }
+        RunLoop.main.run()
         
         //send the description next
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"]{
-            let URL = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
             //Array contains the from to and the image we need to send
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": answerDescription] as [String : String]
+            parameters = ["From": "3462585503", "To": phoneNumber, "Body": answerDescription] as [String : String]
             //Use Alamofire in order to use the API and send the message
             Alamofire.request(URL, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
+                .authenticate(user: twilioAuthSID, password: twilioAuthToken)
                 .responseJSON { response in
                     debugPrint(response)
             }
             RunLoop.main.run()
-        }
     }
     
     //This method sends the photo to the email of the user

@@ -42,50 +42,76 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     
     //This method sends the photo as an sms text to the person
     func sendToPhone() {
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
-            print("in")
-            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": "Your Schooled question answer is: "]
-            
-            Alamofire.request(url, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
-                    debugPrint(response)
-            }
-            
-            RunLoop.main.run()
-        }
+        let twilioSID = ""
+        let twilioSecret = ""
         
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
-            print("in")
-            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
-            
-            Alamofire.request(url, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
-                    debugPrint(response)
-            }
-            
-            RunLoop.main.run()
-        }
+        //Note replace + = %2B , for To and From phone number
+        let fromNumber = "%2B13462585503"
+        let toNumber = "%2B1" + self.phoneNumber
+        let message = "The Schooled answer is on your email."
         
-        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
-            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
-            print("in")
-            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
-            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": self.answerDescription]
-            
-            Alamofire.request(url, method: .post, parameters: parameters)
-                .authenticate(user: accountSID, password: authToken)
-                .responseJSON { response in
-                    debugPrint(response)
+        // Build the request
+        var request = NSMutableURLRequest(url: NSURL(string:"https://\(twilioSID):\(twilioSecret)@api.twilio.com/2010-04-01/Accounts/\(twilioSID)/SMS/Messages")! as URL)
+        request.httpMethod = "POST"
+        request.httpBody = "From=\(fromNumber)&To=\(toNumber)&Body=\(message)".data(using: String.Encoding.utf8)
+        
+        // Build the completion block and send the request
+        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+            print("Finished")
+            if let data = data, let responseDetails = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                // Success
+                print("Response: \(responseDetails)")
+            } else {
+                // Failure
+                print("Error: \(error)")
             }
-            
-            RunLoop.main.run()
-        }
+        }).resume()
+    
+        
+//        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+//            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+//            print("in")
+//            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+//            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": "Your Schooled question answer is: "]
+//
+//            Alamofire.request(url, method: .post, parameters: parameters)
+//                .authenticate(user: accountSID, password: authToken)
+//                .responseJSON { response in
+//                    debugPrint(response)
+//            }
+//
+//            RunLoop.main.run()
+//        }
+//
+//        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+//            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+//            print("in")
+//            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+//            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": image] as [String : Any]
+//
+//            Alamofire.request(url, method: .post, parameters: parameters)
+//                .authenticate(user: accountSID, password: authToken)
+//                .responseJSON { response in
+//                    debugPrint(response)
+//            }
+//
+//            RunLoop.main.run()
+//        }
+//
+//        if let accountSID = ProcessInfo.processInfo.environment["TWILIO_ACCOUNT_SID"],
+//            let authToken = ProcessInfo.processInfo.environment["TWILIO_AUTH_TOKEN"] {
+//            print("in")
+//            let url = "https://api.twilio.com/2010-04-01/Accounts/\(accountSID)/Messages"
+//            let parameters = ["From": "3462585503", "To": phoneNumber, "Body": self.answerDescription]
+//
+//            Alamofire.request(url, method: .post, parameters: parameters)
+//                .authenticate(user: accountSID, password: authToken)
+//                .responseJSON { response in
+//                    debugPrint(response)
+//            }
+//
+//            RunLoop.main.run()
+//        }
     }
     
     //This method sends the photo to the email of the user

@@ -44,6 +44,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //Sends the answer to the user
     @IBAction func send(_ sender: Any) {
+        
         //get the username
         let userName: String = buildUserName(userId: self.currentQuestionData!._userId!)
         //get the userdatamodel for the name
@@ -59,6 +60,7 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
                     // omar twilio api
                     send.sendToPhone()
                     send.sendEmail()
+                    
                 }
             }
             return nil
@@ -90,6 +92,26 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("Bucket object deleted successfully.")
             return nil
         }
+        questionsLeft += 1
+        let dynamoDBObjectMapper1 = AWSDynamoDBObjectMapper.default()
+        let user = UserDataModel()
+        user?._phoneNumber = userphoneNumber
+        user?._email = useremail
+        user?._userId = username123
+        
+        user?._questions = questionsLeft as NSNumber
+        
+        dynamoDBObjectMapper1.save(user!).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as? NSError {
+                print("The request failed. Error: \(error)")
+                
+                
+            } else {
+                
+            }
+            return nil
+        })
+        
         
         //go back home and notify the user they are done
         let alertController = UIAlertController(title: "Your answer has been sent", message: nil, preferredStyle: .alert)

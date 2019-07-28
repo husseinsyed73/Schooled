@@ -42,8 +42,8 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     
     //This method sends the photo as an sms text to the person
     func sendToPhone() {
-        let twilioSID = "AC45c1dfece8ac6d4ee3c5d74760de388d"
-        let twilioSecret = "cfe536a8f160f3f726efd65b877a8108"
+        let twilioSID = ""
+        let twilioSecret = ""
         
         //Note replace + = %2B , for To and From phone number
         let fromNumber = "%2B13462585503"

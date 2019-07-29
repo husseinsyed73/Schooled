@@ -39,6 +39,7 @@ class MenuViewController: UIViewController {
                     questionsLeft = Int(result._questions!)
                     // loading in the other values
                     useremail = String(result._email!)
+                    userphoneNumber = result._phoneNumber!
                     userLoaded = true
                     
                 }
@@ -74,6 +75,7 @@ class MenuViewController: UIViewController {
                     questionsLeft = Int(result._questions!)
                     useremail = String(result._email!)
                     userLoaded = true
+                    userphoneNumber = result._phoneNumber!
                 }
             }
             return nil

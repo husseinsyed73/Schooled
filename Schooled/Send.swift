@@ -30,7 +30,7 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         self.image = image
         self.email = email
         self.phoneNumber = phoneNumber
-        self.accountSid = "AC45c1dfece8ac6d4ee3c5d74760de388d"
+        self.accountSid = sendgridssid
         self.answerDescription = answerDescription
         //        self.authToken = ""
         super.init(nibName: nil, bundle: nil)
@@ -42,8 +42,7 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
     
     //This method sends the photo as an sms text to the person
     func sendToPhone() {
-        let twilioSID = ""
-        let twilioSecret = ""
+        
         
         //Note replace + = %2B , for To and From phone number
         let fromNumber = "%2B13462585503"
@@ -162,7 +161,7 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         //            print("Unable to retrieve API key")
         //            return
         //        }
-        let myApiKey = "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"
+        
 //        session.authentication = Authentication.apiKey(myApiKey)
         Session.shared.authentication = Authentication.apiKey(myApiKey)
         let personalization = Personalization(recipients: self.email)

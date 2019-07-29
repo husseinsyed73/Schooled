@@ -24,6 +24,7 @@ class MenuViewController: UIViewController {
         userNameField.text! = username123
         userNameField.isUserInteractionEnabled = false
         //Do the same with the email
+        if(!userLoaded){
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
             if let error = task.error as NSError? {
@@ -36,10 +37,20 @@ class MenuViewController: UIViewController {
                     self.questionsLeftField.text! = result._questions!.stringValue
                     self.questionsLeftField.isUserInteractionEnabled = false
                     questionsLeft = Int(result._questions!)
+                    // loading in the other values
+                    useremail = String(result._email!)
+                    userLoaded = true
+                    
                 }
             }
             return nil
         })
+        } else {
+            self.emailField.text! = useremail
+            self.emailField.isUserInteractionEnabled = false
+            self.questionsLeftField.text! = String(questionsLeft)
+            self.questionsLeftField.isUserInteractionEnabled = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +58,7 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
         userNameField.text! = username123
         userNameField.isUserInteractionEnabled = false
+        if(!userLoaded){
         //Do the same with the email
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
@@ -60,10 +72,18 @@ class MenuViewController: UIViewController {
                     self.questionsLeftField.text! = result._questions!.stringValue
                     self.questionsLeftField.isUserInteractionEnabled = false
                     questionsLeft = Int(result._questions!)
+                    useremail = String(result._email!)
+                    userLoaded = true
                 }
             }
             return nil
         })
+        }else{
+            self.emailField.text! = useremail
+            self.emailField.isUserInteractionEnabled = false
+            self.questionsLeftField.text! = String(questionsLeft)
+            self.questionsLeftField.isUserInteractionEnabled = false
+        }
     }
     
     /*

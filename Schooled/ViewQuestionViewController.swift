@@ -18,8 +18,8 @@ import AWSAuthCore
 class ViewQuestionViewController: UIViewController {
     
     @IBOutlet weak var topicTextField: UILabel!
-    var activity: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 180, y:320, width: 20, height: 20))
-   
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activity2 : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
     var currentQuestionData: Phototext? = nil
@@ -34,10 +34,23 @@ class ViewQuestionViewController: UIViewController {
         self.activity.hidesWhenStopped = true
         self.activity.style = UIActivityIndicatorView.Style.gray;
         self.activity.color = UIColor.white
-        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        self.activity.transform = transform
         
+        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
+        self.activity.transform = transform
+        self.activity.center = imageView.center
         view.addSubview(activity);
+        
+        
+        self.activity2.hidesWhenStopped = true
+        self.activity2.center = self.descriptionField.center
+        self.activity2.style = UIActivityIndicatorView.Style.gray;
+        self.activity2.color = UIColor.blue
+        let transform2 = CGAffineTransform(scaleX: 2.0, y: 2.0)
+        
+        self.activity2.transform = transform2
+        
+        view.addSubview(activity2);
         // Do any additional setup after loading the view.
         topicTextField.textAlignment = NSTextAlignment.center
         topicTextField.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
@@ -54,7 +67,32 @@ class ViewQuestionViewController: UIViewController {
     }
     
     @IBAction func answer(_ sender: Any) {
+        // loading in the question data
+        if(userLoaded){
        self.performSegue(withIdentifier: "answer", sender: self)
+        }else{
+            self.activity2.startAnimating()
+            // then we have to load in the user data
+            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                if let error = task.error as? NSError {
+                    print("The request failed. Error: \(error)")
+                } else if let result = task.result as? UserDataModel {
+                    // updating the questions and user data
+                    questionsLeft = result._questions as! Int
+                    userphoneNumber = result._phoneNumber!
+                    useremail = result._email!
+                    
+                    userLoaded = true
+                    DispatchQueue.main.async {
+                        self.activity2.stopAnimating()
+                        self.performSegue(withIdentifier: "answer", sender: self)
+                    }
+                    
+                }
+                return nil
+            })
+        }
     }
     
     @IBAction func savePhoto(_ sender: Any) {
@@ -86,7 +124,7 @@ class ViewQuestionViewController: UIViewController {
                 self.activity.stopAnimating()
                 UIApplication.shared.endIgnoringInteractionEvents()
                 let alertController = UIAlertController(title: "ALERT", message:
-                    "please check your  cell service ", preferredStyle: .alert)
+                    "This question has been answered please refresh your feed", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                 
                 self.present(alertController, animated: true, completion: nil)

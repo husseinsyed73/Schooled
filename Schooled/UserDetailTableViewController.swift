@@ -130,7 +130,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
                     UIApplication.shared.endIgnoringInteractionEvents()
                     self.activity.stopAnimating()
                     let alertController = UIAlertController(title: "ALERT", message:
-                        "Questions cannot be poster at this time please check your internet connection ", preferredStyle: .alert)
+                        "Questions cannot be posted at this time please check your internet connection ", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                     
                     self.present(alertController, animated: true, completion: nil)                } else if let result = task.result as? UserDataModel {

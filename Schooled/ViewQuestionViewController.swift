@@ -18,7 +18,7 @@ import AWSAuthCore
 class ViewQuestionViewController: UIViewController {
     
     @IBOutlet weak var topicTextField: UILabel!
-    var activity: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 200, y:320, width: 20, height: 20))
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
     var activity2 : UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionField: UITextView!
@@ -34,6 +34,7 @@ class ViewQuestionViewController: UIViewController {
         self.activity.hidesWhenStopped = true
         self.activity.style = UIActivityIndicatorView.Style.gray;
         self.activity.color = UIColor.white
+        
         let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         self.activity.transform = transform

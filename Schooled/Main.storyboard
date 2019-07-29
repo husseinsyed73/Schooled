@@ -896,6 +896,7 @@
         <!--Answers View Controller-->
         <scene sceneID="TkA-vm-dht">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ACw-sx-I8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SGL-Gg-gPS" customClass="AnswersViewController" customModule="Schooled" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yN7-S6-j6W"/>
@@ -924,7 +925,6 @@
                         <outlet property="answerVIew" destination="JVW-ff-HzI" id="M1T-Wu-ezT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ACw-sx-I8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="815" y="1683"/>
         </scene>
@@ -1010,7 +1010,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jA1-LU-nnX" firstAttribute="trailing" secondItem="Z5Y-AV-DQ4" secondAttribute="trailing" id="1Zi-0j-ryG"/>
                             <constraint firstItem="nAx-uU-Lgw" firstAttribute="top" secondItem="UUZ-nH-ecS" secondAttribute="bottom" id="5a8-6w-6fo"/>

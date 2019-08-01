@@ -38,7 +38,7 @@ class ViewQuestionViewController: UIViewController {
         let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         
         self.activity.transform = transform
-        self.activity.center = imageView.center
+        self.activity.frame = CGRect(x: self.view.center.x, y: (self.imageView.center.y + self.view.center.y)/2.2, width: 00.0, height: 00.0)
         view.addSubview(activity);
         
         

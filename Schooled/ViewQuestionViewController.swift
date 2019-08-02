@@ -43,9 +43,9 @@ class ViewQuestionViewController: UIViewController {
         
         
         self.activity2.hidesWhenStopped = true
-        self.activity2.center = self.descriptionField.center
+        self.activity2.center = self.view.center
         self.activity2.style = UIActivityIndicatorView.Style.gray;
-        self.activity2.color = UIColor.blue
+        self.activity2.color = UIColor.red
         let transform2 = CGAffineTransform(scaleX: 2.0, y: 2.0)
         
         self.activity2.transform = transform2

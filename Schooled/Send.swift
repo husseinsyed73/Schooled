@@ -161,7 +161,6 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         //            print("Unable to retrieve API key")
         //            return
         //        }
-        
 //        session.authentication = Authentication.apiKey(myApiKey)
         Session.shared.authentication = Authentication.apiKey(myApiKey)
         let personalization = Personalization(recipients: self.email)

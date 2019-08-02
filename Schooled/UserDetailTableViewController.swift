@@ -22,7 +22,7 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
     var menuButton: UIBarButtonItem = UIBarButtonItem()
     var clicked: Phototext? = nil
     @IBOutlet weak var subjectPickerField: UITextField!
-    var pickerData: [String] = ["All Subjects", "Data Structures", "Biology", "Chemistry", "Physics"]
+    var pickerData: [String] = ["All Subjects", "Calculus M408C", "Calculus M408D", "Statistics SDS 321", "Probability M326K", "Computer Architecture CS 429"]
     var picker = UIPickerView()
     var toolbar = UIToolbar()
     var allData : Array<Phototext> = Array()

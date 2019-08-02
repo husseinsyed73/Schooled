@@ -23,7 +23,7 @@ class SendViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var summary = ""
     var sub = ""
     var subjectPicker: UIPickerView = UIPickerView()
-    var pickerData: [String] = ["Data Structures", "Biology", "Chemistry", "Physics"]
+    var pickerData: [String] = ["Calculus M408C", "Calculus M408D", "Statistics SDS 321", "Probability M326K", "Computer Architecture CS 429"]
     let toolBar = UIToolbar()
     @IBOutlet weak var Summary: UITextField!
     

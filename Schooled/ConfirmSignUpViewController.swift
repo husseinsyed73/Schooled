@@ -59,7 +59,7 @@ class ConfirmSignUpViewController : UIViewController {
                     // adding the user name to the data
                     addingUser?._userId = self?.user!.username
                     
-                    addingUser?._questions = 1 as NSNumber
+                    addingUser?._questions = 3 as NSNumber
                     addingUser?._email = self?.email
                     addingUser?._phoneNumber = self?.phoneNumber 
                     

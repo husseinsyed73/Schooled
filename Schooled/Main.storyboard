@@ -313,7 +313,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WD-4a-LNL">
                                 <rect key="frame" x="0.0" y="339" width="375" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">When you answer or post a question your personal information/identity will be concealed. But we do not condone academic dishonesty through the use of our app. </string>
+                                <string key="text">When you answer or post a question your personal information/identity (even your username) will be concealed. But we do not condone academic dishonesty through the use of our app. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

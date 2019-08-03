@@ -41,6 +41,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUp(_ sender: AnyObject) {
+        if(self.phone.text==""){
+            let alertController = UIAlertController(title: "Missing Required Fields",
+                                                    message: "Username / Password/ phonenumber are required for registration.",
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion:  nil)
+            return
+        }
         
         guard let userNameValue = self.username.text, !userNameValue.isEmpty,
             let passwordValue = self.password.text, !passwordValue.isEmpty else {

@@ -608,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed12345678;
+				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed123.Schooled123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Schooled/SWRevealViewController/Schooled-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -631,7 +631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed12345678;
+				PRODUCT_BUNDLE_IDENTIFIER = husseinsyed123.Schooled123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Schooled/SWRevealViewController/Schooled-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

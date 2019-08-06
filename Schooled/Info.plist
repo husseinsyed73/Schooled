@@ -23,11 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs to take pictures to allow the user to post questions and answer questions</string>
+	<string>This app uses your camera in order to take photos which will be posted as questions or sent to users as answers.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app nees access to save to your photo library if you want to save the questions</string>
+	<string>Please allow access to save photo in your photo library so that you can save a question and view it better in the photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs access to your library to give you the option to getting a question or answer from there</string>
+	<string>This app wants to use your photos in order to use photos to post as questions or send to users as answers.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

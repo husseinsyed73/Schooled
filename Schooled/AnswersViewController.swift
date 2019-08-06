@@ -58,9 +58,10 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
                 DispatchQueue.main.async {
                     let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!, answerDescription: self.answerDescription.text!)
                     // omar twilio api
-                    send.sendToPhone()
+                    if(result._phoneNumber != "123"){
+                        send.sendToPhone()
+                    }
                     send.sendEmail()
-                    
                 }
             }
             return nil

@@ -35,22 +35,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             signUpConfirmationViewController.user = self.pool?.getUser(self.username.text!)
             // passing on the rest of the user data
             signUpConfirmationViewController.email = self.email.text!
-            signUpConfirmationViewController.phoneNumber = self.phone.text!
             
+            if(self.phone.text! == ""){
+                signUpConfirmationViewController.phoneNumber = "123"
+            } else {
+                signUpConfirmationViewController.phoneNumber = self.phone.text!
+            }
         }
     }
     
     @IBAction func signUp(_ sender: AnyObject) {
-        if(self.phone.text==""){
-            let alertController = UIAlertController(title: "Missing Required Fields",
-                                                    message: "Username / Password/ phonenumber are required for registration.",
-                                                    preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion:  nil)
-            return
-        }
         
         guard let userNameValue = self.username.text, !userNameValue.isEmpty,
             let passwordValue = self.password.text, !passwordValue.isEmpty else {
@@ -72,7 +66,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             phone?.name = "phone_number"
             phone?.value = phoneValue
             attributes.append(phone!)
-        }
+        } 
         
         if let emailValue = self.email.text, !emailValue.isEmpty {
             let email = AWSCognitoIdentityUserAttributeType()

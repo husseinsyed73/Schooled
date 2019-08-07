@@ -9,7 +9,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var pool: AWSCognitoIdentityUserPool?
     var sentTo: String?
-    var useralerted = false;
+//    var useralerted = false;
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -77,65 +77,113 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             phone?.name = "phone_number"
             phone?.value = phoneValue
             attributes.append(phone!)
-        } 
-        
-        if let emailValue = self.email.text, !emailValue.isEmpty {
-            let email = AWSCognitoIdentityUserAttributeType()
-            email?.name = "email"
-            email?.value = emailValue
-            attributes.append(email!)
-        }
-        if(self.phone.text == "" && !self.useralerted ){
-        let alertController = UIAlertController(title: "Warning",
-                                                message: "if you do not enter a phone number you will not receive text updates",
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-            case.default:
-                self.useralerted = true
-                return
-            case.cancel:
-                return
-                
-            case.destructive:
-                return
-                
-                
-            }}))
-        
-        self.present(alertController, animated: true, completion:  nil)
-            return
-        }
-        
-        //sign up the user
-        self.pool?.signUp(userNameValue, password: passwordValue, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
-            guard let strongSelf = self else { return nil }
-            DispatchQueue.main.async(execute: {
-                if let error = task.error as NSError? {
-                    let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                            message: error.userInfo["message"] as? String,
-                                                            preferredStyle: .alert)
-                    let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-                    alertController.addAction(retryAction)
-                    
-                    self?.present(alertController, animated: true, completion:  nil)
-                } else if let result = task.result  {
-                    // handle the case where user has to confirm his identity via email / SMS
-                    if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {
-                        strongSelf.sentTo = result.codeDeliveryDetails?.destination
+            
+            //set up everything
+            if let emailValue = self.email.text, !emailValue.isEmpty {
+                let email = AWSCognitoIdentityUserAttributeType()
+                email?.name = "email"
+                email?.value = emailValue
+                attributes.append(email!)
+            }
+            
+            //sign up the user
+            self.pool?.signUp(userNameValue, password: passwordValue, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
+                guard let strongSelf = self else { return nil }
+                DispatchQueue.main.async(execute: {
+                    if let error = task.error as NSError? {
+                        let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
+                                                                message: error.userInfo["message"] as? String,
+                                                                preferredStyle: .alert)
+                        let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
+                        alertController.addAction(retryAction)
                         
-                        
-                        strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
-                        
-                    } else {
-                        let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                        self?.present(alertController, animated: true, completion:  nil)
+                    } else if let result = task.result  {
+                        // handle the case where user has to confirm his identity via email / SMS
+                        if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {
+                            strongSelf.sentTo = result.codeDeliveryDetails?.destination
+                            
+                            
+                            strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
+                            
+                        } else {
+                            let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                        }
                     }
+                    
+                })
+                return nil
+            }
+        } else {
+            let alertController = UIAlertController(title: "Warning", message: "if you do not enter a phone number you will not receive text updates", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { action in
+                if let emailValue = self.email.text, !emailValue.isEmpty {
+                    let email = AWSCognitoIdentityUserAttributeType()
+                    email?.name = "email"
+                    email?.value = emailValue
+                    attributes.append(email!)
                 }
                 
+                //sign up the user
+                self.pool?.signUp(userNameValue, password: passwordValue, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
+                    guard let strongSelf = self else { return nil }
+                    DispatchQueue.main.async(execute: {
+                        if let error = task.error as NSError? {
+                            let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
+                                                                    message: error.userInfo["message"] as? String,
+                                                                    preferredStyle: .alert)
+                            let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
+                            alertController.addAction(retryAction)
+                            
+                            self?.present(alertController, animated: true, completion:  nil)
+                        } else if let result = task.result  {
+                            // handle the case where user has to confirm his identity via email / SMS
+                            if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {
+                                strongSelf.sentTo = result.codeDeliveryDetails?.destination
+                                
+                                
+                                strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
+                                
+                            } else {
+                                let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                            }
+                        }
+                        
+                    })
+                    return nil
+                }
             })
-            return nil
+            let alertAction2 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            alertController.addAction(alertAction2)
+            self.present(alertController, animated: true, completion: nil)
         }
+        
+        
+//        if(self.phone.text == "" && !self.useralerted ){
+//        let alertController = UIAlertController(title: "Warning",
+//                                                message: "if you do not enter a phone number you will not receive text updates",
+//                                                preferredStyle: .alert)
+//
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//            switch action.style{
+//            case.default:
+//                self.useralerted = true
+//                return
+//            case.cancel:
+//                return
+//
+//            case.destructive:
+//                return
+//
+//
+//            }}))
+//
+//        self.present(alertController, animated: true, completion:  nil)
+//            return
+//        }
+        
+        
         
 }
     

@@ -9,6 +9,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var pool: AWSCognitoIdentityUserPool?
     var sentTo: String?
+    var useralerted = false;
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -57,6 +58,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.present(alertController, animated: true, completion:  nil)
                 return
         }
+        if(self.email.text==""){
+            let alertController = UIAlertController(title: "Alert",
+                                                    message: "Email is required for registration",
+                                                    preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion:  nil)
+            return
+        }
         
         
         var attributes = [AWSCognitoIdentityUserAttributeType]()
@@ -74,8 +85,28 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             email?.value = emailValue
             attributes.append(email!)
         }
+        if(self.phone.text == "" && !self.useralerted ){
+        let alertController = UIAlertController(title: "Warning",
+                                                message: "if you do not enter a phone number you will not receive text updates",
+                                                preferredStyle: .alert)
         
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case.default:
+                self.useralerted = true
+                return
+            case.cancel:
+                return
+                
+            case.destructive:
+                return
+                
+                
+            }}))
         
+        self.present(alertController, animated: true, completion:  nil)
+            return
+        }
         
         //sign up the user
         self.pool?.signUp(userNameValue, password: passwordValue, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
@@ -96,6 +127,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         
                         
                         strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
+                        
                     } else {
                         let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
                     }

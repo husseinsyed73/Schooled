@@ -47,7 +47,7 @@ class Send: UIViewController, MFMailComposeViewControllerDelegate {
         //Note replace + = %2B , for To and From phone number
         let fromNumber = "%2B13462585503"
         let toNumber = "%2B1" + self.phoneNumber
-        let message = "The Schooled answer is on your email."
+        let message = "The Schooled answer is in your email."
         
         // Build the request
         var request = NSMutableURLRequest(url: NSURL(string:"https://\(twilioSID):\(twilioSecret)@api.twilio.com/2010-04-01/Accounts/\(twilioSID)/SMS/Messages")! as URL)

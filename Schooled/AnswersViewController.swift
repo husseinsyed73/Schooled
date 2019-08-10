@@ -44,7 +44,14 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //Sends the answer to the user
     @IBAction func send(_ sender: Any) {
+        if(self.imageView.image == nil){
         
+            let alert = UIAlertController(title: "Alert", message: "Please add an image", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         //get the username
         let userName: String = buildUserName(userId: self.currentQuestionData!._userId!)
         //get the userdatamodel for the name
@@ -56,12 +63,17 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             } else if let result = task.result as? UserDataModel {
                 // Do something with task.result.
                 DispatchQueue.main.async {
+                    
+                        
                     let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!, answerDescription: self.answerDescription.text!)
                     // omar twilio api
                     if(result._phoneNumber != "123"){
                         send.sendToPhone()
                     }
                     send.sendEmail()
+                   
+                    
+                    
                 }
             }
             return nil

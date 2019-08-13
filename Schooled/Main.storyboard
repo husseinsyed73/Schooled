@@ -250,21 +250,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone with country code i.e. +155555555" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-sh-wk7">
-                                <rect key="frame" x="16" y="194" width="343" height="30"/>
+                                <rect key="frame" x="16" y="195" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
                                 <connections>
                                     <outlet property="delegate" destination="O2Z-Ld-ZTv" id="yw6-hc-7Np"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3r-VB-C5B">
-                                <rect key="frame" x="16" y="180" width="41" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone(Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3r-VB-C5B">
+                                <rect key="frame" x="16" y="180" width="100" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR0-Gn-9Nf">
-                                <rect key="frame" x="16" y="224" width="41" height="14"/>
+                                <rect key="frame" x="16" y="225" width="41" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="D1G-H9-4Rj"/>
                                 </constraints>
@@ -278,7 +278,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L92-OD-AWi">
-                                <rect key="frame" x="16" y="276" width="343" height="34"/>
+                                <rect key="frame" x="16" y="277" width="343" height="34"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.60392156860000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Sign Up">
@@ -295,7 +295,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WyZ-BE-297">
-                                <rect key="frame" x="16" y="238" width="343" height="30"/>
+                                <rect key="frame" x="16" y="239" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
@@ -311,7 +311,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WD-4a-LNL">
-                                <rect key="frame" x="0.0" y="339" width="375" height="439"/>
+                                <rect key="frame" x="0.0" y="340" width="375" height="438"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">When you answer or post a question your personal information/identity (even your username) will be concealed. But we do not condone academic dishonesty through the use of our app.                       </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -320,7 +320,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SR0-Gn-9Nf" firstAttribute="trailing" secondItem="C3r-VB-C5B" secondAttribute="trailing" id="0Ce-22-03Y"/>
+                            <constraint firstItem="SR0-Gn-9Nf" firstAttribute="trailing" secondItem="C3r-VB-C5B" secondAttribute="trailing" constant="-59" id="0Ce-22-03Y"/>
                             <constraint firstItem="C3r-VB-C5B" firstAttribute="top" secondItem="vlW-ds-11L" secondAttribute="bottom" id="48z-7v-ove"/>
                             <constraint firstItem="SR0-Gn-9Nf" firstAttribute="leading" secondItem="C3r-VB-C5B" secondAttribute="leading" id="4Dx-pc-yD0"/>
                             <constraint firstItem="SR0-Gn-9Nf" firstAttribute="top" secondItem="yJN-sh-wk7" secondAttribute="bottom" id="5d8-8q-ETM"/>

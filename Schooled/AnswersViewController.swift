@@ -18,9 +18,18 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
     var imagePicker = UIImagePickerController()
     var currentQuestionData: Phototext? = nil
     @IBOutlet weak var choosePic: UIButton!
-    
+    var activity: UIActivityIndicatorView = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        // adding the loading icon
+        self.activity.center = self.answerDescription.center
+        self.activity.hidesWhenStopped = true
+        self.activity.style = UIActivityIndicatorView.Style.gray;
+        self.activity.color = UIColor.black
+        let transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        self.activity.transform = transform
+        
+        view.addSubview(activity);
 
         // Do any additional setup after loading the view.
         self.imagePicker.delegate = self
@@ -44,7 +53,17 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //Sends the answer to the user
     @IBAction func send(_ sender: Any) {
+        if(self.imageView.image == nil){
         
+            let alert = UIAlertController(title: "Alert", message: "Please add an image", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        // loading icon
+        self.activity.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents();
         //get the username
         let userName: String = buildUserName(userId: self.currentQuestionData!._userId!)
         //get the userdatamodel for the name
@@ -56,12 +75,17 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
             } else if let result = task.result as? UserDataModel {
                 // Do something with task.result.
                 DispatchQueue.main.async {
+                    
+                        
                     let send: Send = Send(image: self.imageView.image!, phoneNumber: result._phoneNumber!, email: result._email!, answerDescription: self.answerDescription.text!)
                     // omar twilio api
                     if(result._phoneNumber != "123"){
                         send.sendToPhone()
                     }
                     send.sendEmail()
+                   
+                    
+                    
                 }
             }
             return nil
@@ -75,6 +99,23 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("The request failed. Error: \(error)")
             } else {
                 // Item deleted.
+                //only moving back the deleting the text
+                DispatchQueue.main.async {
+                 
+                self.activity.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                let alertController = UIAlertController(title: "Your answer has been sent", message: nil, preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { alert -> Void in
+                    if let navController = self.navigationController{
+                        navController.popViewController(animated: true)
+                        navController.popViewController(animated: true)
+                    }
+                })
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true)
+            }
+                
             }
             return nil
         })
@@ -109,21 +150,14 @@ class AnswersViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
             } else {
                 
+                
+                
             }
             return nil
         })
         
         
-        //go back home and notify the user they are done
-        let alertController = UIAlertController(title: "Your answer has been sent", message: nil, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { alert -> Void in
-            if let navController = self.navigationController{
-                navController.popViewController(animated: true)
-                navController.popViewController(animated: true)
-            }
-        })
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
+       
     }
     
     //returns the username

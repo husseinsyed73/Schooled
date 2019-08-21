@@ -32,6 +32,8 @@ class UserDetailTableViewController : UIViewController, UIPickerViewDelegate, UI
         
         
         super.viewDidLoad()
+        //table color
+//        self.tableView
         // creating the refresh control object
         // adding the loading icon
         self.activity.center = self.view.center

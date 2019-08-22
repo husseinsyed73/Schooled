@@ -1002,6 +1002,7 @@
         <image name="iconnest.png" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7Eh-Qm-JtJ"/>
         <segue reference="GL0-RR-I1b"/>
     </inferredMetricsTieBreakers>
 </document>

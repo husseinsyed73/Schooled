@@ -15,7 +15,8 @@ class QuestionCell: UITableViewCell {
     
     @IBOutlet weak var QuestionText: UITextView!
     
-    
+    @IBOutlet weak var questionLabel: UILabel!
+
 }
 
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2221F34A22BC7A95006D0329 /* MenuViewController.swift */; };
 		22233DC322C0603900AED895 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22233DC222C0603900AED895 /* SWRevealViewController.m */; };
+		22489EC6230E109B007EEB93 /* NewUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22489EC5230E109B007EEB93 /* NewUserDetailViewController.swift */; };
+		22489ECC230E1FB7007EEB93 /* NewQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22489ECB230E1FB7007EEB93 /* NewQuestionCell.swift */; };
 		22EC9C2622D81492005C5D95 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EC9C2522D81492005C5D95 /* ImageViewController.swift */; };
 		22EEB00322E3C6E000D2B696 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEB00222E3C6E000D2B696 /* AnswersViewController.swift */; };
 		22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */; };
@@ -62,6 +64,8 @@
 		2221F34D22BC7B3C006D0329 /* Schooled-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Schooled-Bridging-Header.h"; sourceTree = "<group>"; };
 		22233DC122C0603800AED895 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		22233DC222C0603900AED895 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		22489EC5230E109B007EEB93 /* NewUserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserDetailViewController.swift; sourceTree = "<group>"; };
+		22489ECB230E1FB7007EEB93 /* NewQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionCell.swift; sourceTree = "<group>"; };
 		22EC9C2522D81492005C5D95 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		22EEB00222E3C6E000D2B696 /* AnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
 		22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuestionViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				22F0F87322D01BA6001996CC /* ViewQuestionViewController.swift */,
 				22EC9C2522D81492005C5D95 /* ImageViewController.swift */,
 				22EEB00222E3C6E000D2B696 /* AnswersViewController.swift */,
+				22489EC5230E109B007EEB93 /* NewUserDetailViewController.swift */,
+				22489ECB230E1FB7007EEB93 /* NewQuestionCell.swift */,
 			);
 			path = Schooled;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22489ECC230E1FB7007EEB93 /* NewQuestionCell.swift in Sources */,
 				D3DCB6A022A243A900751AF6 /* ForgotPasswordViewController.swift in Sources */,
 				D3DCB6A322A243A900751AF6 /* ConfirmSignUpViewController.swift in Sources */,
 				D3DCB68F22A2430900751AF6 /* AppDelegate.swift in Sources */,
@@ -434,6 +441,7 @@
 				D3DCB6A222A243A900751AF6 /* UserDetailTableViewController.swift in Sources */,
 				2221F34B22BC7A95006D0329 /* MenuViewController.swift in Sources */,
 				22EC9C2622D81492005C5D95 /* ImageViewController.swift in Sources */,
+				22489EC6230E109B007EEB93 /* NewUserDetailViewController.swift in Sources */,
 				22F0F87422D01BA6001996CC /* ViewQuestionViewController.swift in Sources */,
 				D31375E422E0DDDC007DAEB8 /* UserDataModel.swift in Sources */,
 				D3DCB6A622A243A900751AF6 /* Constants.swift in Sources */,

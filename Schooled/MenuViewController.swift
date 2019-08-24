@@ -19,72 +19,22 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.questionsLeftField.text = String(questionsLeft)
-        // Do any additional setup after loading the view.
-        userNameField.text! = username123
-        userNameField.isUserInteractionEnabled = false
-        //Do the same with the email
-        if(!userLoaded){
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as NSError? {
-                print("The request failed. Error: \(error)")
-            } else if let result = task.result as? UserDataModel {
-                // Do something with task.result.
-                DispatchQueue.main.async {
-                    self.emailField.text! = result._email!
-                    self.emailField.isUserInteractionEnabled = false
-                    self.questionsLeftField.text! = result._questions!.stringValue
-                    self.questionsLeftField.isUserInteractionEnabled = false
-                    questionsLeft = Int(result._questions!)
-                    // loading in the other values
-                    useremail = String(result._email!)
-                    userphoneNumber = result._phoneNumber!
-                    userLoaded = true
-                    
-                }
-            }
-            return nil
-        })
-        } else {
-            self.emailField.text! = useremail
-            self.emailField.isUserInteractionEnabled = false
-            self.questionsLeftField.text! = String(questionsLeft)
-            self.questionsLeftField.isUserInteractionEnabled = false
-        }
+       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
         self.questionsLeftField.text = String(questionsLeft)
         // Do any additional setup after loading the view.
         userNameField.text! = username123
         userNameField.isUserInteractionEnabled = false
-        if(!userLoaded){
         //Do the same with the email
-        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-            if let error = task.error as NSError? {
-                print("The request failed. Error: \(error)")
-            } else if let result = task.result as? UserDataModel {
-                // Do something with task.result.
-                DispatchQueue.main.async {
-                    self.emailField.text! = result._email!
-                    self.emailField.isUserInteractionEnabled = false
-                    self.questionsLeftField.text! = result._questions!.stringValue
-                    self.questionsLeftField.isUserInteractionEnabled = false
-                    questionsLeft = Int(result._questions!)
-                    useremail = String(result._email!)
-                    userLoaded = true
-                    userphoneNumber = result._phoneNumber!
-                }
-            }
-            return nil
-        })
-        }else{
-            self.emailField.text! = useremail
-            self.emailField.isUserInteractionEnabled = false
-            self.questionsLeftField.text! = String(questionsLeft)
-            self.questionsLeftField.isUserInteractionEnabled = false
+        
+        self.emailField.text! = useremail
+        self.emailField.isUserInteractionEnabled = false
+        self.questionsLeftField.text! = String(questionsLeft)
+        self.questionsLeftField.isUserInteractionEnabled = false
         }
     }
     
@@ -98,4 +48,4 @@ class MenuViewController: UIViewController {
     }
     */
 
-}
+

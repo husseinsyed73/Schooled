@@ -13,7 +13,9 @@ import UIKit
 
 class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
-
+    @IBOutlet weak var questionCount: UILabel!
+   
+    
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl();
     var activity: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -37,9 +39,13 @@ class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITabl
 
         // Do any additional setup after loading the view.
         //table stuff
+        self.questionCount.layer.cornerRadius = self.questionCount.frame.width/2
+        self.questionCount.layer.masksToBounds = true
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+       
         self.activity.center = self.view.center
         self.activity.hidesWhenStopped = true
         self.activity.style = UIActivityIndicatorView.Style.gray;
@@ -113,11 +119,42 @@ class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setToolbarHidden(true, animated: true)
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setToolbarHidden(false, animated: true)
+        if(userLoaded){
+            questionCount.text = String(questionsLeft)
+        }else{
+            
+            // username not loaded
+            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+            dynamoDBObjectMapper.load(UserDataModel.self, hashKey: self.user?.username, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+                if let error = task.error as NSError? {
+                    print("The request failed. Error: \(error)")
+                    
+                } else if let result = task.result as? UserDataModel {
+                    // Do something with task.result.
+                    DispatchQueue.main.async {
+                        
+                      questionsLeft = Int(result._questions!)
+                      self.questionCount.text = String(questionsLeft)
+                      self.questionCount.font = UIFont.systemFont(ofSize: 30)
+                        
+                        // loading in the other values
+                        useremail = String(result._email!)
+                        userphoneNumber = result._phoneNumber!
+                        userLoaded = true
+                        
+                        
+                    }
+                }
+                return nil
+            })
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return 65 }

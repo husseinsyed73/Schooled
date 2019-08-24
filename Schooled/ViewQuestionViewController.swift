@@ -68,31 +68,10 @@ class ViewQuestionViewController: UIViewController {
     
     @IBAction func answer(_ sender: Any) {
         // loading in the question data
-        if(userLoaded){
+        
        self.performSegue(withIdentifier: "answer", sender: self)
-        }else{
-            self.activity2.startAnimating()
-            // then we have to load in the user data
-            let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-            dynamoDBObjectMapper.load(UserDataModel.self, hashKey: username123, rangeKey:nil).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
-                if let error = task.error as? NSError {
-                    print("The request failed. Error: \(error)")
-                } else if let result = task.result as? UserDataModel {
-                    // updating the questions and user data
-                    questionsLeft = result._questions as! Int
-                    userphoneNumber = result._phoneNumber!
-                    useremail = result._email!
-                    
-                    userLoaded = true
-                    DispatchQueue.main.async {
-                        self.activity2.stopAnimating()
-                        self.performSegue(withIdentifier: "answer", sender: self)
-                    }
-                    
-                }
-                return nil
-            })
-        }
+        
+        
     }
     
     @IBAction func savePhoto(_ sender: Any) {

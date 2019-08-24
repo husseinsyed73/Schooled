@@ -36,6 +36,10 @@ class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //table stuff
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         self.activity.center = self.view.center
         self.activity.hidesWhenStopped = true
         self.activity.style = UIActivityIndicatorView.Style.gray;

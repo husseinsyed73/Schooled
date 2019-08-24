@@ -15,6 +15,8 @@ class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var questionCount: UILabel!
    
+    @IBOutlet weak var questionText: UILabel!
+    
     
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl();
@@ -36,7 +38,10 @@ class NewUserDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        questionText.numberOfLines = 1;
+        
+        
+self.questionText.adjustsFontSizeToFitWidth = true
         // Do any additional setup after loading the view.
         //table stuff
         self.questionCount.layer.cornerRadius = self.questionCount.frame.width/2

@@ -541,12 +541,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer more questions to ask more " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCw-UQ-eLG">
-                                <rect key="frame" x="48.666666666666657" y="44" width="278" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-57-E9J">
                                 <rect key="frame" x="126" y="79" width="123" height="123"/>
                                 <color key="backgroundColor" red="0.074902258789999995" green="0.54238708469999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -559,13 +553,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions left. Answer questions to earn more " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uCw-UQ-eLG">
+                                <rect key="frame" x="8.6666666666666572" y="44" width="357.66666666666674" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="s5y-57-E9J" firstAttribute="centerX" secondItem="uCw-UQ-eLG" secondAttribute="centerX" id="3yA-jU-V4w"/>
+                            <constraint firstAttribute="trailing" secondItem="uCw-UQ-eLG" secondAttribute="trailing" constant="8.6666666666666288" id="7JV-eD-eyh"/>
                             <constraint firstItem="en5-Eb-6IH" firstAttribute="leading" secondItem="fWz-xY-nk8" secondAttribute="leading" id="DuT-Sp-joT"/>
                             <constraint firstItem="uCw-UQ-eLG" firstAttribute="centerX" secondItem="fWz-xY-nk8" secondAttribute="centerX" id="FfQ-ru-m4o"/>
                             <constraint firstItem="33f-2i-8LO" firstAttribute="top" secondItem="en5-Eb-6IH" secondAttribute="bottom" constant="-26" id="Hd8-pw-ogF"/>
+                            <constraint firstItem="uCw-UQ-eLG" firstAttribute="leading" secondItem="fWz-xY-nk8" secondAttribute="leading" constant="8.6666666666666572" id="ItJ-1z-WIf"/>
                             <constraint firstItem="en5-Eb-6IH" firstAttribute="top" secondItem="s5y-57-E9J" secondAttribute="bottom" constant="30" id="T1C-Uf-90q"/>
                             <constraint firstItem="en5-Eb-6IH" firstAttribute="top" secondItem="2DO-Ot-B69" secondAttribute="bottom" constant="188" id="UFV-fP-MdJ"/>
                             <constraint firstItem="uCw-UQ-eLG" firstAttribute="top" secondItem="2DO-Ot-B69" secondAttribute="bottom" id="dDf-uu-Q0a"/>
@@ -600,6 +602,7 @@
                     <connections>
                         <outlet property="askQuestionButton" destination="88M-ah-SbO" id="Lf7-wj-dnj"/>
                         <outlet property="questionCount" destination="s5y-57-E9J" id="WXz-Uj-qzy"/>
+                        <outlet property="questionText" destination="uCw-UQ-eLG" id="YXV-k2-gio"/>
                         <outlet property="signOutButton" destination="yOj-cX-Wcp" id="Xv1-TA-xrv"/>
                         <outlet property="subjectPickerField" destination="ZqZ-W5-tWT" id="vjp-Oy-F1e"/>
                         <outlet property="tableView" destination="en5-Eb-6IH" id="6Sf-pi-vqx"/>

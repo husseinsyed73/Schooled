@@ -278,7 +278,7 @@ self.questionText.adjustsFontSizeToFitWidth = true
     
     // reloads the prior view
     func refresh() {
-        self.user?.getDetails().continueOnSuccessWith { (task) -> AnyObject? in
+        userLoaded = false; self.user?.getDetails().continueOnSuccessWith { (task) -> AnyObject? in
             DispatchQueue.main.async(execute: {
                 self.response = task.result
                 self.title = self.user?.username
